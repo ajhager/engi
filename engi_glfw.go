@@ -55,23 +55,23 @@ func run(title string, width, height int, fullscreen bool) {
 	fatalErr(err)
 	window.MakeContextCurrent()
 
-	width, height, err = window.GetSize()
-	fatalErr(err)
-
 	if !fullscreen {
 		fatalErr(window.SetPosition((mode.Width-width)/2, (mode.Height-height)/2))
 	}
+
+	width, height, err = window.GetFramebufferSize()
+	fatalErr(err)
 
 	fatalErr(glfw.SwapInterval(1))
 
 	gl = webgl.NewContext()
 
 	gl.Viewport(0, 0, width, height)
-	window.SetSizeCallback(func(window *glfw.Window, w, h int) {
-		width, height, err = window.GetSize()
+	window.SetFramebufferSizeCallback(func(window *glfw.Window, w, h int) {
+		width, height, err = window.GetFramebufferSize()
 		fatalErr(err)
 		gl.Viewport(0, 0, width, height)
-		responder.Resize(width, height)
+		responder.Resize(w, h)
 	})
 
 	window.SetCursorPositionCallback(func(window *glfw.Window, x, y float64) {
