@@ -15,7 +15,7 @@ A multi-platform 2D game engine and editor.
 ## Install
 
 ```bash
-go get -u github.com/ajhager/engi
+go get -u github.com/ajhager/engi/...
 ```
 
 ## Documentation
