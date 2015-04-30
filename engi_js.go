@@ -20,14 +20,14 @@ func init() {
 	rafPolyfill()
 }
 
-var canvas js.Object
+var canvas *js.Object
 
 func run(title string, width, height int, fullscreen bool) {
 	document := js.Global.Get("document")
 	canvas = document.Call("createElement", "canvas")
 
 	target := document.Call("getElementById", title)
-	if target.IsNull() {
+	if target == nil {
 		target = document.Get("body")
 	}
 	target.Call("appendChild", canvas)
@@ -62,28 +62,28 @@ func run(title string, width, height int, fullscreen bool) {
 		canvas.Get("style").Set("marginTop", toPx((winHeight-height)/2))
 	}
 
-	canvas.Call("addEventListener", "mousemove", func(ev js.Object) {
+	canvas.Call("addEventListener", "mousemove", func(ev *js.Object) {
 		rect := canvas.Call("getBoundingClientRect")
 		x := float32((ev.Get("clientX").Int() - rect.Get("left").Int()))
 		y := float32((ev.Get("clientY").Int() - rect.Get("top").Int()))
 		responder.Mouse(x, y, MOVE)
 	}, false)
 
-	canvas.Call("addEventListener", "mousedown", func(ev js.Object) {
+	canvas.Call("addEventListener", "mousedown", func(ev *js.Object) {
 		rect := canvas.Call("getBoundingClientRect")
 		x := float32((ev.Get("clientX").Int() - rect.Get("left").Int()))
 		y := float32((ev.Get("clientY").Int() - rect.Get("top").Int()))
 		responder.Mouse(x, y, PRESS)
 	}, false)
 
-	canvas.Call("addEventListener", "mouseup", func(ev js.Object) {
+	canvas.Call("addEventListener", "mouseup", func(ev *js.Object) {
 		rect := canvas.Call("getBoundingClientRect")
 		x := float32((ev.Get("clientX").Int() - rect.Get("left").Int()))
 		y := float32((ev.Get("clientY").Int() - rect.Get("top").Int()))
 		responder.Mouse(x, y, RELEASE)
 	}, false)
 
-	canvas.Call("addEventListener", "touchstart", func(ev js.Object) {
+	canvas.Call("addEventListener", "touchstart", func(ev *js.Object) {
 		rect := canvas.Call("getBoundingClientRect")
 		for i := 0; i < ev.Get("changedTouches").Get("length").Int(); i++ {
 			touch := ev.Get("changedTouches").Index(i)
@@ -93,7 +93,7 @@ func run(title string, width, height int, fullscreen bool) {
 		}
 	}, false)
 
-	canvas.Call("addEventListener", "touchcancel", func(ev js.Object) {
+	canvas.Call("addEventListener", "touchcancel", func(ev *js.Object) {
 		rect := canvas.Call("getBoundingClientRect")
 		for i := 0; i < ev.Get("changedTouches").Get("length").Int(); i++ {
 			touch := ev.Get("changedTouches").Index(i)
@@ -103,7 +103,7 @@ func run(title string, width, height int, fullscreen bool) {
 		}
 	}, false)
 
-	canvas.Call("addEventListener", "touchend", func(ev js.Object) {
+	canvas.Call("addEventListener", "touchend", func(ev *js.Object) {
 		rect := canvas.Call("getBoundingClientRect")
 		for i := 0; i < ev.Get("changedTouches").Get("length").Int(); i++ {
 			touch := ev.Get("changedTouches").Index(i)
@@ -113,7 +113,7 @@ func run(title string, width, height int, fullscreen bool) {
 		}
 	}, false)
 
-	canvas.Call("addEventListener", "touchmove", func(ev js.Object) {
+	canvas.Call("addEventListener", "touchmove", func(ev *js.Object) {
 		rect := canvas.Call("getBoundingClientRect")
 		for i := 0; i < ev.Get("changedTouches").Get("length").Int(); i++ {
 			touch := ev.Get("changedTouches").Index(i)
@@ -123,15 +123,15 @@ func run(title string, width, height int, fullscreen bool) {
 		}
 	}, false)
 
-	js.Global.Call("addEventListener", "keypress", func(ev js.Object) {
+	js.Global.Call("addEventListener", "keypress", func(ev *js.Object) {
 		responder.Type(rune(ev.Get("charCode").Int()))
 	}, false)
 
-	js.Global.Call("addEventListener", "keydown", func(ev js.Object) {
+	js.Global.Call("addEventListener", "keydown", func(ev *js.Object) {
 		responder.Key(Key(ev.Get("keyCode").Int()), 0, PRESS)
 	}, false)
 
-	js.Global.Call("addEventListener", "keyup", func(ev js.Object) {
+	js.Global.Call("addEventListener", "keyup", func(ev *js.Object) {
 		responder.Key(Key(ev.Get("keyCode").Int()), 0, RELEASE)
 	}, false)
 
@@ -171,19 +171,19 @@ func toPx(n int) string {
 func rafPolyfill() {
 	window := js.Global
 	vendors := []string{"ms", "moz", "webkit", "o"}
-	if window.Get("requestAnimationFrame").IsUndefined() {
-		for i := 0; i < len(vendors) && window.Get("requestAnimationFrame").IsUndefined(); i++ {
+	if window.Get("requestAnimationFrame") == nil {
+		for i := 0; i < len(vendors) && window.Get("requestAnimationFrame") == nil ; i++ {
 			vendor := vendors[i]
 			window.Set("requestAnimationFrame", window.Get(vendor+"RequestAnimationFrame"))
 			window.Set("cancelAnimationFrame", window.Get(vendor+"CancelAnimationFrame"))
-			if window.Get("cancelAnimationFrame").IsUndefined() {
+			if window.Get("cancelAnimationFrame") == nil {
 				window.Set("cancelAnimationFrame", window.Get(vendor+"CancelRequestAnimationFrame"))
 			}
 		}
 	}
 
 	lastTime := 0.0
-	if window.Get("requestAnimationFrame").IsUndefined() {
+	if window.Get("requestAnimationFrame") == nil {
 		window.Set("requestAnimationFrame", func(callback func(float32)) int {
 			currTime := js.Global.Get("Date").New().Call("getTime").Float()
 			timeToCall := math.Max(0, 16-(currTime-lastTime))
@@ -193,7 +193,7 @@ func rafPolyfill() {
 		})
 	}
 
-	if window.Get("cancelAnimationFrame").IsUndefined() {
+	if window.Get("cancelAnimationFrame") == nil {
 		window.Set("cancelAnimationFrame", func(id int) {
 			js.Global.Get("clearTimeout").Invoke(id)
 		})
@@ -212,10 +212,10 @@ func loadImage(r Resource) (Image, error) {
 	ch := make(chan error, 1)
 
 	img := js.Global.Get("Image").New()
-	img.Call("addEventListener", "load", func(js.Object) {
+	img.Call("addEventListener", "load", func(*js.Object) {
 		go func() { ch <- nil }()
 	}, false)
-	img.Call("addEventListener", "error", func(o js.Object) {
+	img.Call("addEventListener", "error", func(o *js.Object) {
 		go func() { ch <- &js.Error{Object: o} }()
 	}, false)
 	img.Set("src", r.url+"?"+strconv.FormatInt(rand.Int63(), 10))
@@ -233,10 +233,10 @@ func loadJson(r Resource) (string, error) {
 
 	req := js.Global.Get("XMLHttpRequest").New()
 	req.Call("open", "GET", r.url, true)
-	req.Call("addEventListener", "load", func(js.Object) {
+	req.Call("addEventListener", "load", func(*js.Object) {
 		go func() { ch <- nil }()
 	}, false)
-	req.Call("addEventListener", "error", func(o js.Object) {
+	req.Call("addEventListener", "error", func(o *js.Object) {
 		go func() { ch <- &js.Error{Object: o} }()
 	}, false)
 	req.Call("send", nil)
@@ -246,11 +246,11 @@ func loadJson(r Resource) (string, error) {
 		return "", err
 	}
 
-	return req.Get("responseText").Str(), nil
+	return req.Get("responseText").String(), nil
 }
 
 type ImageObject struct {
-	data js.Object
+	data *js.Object
 }
 
 func (i *ImageObject) Data() interface{} {
