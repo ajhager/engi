@@ -51,7 +51,7 @@ func run(title string, width, height int, fullscreen bool) {
 	fatalErr(glfw.WindowHint(glfw.ContextVersionMajor, 2))
 	fatalErr(glfw.WindowHint(glfw.ContextVersionMinor, 1))
 
-	window, err = glfw.CreateWindow(width, height, title, nil, nil)
+	window, err = glfw.CreateWindow(width, height, title, monitor, nil)
 	fatalErr(err)
 	window.MakeContextCurrent()
 
