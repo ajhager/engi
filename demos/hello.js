@@ -12676,22 +12676,22 @@ $packages["reflect"] = (function() {
 				if (i[0] < 0 || i[0] > (tt.len >> 0)) {
 					$panic(new $String("reflect: array index out of range"));
 				}
-				typ$1[0] = tt.elem;
+				typ[0] = tt.elem;
 				fl = (v.flag & 480) >>> 0;
-				fl = (fl | ((typ$1[0].Kind() >>> 0))) >>> 0;
+				fl = (fl | ((typ[0].Kind() >>> 0))) >>> 0;
 				a[0] = v.ptr;
-				/* */ if (!((((fl & 128) >>> 0) === 0)) && !((typ$1[0].Kind() === 17)) && !((typ$1[0].Kind() === 25))) { $s = 7; continue; }
+				/* */ if (!((((fl & 128) >>> 0) === 0)) && !((typ[0].Kind() === 17)) && !((typ[0].Kind() === 25))) { $s = 7; continue; }
 				/* */ $s = 8; continue;
-				/* if (!((((fl & 128) >>> 0) === 0)) && !((typ$1[0].Kind() === 17)) && !((typ$1[0].Kind() === 25))) { */ case 7:
-					return new Value.ptr(typ$1[0], new (jsType(PtrTo(typ$1[0])))((function(a, a$1, c, i, typ, typ$1) { return function() {
+				/* if (!((((fl & 128) >>> 0) === 0)) && !((typ[0].Kind() === 17)) && !((typ[0].Kind() === 25))) { */ case 7:
+					return new Value.ptr(typ[0], new (jsType(PtrTo(typ[0])))((function(a, a$1, c, i, typ, typ$1) { return function() {
 						var $ptr;
-						return wrapJsObject(typ$1[0], a[0][i[0]]);
+						return wrapJsObject(typ[0], a[0][i[0]]);
 					}; })(a, a$1, c, i, typ, typ$1), (function(a, a$1, c, i, typ, typ$1) { return function(x) {
 						var $ptr, x;
-						a[0][i[0]] = unwrapJsObject(typ$1[0], x);
+						a[0][i[0]] = unwrapJsObject(typ[0], x);
 					}; })(a, a$1, c, i, typ, typ$1)), fl);
 				/* } */ case 8:
-				_r = makeValue(typ$1[0], wrapJsObject(typ$1[0], a[0][i[0]]), fl); /* */ $s = 9; case 9: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+				_r = makeValue(typ[0], wrapJsObject(typ[0], a[0][i[0]]), fl); /* */ $s = 9; case 9: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
 				/* */ $s = 10; case 10:
 				return _r;
 			/* } else if (_13 === (23)) { */ case 3:
@@ -12700,23 +12700,23 @@ $packages["reflect"] = (function() {
 					$panic(new $String("reflect: slice index out of range"));
 				}
 				tt$1 = v.typ.kindType;
-				typ[0] = tt$1.elem;
+				typ$1[0] = tt$1.elem;
 				fl$1 = (384 | ((v.flag & 96) >>> 0)) >>> 0;
-				fl$1 = (fl$1 | ((typ[0].Kind() >>> 0))) >>> 0;
+				fl$1 = (fl$1 | ((typ$1[0].Kind() >>> 0))) >>> 0;
 				i[0] = i[0] + (($parseInt(s.$offset) >> 0)) >> 0;
 				a$1[0] = s.$array;
-				/* */ if (!((((fl$1 & 128) >>> 0) === 0)) && !((typ[0].Kind() === 17)) && !((typ[0].Kind() === 25))) { $s = 11; continue; }
+				/* */ if (!((((fl$1 & 128) >>> 0) === 0)) && !((typ$1[0].Kind() === 17)) && !((typ$1[0].Kind() === 25))) { $s = 11; continue; }
 				/* */ $s = 12; continue;
-				/* if (!((((fl$1 & 128) >>> 0) === 0)) && !((typ[0].Kind() === 17)) && !((typ[0].Kind() === 25))) { */ case 11:
-					return new Value.ptr(typ[0], new (jsType(PtrTo(typ[0])))((function(a, a$1, c, i, typ, typ$1) { return function() {
+				/* if (!((((fl$1 & 128) >>> 0) === 0)) && !((typ$1[0].Kind() === 17)) && !((typ$1[0].Kind() === 25))) { */ case 11:
+					return new Value.ptr(typ$1[0], new (jsType(PtrTo(typ$1[0])))((function(a, a$1, c, i, typ, typ$1) { return function() {
 						var $ptr;
-						return wrapJsObject(typ[0], a$1[0][i[0]]);
+						return wrapJsObject(typ$1[0], a$1[0][i[0]]);
 					}; })(a, a$1, c, i, typ, typ$1), (function(a, a$1, c, i, typ, typ$1) { return function(x) {
 						var $ptr, x;
-						a$1[0][i[0]] = unwrapJsObject(typ[0], x);
+						a$1[0][i[0]] = unwrapJsObject(typ$1[0], x);
 					}; })(a, a$1, c, i, typ, typ$1)), fl$1);
 				/* } */ case 12:
-				_r$1 = makeValue(typ[0], wrapJsObject(typ[0], a$1[0][i[0]]), fl$1); /* */ $s = 13; case 13: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
+				_r$1 = makeValue(typ$1[0], wrapJsObject(typ$1[0], a$1[0][i[0]]), fl$1); /* */ $s = 13; case 13: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
 				/* */ $s = 14; case 14:
 				return _r$1;
 			/* } else if (_13 === (24)) { */ case 4:
@@ -19971,7 +19971,7 @@ $packages["github.com/ajhager/engi"] = (function() {
 	ptrType.methods = [{prop: "Tick", name: "Tick", pkg: "", typ: $funcType([], [], false)}, {prop: "Delta", name: "Delta", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Fps", name: "Fps", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Time", name: "Time", pkg: "", typ: $funcType([], [$Float32], false)}];
 	ptrType$15.methods = [{prop: "Data", name: "Data", pkg: "", typ: $funcType([], [$emptyInterface], false)}, {prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Int], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Int], false)}];
 	ptrType$16.methods = [{prop: "Remap", name: "Remap", pkg: "", typ: $funcType([$String], [], false)}, {prop: "Put", name: "Put", pkg: "", typ: $funcType([ptrType$13, $Int32, $Float32, $Float32, $Uint32], [], false)}, {prop: "Print", name: "Print", pkg: "", typ: $funcType([ptrType$13, $String, $Float32, $Float32, $Uint32], [], false)}];
-	ptrType$17.methods = [{prop: "Preload", name: "Preload", pkg: "", typ: $funcType([], [], false)}, {prop: "Setup", name: "Setup", pkg: "", typ: $funcType([], [], false)}, {prop: "Close", name: "Close", pkg: "", typ: $funcType([], [], false)}, {prop: "Update", name: "Update", pkg: "", typ: $funcType([$Float32], [], false)}, {prop: "Render", name: "Render", pkg: "", typ: $funcType([], [], false)}, {prop: "Resize", name: "Resize", pkg: "", typ: $funcType([$Int, $Int], [], false)}, {prop: "Mouse", name: "Mouse", pkg: "", typ: $funcType([$Float32, $Float32, Action], [], false)}, {prop: "Scroll", name: "Scroll", pkg: "", typ: $funcType([$Float32], [], false)}, {prop: "Key", name: "Key", pkg: "", typ: $funcType([Key, Modifier, Action], [], false)}, {prop: "Type", name: "Type", pkg: "", typ: $funcType([$Int32], [], false)}];
+	ptrType$17.methods = [{prop: "Preload", name: "Preload", pkg: "", typ: $funcType([], [], false)}, {prop: "Setup", name: "Setup", pkg: "", typ: $funcType([], [], false)}, {prop: "Close", name: "Close", pkg: "", typ: $funcType([], [], false)}, {prop: "Update", name: "Update", pkg: "", typ: $funcType([$Float32], [], false)}, {prop: "Render", name: "Render", pkg: "", typ: $funcType([], [], false)}, {prop: "Resize", name: "Resize", pkg: "", typ: $funcType([$Float32, $Float32], [], false)}, {prop: "Mouse", name: "Mouse", pkg: "", typ: $funcType([$Float32, $Float32, Action], [], false)}, {prop: "Scroll", name: "Scroll", pkg: "", typ: $funcType([$Float32], [], false)}, {prop: "Key", name: "Key", pkg: "", typ: $funcType([Key, Modifier, Action], [], false)}, {prop: "Type", name: "Type", pkg: "", typ: $funcType([$Int32], [], false)}];
 	Resource.init([{prop: "kind", name: "kind", pkg: "github.com/ajhager/engi", typ: $String, tag: ""}, {prop: "name", name: "name", pkg: "github.com/ajhager/engi", typ: $String, tag: ""}, {prop: "url", name: "url", pkg: "github.com/ajhager/engi", typ: $String, tag: ""}]);
 	Loader.init([{prop: "resources", name: "resources", pkg: "github.com/ajhager/engi", typ: sliceType, tag: ""}, {prop: "images", name: "images", pkg: "github.com/ajhager/engi", typ: mapType, tag: ""}, {prop: "jsons", name: "jsons", pkg: "github.com/ajhager/engi", typ: mapType$1, tag: ""}]);
 	Region.init([{prop: "texture", name: "texture", pkg: "github.com/ajhager/engi", typ: ptrType$3, tag: ""}, {prop: "u", name: "u", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "v", name: "v", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "u2", name: "u2", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "v2", name: "v2", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "width", name: "width", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "height", name: "height", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}]);
@@ -20037,35 +20037,43 @@ $packages["main"] = (function() {
 		game = this;
 		engi.Files.Add("bot", "data/icon.png");
 		engi.Files.Add("font", "data/font.png");
-		game.batch = engi.NewBatch(engi.Width(), engi.Height());
 	};
 	Game.prototype.Preload = function() { return this.$val.Preload(); };
 	Game.ptr.prototype.Setup = function() {
 		var $ptr, game;
 		game = this;
-		engi.SetBg(2963257);
+		engi.SetBg(3550520);
 		game.bot = engi.Files.Image("bot");
 		game.font = engi.NewGridFont(engi.Files.Image("font"), 20, 20);
+		game.batch = engi.NewBatch(engi.Width(), engi.Height());
 	};
 	Game.prototype.Setup = function() { return this.$val.Setup(); };
 	Game.ptr.prototype.Render = function() {
-		var $ptr, game, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; game = $f.game; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		var $ptr, game, midx, midy, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; game = $f.game; midx = $f.midx; midy = $f.midy; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		game = this;
 		$r = game.batch.Begin(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		$r = game.font.Print(game.batch, "ENGI", 475, 200, 16777215); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		$r = game.batch.Draw(game.bot, 512, 320, 0.5, 0.5, 10, 10, 0, 16777215, 1); /* */ $s = 3; case 3: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		midx = $fround(engi.Width() / 2);
+		midy = $fround(engi.Height() / 2);
+		$r = game.font.Print(game.batch, "ENGI", $fround(midx - 37), $fround(midy - 120), 16777215); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = game.batch.Draw(game.bot, midx, midy, 0.5, 0.5, 10, 10, 0, 16777215, 1); /* */ $s = 3; case 3: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		$r = game.batch.End(); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.Render }; } $f.$ptr = $ptr; $f.game = game; $f.$s = $s; $f.$r = $r; return $f;
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.Render }; } $f.$ptr = $ptr; $f.game = game; $f.midx = midx; $f.midy = midy; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	Game.prototype.Render = function() { return this.$val.Render(); };
+	Game.ptr.prototype.Resize = function(w, h) {
+		var $ptr, game, h, w;
+		game = this;
+		game.batch.SetProjection(w, h);
+	};
+	Game.prototype.Resize = function(w, h) { return this.$val.Resize(w, h); };
 	main = function() {
 		var $ptr, $s, $r;
 		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		$r = engi.Open("Hello", 1024, 640, false, new Game.ptr(ptrType.nil, $ifaceNil, ptrType$1.nil, ptrType$2.nil)); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = engi.Open("Hello", 800, 600, false, new Game.ptr(ptrType.nil, $ifaceNil, ptrType$1.nil, ptrType$2.nil)); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: main }; } $f.$ptr = $ptr; $f.$s = $s; $f.$r = $r; return $f;
 	};
-	ptrType$3.methods = [{prop: "Preload", name: "Preload", pkg: "", typ: $funcType([], [], false)}, {prop: "Setup", name: "Setup", pkg: "", typ: $funcType([], [], false)}, {prop: "Render", name: "Render", pkg: "", typ: $funcType([], [], false)}];
+	ptrType$3.methods = [{prop: "Preload", name: "Preload", pkg: "", typ: $funcType([], [], false)}, {prop: "Setup", name: "Setup", pkg: "", typ: $funcType([], [], false)}, {prop: "Render", name: "Render", pkg: "", typ: $funcType([], [], false)}, {prop: "Resize", name: "Resize", pkg: "", typ: $funcType([$Float32, $Float32], [], false)}];
 	Game.init([{prop: "Game", name: "", pkg: "", typ: ptrType, tag: ""}, {prop: "bot", name: "bot", pkg: "main", typ: engi.Drawable, tag: ""}, {prop: "batch", name: "batch", pkg: "main", typ: ptrType$1, tag: ""}, {prop: "font", name: "font", pkg: "main", typ: ptrType$2, tag: ""}]);
 	$init = function() {
 		$pkg.$init = function() {};
