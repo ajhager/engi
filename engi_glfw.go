@@ -29,10 +29,16 @@ func fatalErr(err error) {
 	}
 }
 
-func run(title string, width, height int, fullscreen bool) {
-	runtime.LockOSThread()
-	defer runtime.UnlockOSThread()
+var (
+	windowWidth  int
+	windowHeight int
+)
 
+func init() {
+	runtime.LockOSThread()
+}
+
+func run(title string, width, height int, fullscreen bool) {
 	fatalErr(glfw.Init())
 
 	monitor := glfw.GetPrimaryMonitor()
@@ -57,6 +63,7 @@ func run(title string, width, height int, fullscreen bool) {
 		window.SetPos((mode.Width-width)/2, (mode.Height-height)/2)
 	}
 
+	windowWidth, windowHeight = window.GetSize()
 	width, height = window.GetFramebufferSize()
 
 	glfw.SwapInterval(1)
@@ -65,9 +72,9 @@ func run(title string, width, height int, fullscreen bool) {
 
 	gl.Viewport(0, 0, width, height)
 	window.SetFramebufferSizeCallback(func(window *glfw.Window, w, h int) {
-		width, height = window.GetFramebufferSize()
-		gl.Viewport(0, 0, width, height)
-		responder.Resize(w, h)
+		windowWidth, windowHeight = window.GetSize()
+		gl.Viewport(0, 0, w, h)
+		responder.Resize(float32(windowWidth), float32(windowHeight))
 	})
 
 	window.SetCursorPosCallback(func(window *glfw.Window, x, y float64) {
@@ -120,13 +127,11 @@ func run(title string, width, height int, fullscreen bool) {
 }
 
 func width() float32 {
-	width, _ := window.GetSize()
-	return float32(width)
+	return float32(windowWidth)
 }
 
 func height() float32 {
-	_, height := window.GetSize()
-	return float32(height)
+	return float32(windowHeight)
 }
 
 func exit() {

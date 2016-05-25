@@ -14,22 +14,28 @@ type Game struct {
 func (game *Game) Preload() {
 	engi.Files.Add("bot", "data/icon.png")
 	engi.Files.Add("font", "data/font.png")
-	game.batch = engi.NewBatch(engi.Width(), engi.Height())
 }
 
 func (game *Game) Setup() {
-	engi.SetBg(0x2d3739)
+	engi.SetBg(0x362d38)
 	game.bot = engi.Files.Image("bot")
 	game.font = engi.NewGridFont(engi.Files.Image("font"), 20, 20)
+	game.batch = engi.NewBatch(engi.Width(), engi.Height())
 }
 
 func (game *Game) Render() {
 	game.batch.Begin()
-	game.font.Print(game.batch, "ENGI", 475, 200, 0xffffff)
-	game.batch.Draw(game.bot, 512, 320, 0.5, 0.5, 10, 10, 0, 0xffffff, 1)
+	midx := engi.Width() / 2
+	midy := engi.Height() / 2
+	game.font.Print(game.batch, "ENGI", midx-37, midy-120, 0xffffff)
+	game.batch.Draw(game.bot, midx, midy, 0.5, 0.5, 10, 10, 0, 0xffffff, 1)
 	game.batch.End()
 }
 
+func (game *Game) Resize(w, h float32) {
+	game.batch.SetProjection(w, h)
+}
+
 func main() {
-	engi.Open("Hello", 1024, 640, false, &Game{})
+	engi.Open("Hello", 800, 600, false, &Game{})
 }
