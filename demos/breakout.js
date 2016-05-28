@@ -2391,1435 +2391,6 @@ $packages["errors"] = (function() {
 	$pkg.$init = $init;
 	return $pkg;
 })();
-$packages["github.com/ajhager/webgl"] = (function() {
-	var $pkg = {}, $init, errors, js, Texture, Buffer, FrameBuffer, RenderBuffer, Program, UniformLocation, Shader, ContextAttributes, Context, ptrType, ptrType$1, mapType, ptrType$2, ptrType$3, ptrType$4, ptrType$5, ptrType$6, sliceType, sliceType$1, ptrType$7, sliceType$2, ptrType$8, ptrType$9, DefaultAttributes, NewContext;
-	errors = $packages["errors"];
-	js = $packages["github.com/gopherjs/gopherjs/js"];
-	Texture = $pkg.Texture = $newType(0, $kindStruct, "webgl.Texture", "Texture", "github.com/ajhager/webgl", function(Object_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			return;
-		}
-		this.Object = Object_;
-	});
-	Buffer = $pkg.Buffer = $newType(0, $kindStruct, "webgl.Buffer", "Buffer", "github.com/ajhager/webgl", function(Object_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			return;
-		}
-		this.Object = Object_;
-	});
-	FrameBuffer = $pkg.FrameBuffer = $newType(0, $kindStruct, "webgl.FrameBuffer", "FrameBuffer", "github.com/ajhager/webgl", function(Object_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			return;
-		}
-		this.Object = Object_;
-	});
-	RenderBuffer = $pkg.RenderBuffer = $newType(0, $kindStruct, "webgl.RenderBuffer", "RenderBuffer", "github.com/ajhager/webgl", function(Object_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			return;
-		}
-		this.Object = Object_;
-	});
-	Program = $pkg.Program = $newType(0, $kindStruct, "webgl.Program", "Program", "github.com/ajhager/webgl", function(Object_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			return;
-		}
-		this.Object = Object_;
-	});
-	UniformLocation = $pkg.UniformLocation = $newType(0, $kindStruct, "webgl.UniformLocation", "UniformLocation", "github.com/ajhager/webgl", function(Object_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			return;
-		}
-		this.Object = Object_;
-	});
-	Shader = $pkg.Shader = $newType(0, $kindStruct, "webgl.Shader", "Shader", "github.com/ajhager/webgl", function(Object_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			return;
-		}
-		this.Object = Object_;
-	});
-	ContextAttributes = $pkg.ContextAttributes = $newType(0, $kindStruct, "webgl.ContextAttributes", "ContextAttributes", "github.com/ajhager/webgl", function(Alpha_, Depth_, Stencil_, Antialias_, PremultipliedAlpha_, PreserveDrawingBuffer_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Alpha = false;
-			this.Depth = false;
-			this.Stencil = false;
-			this.Antialias = false;
-			this.PremultipliedAlpha = false;
-			this.PreserveDrawingBuffer = false;
-			return;
-		}
-		this.Alpha = Alpha_;
-		this.Depth = Depth_;
-		this.Stencil = Stencil_;
-		this.Antialias = Antialias_;
-		this.PremultipliedAlpha = PremultipliedAlpha_;
-		this.PreserveDrawingBuffer = PreserveDrawingBuffer_;
-	});
-	Context = $pkg.Context = $newType(0, $kindStruct, "webgl.Context", "Context", "github.com/ajhager/webgl", function(Object_, ARRAY_BUFFER_, ARRAY_BUFFER_BINDING_, ATTACHED_SHADERS_, BACK_, BLEND_, BLEND_COLOR_, BLEND_DST_ALPHA_, BLEND_DST_RGB_, BLEND_EQUATION_, BLEND_EQUATION_ALPHA_, BLEND_EQUATION_RGB_, BLEND_SRC_ALPHA_, BLEND_SRC_RGB_, BLUE_BITS_, BOOL_, BOOL_VEC2_, BOOL_VEC3_, BOOL_VEC4_, BROWSER_DEFAULT_WEBGL_, BUFFER_SIZE_, BUFFER_USAGE_, BYTE_, CCW_, CLAMP_TO_EDGE_, COLOR_ATTACHMENT0_, COLOR_BUFFER_BIT_, COLOR_CLEAR_VALUE_, COLOR_WRITEMASK_, COMPILE_STATUS_, COMPRESSED_TEXTURE_FORMATS_, CONSTANT_ALPHA_, CONSTANT_COLOR_, CONTEXT_LOST_WEBGL_, CULL_FACE_, CULL_FACE_MODE_, CURRENT_PROGRAM_, CURRENT_VERTEX_ATTRIB_, CW_, DECR_, DECR_WRAP_, DELETE_STATUS_, DEPTH_ATTACHMENT_, DEPTH_BITS_, DEPTH_BUFFER_BIT_, DEPTH_CLEAR_VALUE_, DEPTH_COMPONENT_, DEPTH_COMPONENT16_, DEPTH_FUNC_, DEPTH_RANGE_, DEPTH_STENCIL_, DEPTH_STENCIL_ATTACHMENT_, DEPTH_TEST_, DEPTH_WRITEMASK_, DITHER_, DONT_CARE_, DST_ALPHA_, DST_COLOR_, DYNAMIC_DRAW_, ELEMENT_ARRAY_BUFFER_, ELEMENT_ARRAY_BUFFER_BINDING_, EQUAL_, FASTEST_, FLOAT_, FLOAT_MAT2_, FLOAT_MAT3_, FLOAT_MAT4_, FLOAT_VEC2_, FLOAT_VEC3_, FLOAT_VEC4_, FRAGMENT_SHADER_, FRAMEBUFFER_, FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_, FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_, FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_, FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_, FRAMEBUFFER_BINDING_, FRAMEBUFFER_COMPLETE_, FRAMEBUFFER_INCOMPLETE_ATTACHMENT_, FRAMEBUFFER_INCOMPLETE_DIMENSIONS_, FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_, FRAMEBUFFER_UNSUPPORTED_, FRONT_, FRONT_AND_BACK_, FRONT_FACE_, FUNC_ADD_, FUNC_REVERSE_SUBTRACT_, FUNC_SUBTRACT_, GENERATE_MIPMAP_HINT_, GEQUAL_, GREATER_, GREEN_BITS_, HIGH_FLOAT_, HIGH_INT_, INCR_, INCR_WRAP_, INFO_LOG_LENGTH_, INT_, INT_VEC2_, INT_VEC3_, INT_VEC4_, INVALID_ENUM_, INVALID_FRAMEBUFFER_OPERATION_, INVALID_OPERATION_, INVALID_VALUE_, INVERT_, KEEP_, LEQUAL_, LESS_, LINEAR_, LINEAR_MIPMAP_LINEAR_, LINEAR_MIPMAP_NEAREST_, LINES_, LINE_LOOP_, LINE_STRIP_, LINE_WIDTH_, LINK_STATUS_, LOW_FLOAT_, LOW_INT_, LUMINANCE_, LUMINANCE_ALPHA_, MAX_COMBINED_TEXTURE_IMAGE_UNITS_, MAX_CUBE_MAP_TEXTURE_SIZE_, MAX_FRAGMENT_UNIFORM_VECTORS_, MAX_RENDERBUFFER_SIZE_, MAX_TEXTURE_IMAGE_UNITS_, MAX_TEXTURE_SIZE_, MAX_VARYING_VECTORS_, MAX_VERTEX_ATTRIBS_, MAX_VERTEX_TEXTURE_IMAGE_UNITS_, MAX_VERTEX_UNIFORM_VECTORS_, MAX_VIEWPORT_DIMS_, MEDIUM_FLOAT_, MEDIUM_INT_, MIRRORED_REPEAT_, NEAREST_, NEAREST_MIPMAP_LINEAR_, NEAREST_MIPMAP_NEAREST_, NEVER_, NICEST_, NONE_, NOTEQUAL_, NO_ERROR_, NUM_COMPRESSED_TEXTURE_FORMATS_, ONE_, ONE_MINUS_CONSTANT_ALPHA_, ONE_MINUS_CONSTANT_COLOR_, ONE_MINUS_DST_ALPHA_, ONE_MINUS_DST_COLOR_, ONE_MINUS_SRC_ALPHA_, ONE_MINUS_SRC_COLOR_, OUT_OF_MEMORY_, PACK_ALIGNMENT_, POINTS_, POLYGON_OFFSET_FACTOR_, POLYGON_OFFSET_FILL_, POLYGON_OFFSET_UNITS_, RED_BITS_, RENDERBUFFER_, RENDERBUFFER_ALPHA_SIZE_, RENDERBUFFER_BINDING_, RENDERBUFFER_BLUE_SIZE_, RENDERBUFFER_DEPTH_SIZE_, RENDERBUFFER_GREEN_SIZE_, RENDERBUFFER_HEIGHT_, RENDERBUFFER_INTERNAL_FORMAT_, RENDERBUFFER_RED_SIZE_, RENDERBUFFER_STENCIL_SIZE_, RENDERBUFFER_WIDTH_, RENDERER_, REPEAT_, REPLACE_, RGB_, RGB5_A1_, RGB565_, RGBA_, RGBA4_, SAMPLER_2D_, SAMPLER_CUBE_, SAMPLES_, SAMPLE_ALPHA_TO_COVERAGE_, SAMPLE_BUFFERS_, SAMPLE_COVERAGE_, SAMPLE_COVERAGE_INVERT_, SAMPLE_COVERAGE_VALUE_, SCISSOR_BOX_, SCISSOR_TEST_, SHADER_COMPILER_, SHADER_SOURCE_LENGTH_, SHADER_TYPE_, SHADING_LANGUAGE_VERSION_, SHORT_, SRC_ALPHA_, SRC_ALPHA_SATURATE_, SRC_COLOR_, STATIC_DRAW_, STENCIL_ATTACHMENT_, STENCIL_BACK_FAIL_, STENCIL_BACK_FUNC_, STENCIL_BACK_PASS_DEPTH_FAIL_, STENCIL_BACK_PASS_DEPTH_PASS_, STENCIL_BACK_REF_, STENCIL_BACK_VALUE_MASK_, STENCIL_BACK_WRITEMASK_, STENCIL_BITS_, STENCIL_BUFFER_BIT_, STENCIL_CLEAR_VALUE_, STENCIL_FAIL_, STENCIL_FUNC_, STENCIL_INDEX_, STENCIL_INDEX8_, STENCIL_PASS_DEPTH_FAIL_, STENCIL_PASS_DEPTH_PASS_, STENCIL_REF_, STENCIL_TEST_, STENCIL_VALUE_MASK_, STENCIL_WRITEMASK_, STREAM_DRAW_, SUBPIXEL_BITS_, TEXTURE_, TEXTURE0_, TEXTURE1_, TEXTURE2_, TEXTURE3_, TEXTURE4_, TEXTURE5_, TEXTURE6_, TEXTURE7_, TEXTURE8_, TEXTURE9_, TEXTURE10_, TEXTURE11_, TEXTURE12_, TEXTURE13_, TEXTURE14_, TEXTURE15_, TEXTURE16_, TEXTURE17_, TEXTURE18_, TEXTURE19_, TEXTURE20_, TEXTURE21_, TEXTURE22_, TEXTURE23_, TEXTURE24_, TEXTURE25_, TEXTURE26_, TEXTURE27_, TEXTURE28_, TEXTURE29_, TEXTURE30_, TEXTURE31_, TEXTURE_2D_, TEXTURE_BINDING_2D_, TEXTURE_BINDING_CUBE_MAP_, TEXTURE_CUBE_MAP_, TEXTURE_CUBE_MAP_NEGATIVE_X_, TEXTURE_CUBE_MAP_NEGATIVE_Y_, TEXTURE_CUBE_MAP_NEGATIVE_Z_, TEXTURE_CUBE_MAP_POSITIVE_X_, TEXTURE_CUBE_MAP_POSITIVE_Y_, TEXTURE_CUBE_MAP_POSITIVE_Z_, TEXTURE_MAG_FILTER_, TEXTURE_MIN_FILTER_, TEXTURE_WRAP_S_, TEXTURE_WRAP_T_, TRIANGLES_, TRIANGLE_FAN_, TRIANGLE_STRIP_, UNPACK_ALIGNMENT_, UNPACK_COLORSPACE_CONVERSION_WEBGL_, UNPACK_FLIP_Y_WEBGL_, UNPACK_PREMULTIPLY_ALPHA_WEBGL_, UNSIGNED_BYTE_, UNSIGNED_INT_, UNSIGNED_SHORT_, UNSIGNED_SHORT_4_4_4_4_, UNSIGNED_SHORT_5_5_5_1_, UNSIGNED_SHORT_5_6_5_, VALIDATE_STATUS_, VENDOR_, VERSION_, VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_, VERTEX_ATTRIB_ARRAY_ENABLED_, VERTEX_ATTRIB_ARRAY_NORMALIZED_, VERTEX_ATTRIB_ARRAY_POINTER_, VERTEX_ATTRIB_ARRAY_SIZE_, VERTEX_ATTRIB_ARRAY_STRIDE_, VERTEX_ATTRIB_ARRAY_TYPE_, VERTEX_SHADER_, VIEWPORT_, ZERO_) {
-		this.$val = this;
-		if (arguments.length === 0) {
-			this.Object = null;
-			this.ARRAY_BUFFER = 0;
-			this.ARRAY_BUFFER_BINDING = 0;
-			this.ATTACHED_SHADERS = 0;
-			this.BACK = 0;
-			this.BLEND = 0;
-			this.BLEND_COLOR = 0;
-			this.BLEND_DST_ALPHA = 0;
-			this.BLEND_DST_RGB = 0;
-			this.BLEND_EQUATION = 0;
-			this.BLEND_EQUATION_ALPHA = 0;
-			this.BLEND_EQUATION_RGB = 0;
-			this.BLEND_SRC_ALPHA = 0;
-			this.BLEND_SRC_RGB = 0;
-			this.BLUE_BITS = 0;
-			this.BOOL = 0;
-			this.BOOL_VEC2 = 0;
-			this.BOOL_VEC3 = 0;
-			this.BOOL_VEC4 = 0;
-			this.BROWSER_DEFAULT_WEBGL = 0;
-			this.BUFFER_SIZE = 0;
-			this.BUFFER_USAGE = 0;
-			this.BYTE = 0;
-			this.CCW = 0;
-			this.CLAMP_TO_EDGE = 0;
-			this.COLOR_ATTACHMENT0 = 0;
-			this.COLOR_BUFFER_BIT = 0;
-			this.COLOR_CLEAR_VALUE = 0;
-			this.COLOR_WRITEMASK = 0;
-			this.COMPILE_STATUS = 0;
-			this.COMPRESSED_TEXTURE_FORMATS = 0;
-			this.CONSTANT_ALPHA = 0;
-			this.CONSTANT_COLOR = 0;
-			this.CONTEXT_LOST_WEBGL = 0;
-			this.CULL_FACE = 0;
-			this.CULL_FACE_MODE = 0;
-			this.CURRENT_PROGRAM = 0;
-			this.CURRENT_VERTEX_ATTRIB = 0;
-			this.CW = 0;
-			this.DECR = 0;
-			this.DECR_WRAP = 0;
-			this.DELETE_STATUS = 0;
-			this.DEPTH_ATTACHMENT = 0;
-			this.DEPTH_BITS = 0;
-			this.DEPTH_BUFFER_BIT = 0;
-			this.DEPTH_CLEAR_VALUE = 0;
-			this.DEPTH_COMPONENT = 0;
-			this.DEPTH_COMPONENT16 = 0;
-			this.DEPTH_FUNC = 0;
-			this.DEPTH_RANGE = 0;
-			this.DEPTH_STENCIL = 0;
-			this.DEPTH_STENCIL_ATTACHMENT = 0;
-			this.DEPTH_TEST = 0;
-			this.DEPTH_WRITEMASK = 0;
-			this.DITHER = 0;
-			this.DONT_CARE = 0;
-			this.DST_ALPHA = 0;
-			this.DST_COLOR = 0;
-			this.DYNAMIC_DRAW = 0;
-			this.ELEMENT_ARRAY_BUFFER = 0;
-			this.ELEMENT_ARRAY_BUFFER_BINDING = 0;
-			this.EQUAL = 0;
-			this.FASTEST = 0;
-			this.FLOAT = 0;
-			this.FLOAT_MAT2 = 0;
-			this.FLOAT_MAT3 = 0;
-			this.FLOAT_MAT4 = 0;
-			this.FLOAT_VEC2 = 0;
-			this.FLOAT_VEC3 = 0;
-			this.FLOAT_VEC4 = 0;
-			this.FRAGMENT_SHADER = 0;
-			this.FRAMEBUFFER = 0;
-			this.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = 0;
-			this.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = 0;
-			this.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0;
-			this.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0;
-			this.FRAMEBUFFER_BINDING = 0;
-			this.FRAMEBUFFER_COMPLETE = 0;
-			this.FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 0;
-			this.FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0;
-			this.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = 0;
-			this.FRAMEBUFFER_UNSUPPORTED = 0;
-			this.FRONT = 0;
-			this.FRONT_AND_BACK = 0;
-			this.FRONT_FACE = 0;
-			this.FUNC_ADD = 0;
-			this.FUNC_REVERSE_SUBTRACT = 0;
-			this.FUNC_SUBTRACT = 0;
-			this.GENERATE_MIPMAP_HINT = 0;
-			this.GEQUAL = 0;
-			this.GREATER = 0;
-			this.GREEN_BITS = 0;
-			this.HIGH_FLOAT = 0;
-			this.HIGH_INT = 0;
-			this.INCR = 0;
-			this.INCR_WRAP = 0;
-			this.INFO_LOG_LENGTH = 0;
-			this.INT = 0;
-			this.INT_VEC2 = 0;
-			this.INT_VEC3 = 0;
-			this.INT_VEC4 = 0;
-			this.INVALID_ENUM = 0;
-			this.INVALID_FRAMEBUFFER_OPERATION = 0;
-			this.INVALID_OPERATION = 0;
-			this.INVALID_VALUE = 0;
-			this.INVERT = 0;
-			this.KEEP = 0;
-			this.LEQUAL = 0;
-			this.LESS = 0;
-			this.LINEAR = 0;
-			this.LINEAR_MIPMAP_LINEAR = 0;
-			this.LINEAR_MIPMAP_NEAREST = 0;
-			this.LINES = 0;
-			this.LINE_LOOP = 0;
-			this.LINE_STRIP = 0;
-			this.LINE_WIDTH = 0;
-			this.LINK_STATUS = 0;
-			this.LOW_FLOAT = 0;
-			this.LOW_INT = 0;
-			this.LUMINANCE = 0;
-			this.LUMINANCE_ALPHA = 0;
-			this.MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0;
-			this.MAX_CUBE_MAP_TEXTURE_SIZE = 0;
-			this.MAX_FRAGMENT_UNIFORM_VECTORS = 0;
-			this.MAX_RENDERBUFFER_SIZE = 0;
-			this.MAX_TEXTURE_IMAGE_UNITS = 0;
-			this.MAX_TEXTURE_SIZE = 0;
-			this.MAX_VARYING_VECTORS = 0;
-			this.MAX_VERTEX_ATTRIBS = 0;
-			this.MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0;
-			this.MAX_VERTEX_UNIFORM_VECTORS = 0;
-			this.MAX_VIEWPORT_DIMS = 0;
-			this.MEDIUM_FLOAT = 0;
-			this.MEDIUM_INT = 0;
-			this.MIRRORED_REPEAT = 0;
-			this.NEAREST = 0;
-			this.NEAREST_MIPMAP_LINEAR = 0;
-			this.NEAREST_MIPMAP_NEAREST = 0;
-			this.NEVER = 0;
-			this.NICEST = 0;
-			this.NONE = 0;
-			this.NOTEQUAL = 0;
-			this.NO_ERROR = 0;
-			this.NUM_COMPRESSED_TEXTURE_FORMATS = 0;
-			this.ONE = 0;
-			this.ONE_MINUS_CONSTANT_ALPHA = 0;
-			this.ONE_MINUS_CONSTANT_COLOR = 0;
-			this.ONE_MINUS_DST_ALPHA = 0;
-			this.ONE_MINUS_DST_COLOR = 0;
-			this.ONE_MINUS_SRC_ALPHA = 0;
-			this.ONE_MINUS_SRC_COLOR = 0;
-			this.OUT_OF_MEMORY = 0;
-			this.PACK_ALIGNMENT = 0;
-			this.POINTS = 0;
-			this.POLYGON_OFFSET_FACTOR = 0;
-			this.POLYGON_OFFSET_FILL = 0;
-			this.POLYGON_OFFSET_UNITS = 0;
-			this.RED_BITS = 0;
-			this.RENDERBUFFER = 0;
-			this.RENDERBUFFER_ALPHA_SIZE = 0;
-			this.RENDERBUFFER_BINDING = 0;
-			this.RENDERBUFFER_BLUE_SIZE = 0;
-			this.RENDERBUFFER_DEPTH_SIZE = 0;
-			this.RENDERBUFFER_GREEN_SIZE = 0;
-			this.RENDERBUFFER_HEIGHT = 0;
-			this.RENDERBUFFER_INTERNAL_FORMAT = 0;
-			this.RENDERBUFFER_RED_SIZE = 0;
-			this.RENDERBUFFER_STENCIL_SIZE = 0;
-			this.RENDERBUFFER_WIDTH = 0;
-			this.RENDERER = 0;
-			this.REPEAT = 0;
-			this.REPLACE = 0;
-			this.RGB = 0;
-			this.RGB5_A1 = 0;
-			this.RGB565 = 0;
-			this.RGBA = 0;
-			this.RGBA4 = 0;
-			this.SAMPLER_2D = 0;
-			this.SAMPLER_CUBE = 0;
-			this.SAMPLES = 0;
-			this.SAMPLE_ALPHA_TO_COVERAGE = 0;
-			this.SAMPLE_BUFFERS = 0;
-			this.SAMPLE_COVERAGE = 0;
-			this.SAMPLE_COVERAGE_INVERT = 0;
-			this.SAMPLE_COVERAGE_VALUE = 0;
-			this.SCISSOR_BOX = 0;
-			this.SCISSOR_TEST = 0;
-			this.SHADER_COMPILER = 0;
-			this.SHADER_SOURCE_LENGTH = 0;
-			this.SHADER_TYPE = 0;
-			this.SHADING_LANGUAGE_VERSION = 0;
-			this.SHORT = 0;
-			this.SRC_ALPHA = 0;
-			this.SRC_ALPHA_SATURATE = 0;
-			this.SRC_COLOR = 0;
-			this.STATIC_DRAW = 0;
-			this.STENCIL_ATTACHMENT = 0;
-			this.STENCIL_BACK_FAIL = 0;
-			this.STENCIL_BACK_FUNC = 0;
-			this.STENCIL_BACK_PASS_DEPTH_FAIL = 0;
-			this.STENCIL_BACK_PASS_DEPTH_PASS = 0;
-			this.STENCIL_BACK_REF = 0;
-			this.STENCIL_BACK_VALUE_MASK = 0;
-			this.STENCIL_BACK_WRITEMASK = 0;
-			this.STENCIL_BITS = 0;
-			this.STENCIL_BUFFER_BIT = 0;
-			this.STENCIL_CLEAR_VALUE = 0;
-			this.STENCIL_FAIL = 0;
-			this.STENCIL_FUNC = 0;
-			this.STENCIL_INDEX = 0;
-			this.STENCIL_INDEX8 = 0;
-			this.STENCIL_PASS_DEPTH_FAIL = 0;
-			this.STENCIL_PASS_DEPTH_PASS = 0;
-			this.STENCIL_REF = 0;
-			this.STENCIL_TEST = 0;
-			this.STENCIL_VALUE_MASK = 0;
-			this.STENCIL_WRITEMASK = 0;
-			this.STREAM_DRAW = 0;
-			this.SUBPIXEL_BITS = 0;
-			this.TEXTURE = 0;
-			this.TEXTURE0 = 0;
-			this.TEXTURE1 = 0;
-			this.TEXTURE2 = 0;
-			this.TEXTURE3 = 0;
-			this.TEXTURE4 = 0;
-			this.TEXTURE5 = 0;
-			this.TEXTURE6 = 0;
-			this.TEXTURE7 = 0;
-			this.TEXTURE8 = 0;
-			this.TEXTURE9 = 0;
-			this.TEXTURE10 = 0;
-			this.TEXTURE11 = 0;
-			this.TEXTURE12 = 0;
-			this.TEXTURE13 = 0;
-			this.TEXTURE14 = 0;
-			this.TEXTURE15 = 0;
-			this.TEXTURE16 = 0;
-			this.TEXTURE17 = 0;
-			this.TEXTURE18 = 0;
-			this.TEXTURE19 = 0;
-			this.TEXTURE20 = 0;
-			this.TEXTURE21 = 0;
-			this.TEXTURE22 = 0;
-			this.TEXTURE23 = 0;
-			this.TEXTURE24 = 0;
-			this.TEXTURE25 = 0;
-			this.TEXTURE26 = 0;
-			this.TEXTURE27 = 0;
-			this.TEXTURE28 = 0;
-			this.TEXTURE29 = 0;
-			this.TEXTURE30 = 0;
-			this.TEXTURE31 = 0;
-			this.TEXTURE_2D = 0;
-			this.TEXTURE_BINDING_2D = 0;
-			this.TEXTURE_BINDING_CUBE_MAP = 0;
-			this.TEXTURE_CUBE_MAP = 0;
-			this.TEXTURE_CUBE_MAP_NEGATIVE_X = 0;
-			this.TEXTURE_CUBE_MAP_NEGATIVE_Y = 0;
-			this.TEXTURE_CUBE_MAP_NEGATIVE_Z = 0;
-			this.TEXTURE_CUBE_MAP_POSITIVE_X = 0;
-			this.TEXTURE_CUBE_MAP_POSITIVE_Y = 0;
-			this.TEXTURE_CUBE_MAP_POSITIVE_Z = 0;
-			this.TEXTURE_MAG_FILTER = 0;
-			this.TEXTURE_MIN_FILTER = 0;
-			this.TEXTURE_WRAP_S = 0;
-			this.TEXTURE_WRAP_T = 0;
-			this.TRIANGLES = 0;
-			this.TRIANGLE_FAN = 0;
-			this.TRIANGLE_STRIP = 0;
-			this.UNPACK_ALIGNMENT = 0;
-			this.UNPACK_COLORSPACE_CONVERSION_WEBGL = 0;
-			this.UNPACK_FLIP_Y_WEBGL = 0;
-			this.UNPACK_PREMULTIPLY_ALPHA_WEBGL = 0;
-			this.UNSIGNED_BYTE = 0;
-			this.UNSIGNED_INT = 0;
-			this.UNSIGNED_SHORT = 0;
-			this.UNSIGNED_SHORT_4_4_4_4 = 0;
-			this.UNSIGNED_SHORT_5_5_5_1 = 0;
-			this.UNSIGNED_SHORT_5_6_5 = 0;
-			this.VALIDATE_STATUS = 0;
-			this.VENDOR = 0;
-			this.VERSION = 0;
-			this.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0;
-			this.VERTEX_ATTRIB_ARRAY_ENABLED = 0;
-			this.VERTEX_ATTRIB_ARRAY_NORMALIZED = 0;
-			this.VERTEX_ATTRIB_ARRAY_POINTER = 0;
-			this.VERTEX_ATTRIB_ARRAY_SIZE = 0;
-			this.VERTEX_ATTRIB_ARRAY_STRIDE = 0;
-			this.VERTEX_ATTRIB_ARRAY_TYPE = 0;
-			this.VERTEX_SHADER = 0;
-			this.VIEWPORT = 0;
-			this.ZERO = 0;
-			return;
-		}
-		this.Object = Object_;
-		this.ARRAY_BUFFER = ARRAY_BUFFER_;
-		this.ARRAY_BUFFER_BINDING = ARRAY_BUFFER_BINDING_;
-		this.ATTACHED_SHADERS = ATTACHED_SHADERS_;
-		this.BACK = BACK_;
-		this.BLEND = BLEND_;
-		this.BLEND_COLOR = BLEND_COLOR_;
-		this.BLEND_DST_ALPHA = BLEND_DST_ALPHA_;
-		this.BLEND_DST_RGB = BLEND_DST_RGB_;
-		this.BLEND_EQUATION = BLEND_EQUATION_;
-		this.BLEND_EQUATION_ALPHA = BLEND_EQUATION_ALPHA_;
-		this.BLEND_EQUATION_RGB = BLEND_EQUATION_RGB_;
-		this.BLEND_SRC_ALPHA = BLEND_SRC_ALPHA_;
-		this.BLEND_SRC_RGB = BLEND_SRC_RGB_;
-		this.BLUE_BITS = BLUE_BITS_;
-		this.BOOL = BOOL_;
-		this.BOOL_VEC2 = BOOL_VEC2_;
-		this.BOOL_VEC3 = BOOL_VEC3_;
-		this.BOOL_VEC4 = BOOL_VEC4_;
-		this.BROWSER_DEFAULT_WEBGL = BROWSER_DEFAULT_WEBGL_;
-		this.BUFFER_SIZE = BUFFER_SIZE_;
-		this.BUFFER_USAGE = BUFFER_USAGE_;
-		this.BYTE = BYTE_;
-		this.CCW = CCW_;
-		this.CLAMP_TO_EDGE = CLAMP_TO_EDGE_;
-		this.COLOR_ATTACHMENT0 = COLOR_ATTACHMENT0_;
-		this.COLOR_BUFFER_BIT = COLOR_BUFFER_BIT_;
-		this.COLOR_CLEAR_VALUE = COLOR_CLEAR_VALUE_;
-		this.COLOR_WRITEMASK = COLOR_WRITEMASK_;
-		this.COMPILE_STATUS = COMPILE_STATUS_;
-		this.COMPRESSED_TEXTURE_FORMATS = COMPRESSED_TEXTURE_FORMATS_;
-		this.CONSTANT_ALPHA = CONSTANT_ALPHA_;
-		this.CONSTANT_COLOR = CONSTANT_COLOR_;
-		this.CONTEXT_LOST_WEBGL = CONTEXT_LOST_WEBGL_;
-		this.CULL_FACE = CULL_FACE_;
-		this.CULL_FACE_MODE = CULL_FACE_MODE_;
-		this.CURRENT_PROGRAM = CURRENT_PROGRAM_;
-		this.CURRENT_VERTEX_ATTRIB = CURRENT_VERTEX_ATTRIB_;
-		this.CW = CW_;
-		this.DECR = DECR_;
-		this.DECR_WRAP = DECR_WRAP_;
-		this.DELETE_STATUS = DELETE_STATUS_;
-		this.DEPTH_ATTACHMENT = DEPTH_ATTACHMENT_;
-		this.DEPTH_BITS = DEPTH_BITS_;
-		this.DEPTH_BUFFER_BIT = DEPTH_BUFFER_BIT_;
-		this.DEPTH_CLEAR_VALUE = DEPTH_CLEAR_VALUE_;
-		this.DEPTH_COMPONENT = DEPTH_COMPONENT_;
-		this.DEPTH_COMPONENT16 = DEPTH_COMPONENT16_;
-		this.DEPTH_FUNC = DEPTH_FUNC_;
-		this.DEPTH_RANGE = DEPTH_RANGE_;
-		this.DEPTH_STENCIL = DEPTH_STENCIL_;
-		this.DEPTH_STENCIL_ATTACHMENT = DEPTH_STENCIL_ATTACHMENT_;
-		this.DEPTH_TEST = DEPTH_TEST_;
-		this.DEPTH_WRITEMASK = DEPTH_WRITEMASK_;
-		this.DITHER = DITHER_;
-		this.DONT_CARE = DONT_CARE_;
-		this.DST_ALPHA = DST_ALPHA_;
-		this.DST_COLOR = DST_COLOR_;
-		this.DYNAMIC_DRAW = DYNAMIC_DRAW_;
-		this.ELEMENT_ARRAY_BUFFER = ELEMENT_ARRAY_BUFFER_;
-		this.ELEMENT_ARRAY_BUFFER_BINDING = ELEMENT_ARRAY_BUFFER_BINDING_;
-		this.EQUAL = EQUAL_;
-		this.FASTEST = FASTEST_;
-		this.FLOAT = FLOAT_;
-		this.FLOAT_MAT2 = FLOAT_MAT2_;
-		this.FLOAT_MAT3 = FLOAT_MAT3_;
-		this.FLOAT_MAT4 = FLOAT_MAT4_;
-		this.FLOAT_VEC2 = FLOAT_VEC2_;
-		this.FLOAT_VEC3 = FLOAT_VEC3_;
-		this.FLOAT_VEC4 = FLOAT_VEC4_;
-		this.FRAGMENT_SHADER = FRAGMENT_SHADER_;
-		this.FRAMEBUFFER = FRAMEBUFFER_;
-		this.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_;
-		this.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_;
-		this.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_;
-		this.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_;
-		this.FRAMEBUFFER_BINDING = FRAMEBUFFER_BINDING_;
-		this.FRAMEBUFFER_COMPLETE = FRAMEBUFFER_COMPLETE_;
-		this.FRAMEBUFFER_INCOMPLETE_ATTACHMENT = FRAMEBUFFER_INCOMPLETE_ATTACHMENT_;
-		this.FRAMEBUFFER_INCOMPLETE_DIMENSIONS = FRAMEBUFFER_INCOMPLETE_DIMENSIONS_;
-		this.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_;
-		this.FRAMEBUFFER_UNSUPPORTED = FRAMEBUFFER_UNSUPPORTED_;
-		this.FRONT = FRONT_;
-		this.FRONT_AND_BACK = FRONT_AND_BACK_;
-		this.FRONT_FACE = FRONT_FACE_;
-		this.FUNC_ADD = FUNC_ADD_;
-		this.FUNC_REVERSE_SUBTRACT = FUNC_REVERSE_SUBTRACT_;
-		this.FUNC_SUBTRACT = FUNC_SUBTRACT_;
-		this.GENERATE_MIPMAP_HINT = GENERATE_MIPMAP_HINT_;
-		this.GEQUAL = GEQUAL_;
-		this.GREATER = GREATER_;
-		this.GREEN_BITS = GREEN_BITS_;
-		this.HIGH_FLOAT = HIGH_FLOAT_;
-		this.HIGH_INT = HIGH_INT_;
-		this.INCR = INCR_;
-		this.INCR_WRAP = INCR_WRAP_;
-		this.INFO_LOG_LENGTH = INFO_LOG_LENGTH_;
-		this.INT = INT_;
-		this.INT_VEC2 = INT_VEC2_;
-		this.INT_VEC3 = INT_VEC3_;
-		this.INT_VEC4 = INT_VEC4_;
-		this.INVALID_ENUM = INVALID_ENUM_;
-		this.INVALID_FRAMEBUFFER_OPERATION = INVALID_FRAMEBUFFER_OPERATION_;
-		this.INVALID_OPERATION = INVALID_OPERATION_;
-		this.INVALID_VALUE = INVALID_VALUE_;
-		this.INVERT = INVERT_;
-		this.KEEP = KEEP_;
-		this.LEQUAL = LEQUAL_;
-		this.LESS = LESS_;
-		this.LINEAR = LINEAR_;
-		this.LINEAR_MIPMAP_LINEAR = LINEAR_MIPMAP_LINEAR_;
-		this.LINEAR_MIPMAP_NEAREST = LINEAR_MIPMAP_NEAREST_;
-		this.LINES = LINES_;
-		this.LINE_LOOP = LINE_LOOP_;
-		this.LINE_STRIP = LINE_STRIP_;
-		this.LINE_WIDTH = LINE_WIDTH_;
-		this.LINK_STATUS = LINK_STATUS_;
-		this.LOW_FLOAT = LOW_FLOAT_;
-		this.LOW_INT = LOW_INT_;
-		this.LUMINANCE = LUMINANCE_;
-		this.LUMINANCE_ALPHA = LUMINANCE_ALPHA_;
-		this.MAX_COMBINED_TEXTURE_IMAGE_UNITS = MAX_COMBINED_TEXTURE_IMAGE_UNITS_;
-		this.MAX_CUBE_MAP_TEXTURE_SIZE = MAX_CUBE_MAP_TEXTURE_SIZE_;
-		this.MAX_FRAGMENT_UNIFORM_VECTORS = MAX_FRAGMENT_UNIFORM_VECTORS_;
-		this.MAX_RENDERBUFFER_SIZE = MAX_RENDERBUFFER_SIZE_;
-		this.MAX_TEXTURE_IMAGE_UNITS = MAX_TEXTURE_IMAGE_UNITS_;
-		this.MAX_TEXTURE_SIZE = MAX_TEXTURE_SIZE_;
-		this.MAX_VARYING_VECTORS = MAX_VARYING_VECTORS_;
-		this.MAX_VERTEX_ATTRIBS = MAX_VERTEX_ATTRIBS_;
-		this.MAX_VERTEX_TEXTURE_IMAGE_UNITS = MAX_VERTEX_TEXTURE_IMAGE_UNITS_;
-		this.MAX_VERTEX_UNIFORM_VECTORS = MAX_VERTEX_UNIFORM_VECTORS_;
-		this.MAX_VIEWPORT_DIMS = MAX_VIEWPORT_DIMS_;
-		this.MEDIUM_FLOAT = MEDIUM_FLOAT_;
-		this.MEDIUM_INT = MEDIUM_INT_;
-		this.MIRRORED_REPEAT = MIRRORED_REPEAT_;
-		this.NEAREST = NEAREST_;
-		this.NEAREST_MIPMAP_LINEAR = NEAREST_MIPMAP_LINEAR_;
-		this.NEAREST_MIPMAP_NEAREST = NEAREST_MIPMAP_NEAREST_;
-		this.NEVER = NEVER_;
-		this.NICEST = NICEST_;
-		this.NONE = NONE_;
-		this.NOTEQUAL = NOTEQUAL_;
-		this.NO_ERROR = NO_ERROR_;
-		this.NUM_COMPRESSED_TEXTURE_FORMATS = NUM_COMPRESSED_TEXTURE_FORMATS_;
-		this.ONE = ONE_;
-		this.ONE_MINUS_CONSTANT_ALPHA = ONE_MINUS_CONSTANT_ALPHA_;
-		this.ONE_MINUS_CONSTANT_COLOR = ONE_MINUS_CONSTANT_COLOR_;
-		this.ONE_MINUS_DST_ALPHA = ONE_MINUS_DST_ALPHA_;
-		this.ONE_MINUS_DST_COLOR = ONE_MINUS_DST_COLOR_;
-		this.ONE_MINUS_SRC_ALPHA = ONE_MINUS_SRC_ALPHA_;
-		this.ONE_MINUS_SRC_COLOR = ONE_MINUS_SRC_COLOR_;
-		this.OUT_OF_MEMORY = OUT_OF_MEMORY_;
-		this.PACK_ALIGNMENT = PACK_ALIGNMENT_;
-		this.POINTS = POINTS_;
-		this.POLYGON_OFFSET_FACTOR = POLYGON_OFFSET_FACTOR_;
-		this.POLYGON_OFFSET_FILL = POLYGON_OFFSET_FILL_;
-		this.POLYGON_OFFSET_UNITS = POLYGON_OFFSET_UNITS_;
-		this.RED_BITS = RED_BITS_;
-		this.RENDERBUFFER = RENDERBUFFER_;
-		this.RENDERBUFFER_ALPHA_SIZE = RENDERBUFFER_ALPHA_SIZE_;
-		this.RENDERBUFFER_BINDING = RENDERBUFFER_BINDING_;
-		this.RENDERBUFFER_BLUE_SIZE = RENDERBUFFER_BLUE_SIZE_;
-		this.RENDERBUFFER_DEPTH_SIZE = RENDERBUFFER_DEPTH_SIZE_;
-		this.RENDERBUFFER_GREEN_SIZE = RENDERBUFFER_GREEN_SIZE_;
-		this.RENDERBUFFER_HEIGHT = RENDERBUFFER_HEIGHT_;
-		this.RENDERBUFFER_INTERNAL_FORMAT = RENDERBUFFER_INTERNAL_FORMAT_;
-		this.RENDERBUFFER_RED_SIZE = RENDERBUFFER_RED_SIZE_;
-		this.RENDERBUFFER_STENCIL_SIZE = RENDERBUFFER_STENCIL_SIZE_;
-		this.RENDERBUFFER_WIDTH = RENDERBUFFER_WIDTH_;
-		this.RENDERER = RENDERER_;
-		this.REPEAT = REPEAT_;
-		this.REPLACE = REPLACE_;
-		this.RGB = RGB_;
-		this.RGB5_A1 = RGB5_A1_;
-		this.RGB565 = RGB565_;
-		this.RGBA = RGBA_;
-		this.RGBA4 = RGBA4_;
-		this.SAMPLER_2D = SAMPLER_2D_;
-		this.SAMPLER_CUBE = SAMPLER_CUBE_;
-		this.SAMPLES = SAMPLES_;
-		this.SAMPLE_ALPHA_TO_COVERAGE = SAMPLE_ALPHA_TO_COVERAGE_;
-		this.SAMPLE_BUFFERS = SAMPLE_BUFFERS_;
-		this.SAMPLE_COVERAGE = SAMPLE_COVERAGE_;
-		this.SAMPLE_COVERAGE_INVERT = SAMPLE_COVERAGE_INVERT_;
-		this.SAMPLE_COVERAGE_VALUE = SAMPLE_COVERAGE_VALUE_;
-		this.SCISSOR_BOX = SCISSOR_BOX_;
-		this.SCISSOR_TEST = SCISSOR_TEST_;
-		this.SHADER_COMPILER = SHADER_COMPILER_;
-		this.SHADER_SOURCE_LENGTH = SHADER_SOURCE_LENGTH_;
-		this.SHADER_TYPE = SHADER_TYPE_;
-		this.SHADING_LANGUAGE_VERSION = SHADING_LANGUAGE_VERSION_;
-		this.SHORT = SHORT_;
-		this.SRC_ALPHA = SRC_ALPHA_;
-		this.SRC_ALPHA_SATURATE = SRC_ALPHA_SATURATE_;
-		this.SRC_COLOR = SRC_COLOR_;
-		this.STATIC_DRAW = STATIC_DRAW_;
-		this.STENCIL_ATTACHMENT = STENCIL_ATTACHMENT_;
-		this.STENCIL_BACK_FAIL = STENCIL_BACK_FAIL_;
-		this.STENCIL_BACK_FUNC = STENCIL_BACK_FUNC_;
-		this.STENCIL_BACK_PASS_DEPTH_FAIL = STENCIL_BACK_PASS_DEPTH_FAIL_;
-		this.STENCIL_BACK_PASS_DEPTH_PASS = STENCIL_BACK_PASS_DEPTH_PASS_;
-		this.STENCIL_BACK_REF = STENCIL_BACK_REF_;
-		this.STENCIL_BACK_VALUE_MASK = STENCIL_BACK_VALUE_MASK_;
-		this.STENCIL_BACK_WRITEMASK = STENCIL_BACK_WRITEMASK_;
-		this.STENCIL_BITS = STENCIL_BITS_;
-		this.STENCIL_BUFFER_BIT = STENCIL_BUFFER_BIT_;
-		this.STENCIL_CLEAR_VALUE = STENCIL_CLEAR_VALUE_;
-		this.STENCIL_FAIL = STENCIL_FAIL_;
-		this.STENCIL_FUNC = STENCIL_FUNC_;
-		this.STENCIL_INDEX = STENCIL_INDEX_;
-		this.STENCIL_INDEX8 = STENCIL_INDEX8_;
-		this.STENCIL_PASS_DEPTH_FAIL = STENCIL_PASS_DEPTH_FAIL_;
-		this.STENCIL_PASS_DEPTH_PASS = STENCIL_PASS_DEPTH_PASS_;
-		this.STENCIL_REF = STENCIL_REF_;
-		this.STENCIL_TEST = STENCIL_TEST_;
-		this.STENCIL_VALUE_MASK = STENCIL_VALUE_MASK_;
-		this.STENCIL_WRITEMASK = STENCIL_WRITEMASK_;
-		this.STREAM_DRAW = STREAM_DRAW_;
-		this.SUBPIXEL_BITS = SUBPIXEL_BITS_;
-		this.TEXTURE = TEXTURE_;
-		this.TEXTURE0 = TEXTURE0_;
-		this.TEXTURE1 = TEXTURE1_;
-		this.TEXTURE2 = TEXTURE2_;
-		this.TEXTURE3 = TEXTURE3_;
-		this.TEXTURE4 = TEXTURE4_;
-		this.TEXTURE5 = TEXTURE5_;
-		this.TEXTURE6 = TEXTURE6_;
-		this.TEXTURE7 = TEXTURE7_;
-		this.TEXTURE8 = TEXTURE8_;
-		this.TEXTURE9 = TEXTURE9_;
-		this.TEXTURE10 = TEXTURE10_;
-		this.TEXTURE11 = TEXTURE11_;
-		this.TEXTURE12 = TEXTURE12_;
-		this.TEXTURE13 = TEXTURE13_;
-		this.TEXTURE14 = TEXTURE14_;
-		this.TEXTURE15 = TEXTURE15_;
-		this.TEXTURE16 = TEXTURE16_;
-		this.TEXTURE17 = TEXTURE17_;
-		this.TEXTURE18 = TEXTURE18_;
-		this.TEXTURE19 = TEXTURE19_;
-		this.TEXTURE20 = TEXTURE20_;
-		this.TEXTURE21 = TEXTURE21_;
-		this.TEXTURE22 = TEXTURE22_;
-		this.TEXTURE23 = TEXTURE23_;
-		this.TEXTURE24 = TEXTURE24_;
-		this.TEXTURE25 = TEXTURE25_;
-		this.TEXTURE26 = TEXTURE26_;
-		this.TEXTURE27 = TEXTURE27_;
-		this.TEXTURE28 = TEXTURE28_;
-		this.TEXTURE29 = TEXTURE29_;
-		this.TEXTURE30 = TEXTURE30_;
-		this.TEXTURE31 = TEXTURE31_;
-		this.TEXTURE_2D = TEXTURE_2D_;
-		this.TEXTURE_BINDING_2D = TEXTURE_BINDING_2D_;
-		this.TEXTURE_BINDING_CUBE_MAP = TEXTURE_BINDING_CUBE_MAP_;
-		this.TEXTURE_CUBE_MAP = TEXTURE_CUBE_MAP_;
-		this.TEXTURE_CUBE_MAP_NEGATIVE_X = TEXTURE_CUBE_MAP_NEGATIVE_X_;
-		this.TEXTURE_CUBE_MAP_NEGATIVE_Y = TEXTURE_CUBE_MAP_NEGATIVE_Y_;
-		this.TEXTURE_CUBE_MAP_NEGATIVE_Z = TEXTURE_CUBE_MAP_NEGATIVE_Z_;
-		this.TEXTURE_CUBE_MAP_POSITIVE_X = TEXTURE_CUBE_MAP_POSITIVE_X_;
-		this.TEXTURE_CUBE_MAP_POSITIVE_Y = TEXTURE_CUBE_MAP_POSITIVE_Y_;
-		this.TEXTURE_CUBE_MAP_POSITIVE_Z = TEXTURE_CUBE_MAP_POSITIVE_Z_;
-		this.TEXTURE_MAG_FILTER = TEXTURE_MAG_FILTER_;
-		this.TEXTURE_MIN_FILTER = TEXTURE_MIN_FILTER_;
-		this.TEXTURE_WRAP_S = TEXTURE_WRAP_S_;
-		this.TEXTURE_WRAP_T = TEXTURE_WRAP_T_;
-		this.TRIANGLES = TRIANGLES_;
-		this.TRIANGLE_FAN = TRIANGLE_FAN_;
-		this.TRIANGLE_STRIP = TRIANGLE_STRIP_;
-		this.UNPACK_ALIGNMENT = UNPACK_ALIGNMENT_;
-		this.UNPACK_COLORSPACE_CONVERSION_WEBGL = UNPACK_COLORSPACE_CONVERSION_WEBGL_;
-		this.UNPACK_FLIP_Y_WEBGL = UNPACK_FLIP_Y_WEBGL_;
-		this.UNPACK_PREMULTIPLY_ALPHA_WEBGL = UNPACK_PREMULTIPLY_ALPHA_WEBGL_;
-		this.UNSIGNED_BYTE = UNSIGNED_BYTE_;
-		this.UNSIGNED_INT = UNSIGNED_INT_;
-		this.UNSIGNED_SHORT = UNSIGNED_SHORT_;
-		this.UNSIGNED_SHORT_4_4_4_4 = UNSIGNED_SHORT_4_4_4_4_;
-		this.UNSIGNED_SHORT_5_5_5_1 = UNSIGNED_SHORT_5_5_5_1_;
-		this.UNSIGNED_SHORT_5_6_5 = UNSIGNED_SHORT_5_6_5_;
-		this.VALIDATE_STATUS = VALIDATE_STATUS_;
-		this.VENDOR = VENDOR_;
-		this.VERSION = VERSION_;
-		this.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_;
-		this.VERTEX_ATTRIB_ARRAY_ENABLED = VERTEX_ATTRIB_ARRAY_ENABLED_;
-		this.VERTEX_ATTRIB_ARRAY_NORMALIZED = VERTEX_ATTRIB_ARRAY_NORMALIZED_;
-		this.VERTEX_ATTRIB_ARRAY_POINTER = VERTEX_ATTRIB_ARRAY_POINTER_;
-		this.VERTEX_ATTRIB_ARRAY_SIZE = VERTEX_ATTRIB_ARRAY_SIZE_;
-		this.VERTEX_ATTRIB_ARRAY_STRIDE = VERTEX_ATTRIB_ARRAY_STRIDE_;
-		this.VERTEX_ATTRIB_ARRAY_TYPE = VERTEX_ATTRIB_ARRAY_TYPE_;
-		this.VERTEX_SHADER = VERTEX_SHADER_;
-		this.VIEWPORT = VIEWPORT_;
-		this.ZERO = ZERO_;
-	});
-	ptrType = $ptrType(Context);
-	ptrType$1 = $ptrType(ContextAttributes);
-	mapType = $mapType($String, $Bool);
-	ptrType$2 = $ptrType(RenderBuffer);
-	ptrType$3 = $ptrType(Buffer);
-	ptrType$4 = $ptrType(FrameBuffer);
-	ptrType$5 = $ptrType(Texture);
-	ptrType$6 = $ptrType(Shader);
-	sliceType = $sliceType(ptrType$6);
-	sliceType$1 = $sliceType($String);
-	ptrType$7 = $ptrType(js.Object);
-	sliceType$2 = $sliceType($Float32);
-	ptrType$8 = $ptrType(Program);
-	ptrType$9 = $ptrType(UniformLocation);
-	DefaultAttributes = function() {
-		var $ptr;
-		return new ContextAttributes.ptr(true, true, false, true, true, false);
-	};
-	$pkg.DefaultAttributes = DefaultAttributes;
-	NewContext = function(canvas, ca) {
-		var $ptr, attrs, ca, canvas, ctx, gl;
-		if ($global.WebGLRenderingContext === undefined) {
-			return [ptrType.nil, errors.New("Your browser doesn't appear to support webgl.")];
-		}
-		if (ca === ptrType$1.nil) {
-			ca = DefaultAttributes();
-		}
-		attrs = $makeMap($String.keyFor, [{ k: "alpha", v: ca.Alpha }, { k: "depth", v: ca.Depth }, { k: "stencil", v: ca.Stencil }, { k: "antialias", v: ca.Antialias }, { k: "premultipliedAlpha", v: ca.PremultipliedAlpha }, { k: "preserveDrawingBuffer", v: ca.PreserveDrawingBuffer }]);
-		gl = canvas.getContext($externalize("webgl", $String), $externalize(attrs, mapType));
-		if (gl === null) {
-			gl = canvas.getContext($externalize("experimental-webgl", $String), $externalize(attrs, mapType));
-			if (gl === null) {
-				return [ptrType.nil, errors.New("Creating a webgl context has failed.")];
-			}
-		}
-		ctx = new Context.ptr(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-		ctx.Object = gl;
-		return [ctx, $ifaceNil];
-	};
-	$pkg.NewContext = NewContext;
-	Context.ptr.prototype.GetContextAttributes = function() {
-		var $ptr, c, ca;
-		c = this;
-		ca = c.Object.getContextAttributes();
-		return new ContextAttributes.ptr(!!(ca.alpha), !!(ca.depth), !!(ca.stencil), !!(ca.antialias), !!(ca.premultipliedAlpha), !!(ca.preservedDrawingBuffer));
-	};
-	Context.prototype.GetContextAttributes = function() { return this.$val.GetContextAttributes(); };
-	Context.ptr.prototype.BlendColor = function(r, g, b, a) {
-		var $ptr, a, b, c, g, r;
-		c = this;
-		c.Object.blendColor(r, g, b, a);
-	};
-	Context.prototype.BlendColor = function(r, g, b, a) { return this.$val.BlendColor(r, g, b, a); };
-	Context.ptr.prototype.BlendEquation = function(mode) {
-		var $ptr, c, mode;
-		c = this;
-		c.Object.blendEquation(mode);
-	};
-	Context.prototype.BlendEquation = function(mode) { return this.$val.BlendEquation(mode); };
-	Context.ptr.prototype.BlendEquationSeparate = function(modeRGB, modeAlpha) {
-		var $ptr, c, modeAlpha, modeRGB;
-		c = this;
-		c.Object.blendEquationSeparate(modeRGB, modeAlpha);
-	};
-	Context.prototype.BlendEquationSeparate = function(modeRGB, modeAlpha) { return this.$val.BlendEquationSeparate(modeRGB, modeAlpha); };
-	Context.ptr.prototype.BlendFunc = function(sfactor, dfactor) {
-		var $ptr, c, dfactor, sfactor;
-		c = this;
-		c.Object.blendFunc(sfactor, dfactor);
-	};
-	Context.prototype.BlendFunc = function(sfactor, dfactor) { return this.$val.BlendFunc(sfactor, dfactor); };
-	Context.ptr.prototype.BlendFuncSeparate = function(srcRGB, dstRGB, srcAlpha, dstAlpha) {
-		var $ptr, c, dstAlpha, dstRGB, srcAlpha, srcRGB;
-		c = this;
-		c.Object.blendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
-	};
-	Context.prototype.BlendFuncSeparate = function(srcRGB, dstRGB, srcAlpha, dstAlpha) { return this.$val.BlendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha); };
-	Context.ptr.prototype.DepthFunc = function(fun) {
-		var $ptr, c, fun;
-		c = this;
-		c.Object.depthFunc(fun);
-	};
-	Context.prototype.DepthFunc = function(fun) { return this.$val.DepthFunc(fun); };
-	Context.ptr.prototype.SampleCoverage = function(value, invert) {
-		var $ptr, c, invert, value;
-		c = this;
-		c.Object.sampleCoverage(value, $externalize(invert, $Bool));
-	};
-	Context.prototype.SampleCoverage = function(value, invert) { return this.$val.SampleCoverage(value, invert); };
-	Context.ptr.prototype.StencilFunc = function(function$1, ref, mask) {
-		var $ptr, c, function$1, mask, ref;
-		c = this;
-		c.Object.stencilFunc(function$1, ref, mask);
-	};
-	Context.prototype.StencilFunc = function(function$1, ref, mask) { return this.$val.StencilFunc(function$1, ref, mask); };
-	Context.ptr.prototype.StencilFuncSeparate = function(face, function$1, ref, mask) {
-		var $ptr, c, face, function$1, mask, ref;
-		c = this;
-		c.Object.stencilFuncSeparate(face, function$1, ref, mask);
-	};
-	Context.prototype.StencilFuncSeparate = function(face, function$1, ref, mask) { return this.$val.StencilFuncSeparate(face, function$1, ref, mask); };
-	Context.ptr.prototype.ActiveTexture = function(texture) {
-		var $ptr, c, texture;
-		c = this;
-		c.Object.activeTexture(texture);
-	};
-	Context.prototype.ActiveTexture = function(texture) { return this.$val.ActiveTexture(texture); };
-	Context.ptr.prototype.AttachShader = function(program, shader) {
-		var $ptr, c, program, shader;
-		c = this;
-		c.Object.attachShader(program.Object, shader.Object);
-	};
-	Context.prototype.AttachShader = function(program, shader) { return this.$val.AttachShader(program, shader); };
-	Context.ptr.prototype.BindAttribLocation = function(program, index, name) {
-		var $ptr, c, index, name, program;
-		c = this;
-		c.Object.bindAttribLocation(program.Object, index, $externalize(name, $String));
-	};
-	Context.prototype.BindAttribLocation = function(program, index, name) { return this.$val.BindAttribLocation(program, index, name); };
-	Context.ptr.prototype.BindBuffer = function(target, buffer) {
-		var $ptr, buffer, c, target;
-		c = this;
-		c.Object.bindBuffer(target, buffer.Object);
-	};
-	Context.prototype.BindBuffer = function(target, buffer) { return this.$val.BindBuffer(target, buffer); };
-	Context.ptr.prototype.BindFramebuffer = function(target, framebuffer) {
-		var $ptr, c, framebuffer, target;
-		c = this;
-		c.Object.bindFramebuffer(target, framebuffer.Object);
-	};
-	Context.prototype.BindFramebuffer = function(target, framebuffer) { return this.$val.BindFramebuffer(target, framebuffer); };
-	Context.ptr.prototype.BindRenderbuffer = function(target, renderbuffer) {
-		var $ptr, c, renderbuffer, target;
-		c = this;
-		c.Object.bindRenderbuffer(target, $externalize(renderbuffer, ptrType$2));
-	};
-	Context.prototype.BindRenderbuffer = function(target, renderbuffer) { return this.$val.BindRenderbuffer(target, renderbuffer); };
-	Context.ptr.prototype.BindTexture = function(target, texture) {
-		var $ptr, c, target, texture;
-		c = this;
-		c.Object.bindTexture(target, texture.Object);
-	};
-	Context.prototype.BindTexture = function(target, texture) { return this.$val.BindTexture(target, texture); };
-	Context.ptr.prototype.BufferData = function(target, data, usage) {
-		var $ptr, c, data, target, usage;
-		c = this;
-		c.Object.bufferData(target, $externalize(data, $emptyInterface), usage);
-	};
-	Context.prototype.BufferData = function(target, data, usage) { return this.$val.BufferData(target, data, usage); };
-	Context.ptr.prototype.BufferSubData = function(target, offset, data) {
-		var $ptr, c, data, offset, target;
-		c = this;
-		c.Object.bufferSubData(target, offset, $externalize(data, $emptyInterface));
-	};
-	Context.prototype.BufferSubData = function(target, offset, data) { return this.$val.BufferSubData(target, offset, data); };
-	Context.ptr.prototype.CheckFramebufferStatus = function(target) {
-		var $ptr, c, target;
-		c = this;
-		return $parseInt(c.Object.checkFramebufferStatus(target)) >> 0;
-	};
-	Context.prototype.CheckFramebufferStatus = function(target) { return this.$val.CheckFramebufferStatus(target); };
-	Context.ptr.prototype.Clear = function(flags) {
-		var $ptr, c, flags;
-		c = this;
-		c.Object.clear(flags);
-	};
-	Context.prototype.Clear = function(flags) { return this.$val.Clear(flags); };
-	Context.ptr.prototype.ClearColor = function(r, g, b, a) {
-		var $ptr, a, b, c, g, r;
-		c = this;
-		c.Object.clearColor(r, g, b, a);
-	};
-	Context.prototype.ClearColor = function(r, g, b, a) { return this.$val.ClearColor(r, g, b, a); };
-	Context.ptr.prototype.ClearDepth = function(depth) {
-		var $ptr, c, depth;
-		c = this;
-		c.Object.clearDepth(depth);
-	};
-	Context.prototype.ClearDepth = function(depth) { return this.$val.ClearDepth(depth); };
-	Context.ptr.prototype.ClearStencil = function(s) {
-		var $ptr, c, s;
-		c = this;
-		c.Object.clearStencil(s);
-	};
-	Context.prototype.ClearStencil = function(s) { return this.$val.ClearStencil(s); };
-	Context.ptr.prototype.ColorMask = function(r, g, b, a) {
-		var $ptr, a, b, c, g, r;
-		c = this;
-		c.Object.colorMask($externalize(r, $Bool), $externalize(g, $Bool), $externalize(b, $Bool), $externalize(a, $Bool));
-	};
-	Context.prototype.ColorMask = function(r, g, b, a) { return this.$val.ColorMask(r, g, b, a); };
-	Context.ptr.prototype.CompileShader = function(shader) {
-		var $ptr, c, shader;
-		c = this;
-		c.Object.compileShader(shader.Object);
-	};
-	Context.prototype.CompileShader = function(shader) { return this.$val.CompileShader(shader); };
-	Context.ptr.prototype.CopyTexImage2D = function(target, level, internal, x, y, w, h, border) {
-		var $ptr, border, c, h, internal, level, target, w, x, y;
-		c = this;
-		c.Object.copyTexImage2D(target, level, internal, x, y, w, h, border);
-	};
-	Context.prototype.CopyTexImage2D = function(target, level, internal, x, y, w, h, border) { return this.$val.CopyTexImage2D(target, level, internal, x, y, w, h, border); };
-	Context.ptr.prototype.CopyTexSubImage2D = function(target, level, xoffset, yoffset, x, y, w, h) {
-		var $ptr, c, h, level, target, w, x, xoffset, y, yoffset;
-		c = this;
-		c.Object.copyTexSubImage2D(target, level, xoffset, yoffset, x, y, w, h);
-	};
-	Context.prototype.CopyTexSubImage2D = function(target, level, xoffset, yoffset, x, y, w, h) { return this.$val.CopyTexSubImage2D(target, level, xoffset, yoffset, x, y, w, h); };
-	Context.ptr.prototype.CreateBuffer = function() {
-		var $ptr, c;
-		c = this;
-		return new Buffer.ptr(c.Object.createBuffer());
-	};
-	Context.prototype.CreateBuffer = function() { return this.$val.CreateBuffer(); };
-	Context.ptr.prototype.CreateFramebuffer = function() {
-		var $ptr, c;
-		c = this;
-		return new FrameBuffer.ptr(c.Object.createFramebuffer());
-	};
-	Context.prototype.CreateFramebuffer = function() { return this.$val.CreateFramebuffer(); };
-	Context.ptr.prototype.CreateProgram = function() {
-		var $ptr, c;
-		c = this;
-		return new Program.ptr(c.Object.createProgram());
-	};
-	Context.prototype.CreateProgram = function() { return this.$val.CreateProgram(); };
-	Context.ptr.prototype.CreateRenderbuffer = function() {
-		var $ptr, c;
-		c = this;
-		return new RenderBuffer.ptr(c.Object.createRenderbuffer());
-	};
-	Context.prototype.CreateRenderbuffer = function() { return this.$val.CreateRenderbuffer(); };
-	Context.ptr.prototype.CreateShader = function(typ) {
-		var $ptr, c, typ;
-		c = this;
-		return new Shader.ptr(c.Object.createShader(typ));
-	};
-	Context.prototype.CreateShader = function(typ) { return this.$val.CreateShader(typ); };
-	Context.ptr.prototype.CreateTexture = function() {
-		var $ptr, c;
-		c = this;
-		return new Texture.ptr(c.Object.createTexture());
-	};
-	Context.prototype.CreateTexture = function() { return this.$val.CreateTexture(); };
-	Context.ptr.prototype.CullFace = function(mode) {
-		var $ptr, c, mode;
-		c = this;
-		c.Object.cullFace(mode);
-	};
-	Context.prototype.CullFace = function(mode) { return this.$val.CullFace(mode); };
-	Context.ptr.prototype.DeleteBuffer = function(buffer) {
-		var $ptr, buffer, c;
-		c = this;
-		c.Object.deleteBuffer($externalize(buffer, ptrType$3));
-	};
-	Context.prototype.DeleteBuffer = function(buffer) { return this.$val.DeleteBuffer(buffer); };
-	Context.ptr.prototype.DeleteFramebuffer = function(framebuffer) {
-		var $ptr, c, framebuffer;
-		c = this;
-		c.Object.deleteFramebuffer($externalize(framebuffer, ptrType$4));
-	};
-	Context.prototype.DeleteFramebuffer = function(framebuffer) { return this.$val.DeleteFramebuffer(framebuffer); };
-	Context.ptr.prototype.DeleteProgram = function(program) {
-		var $ptr, c, program;
-		c = this;
-		c.Object.deleteProgram(program.Object);
-	};
-	Context.prototype.DeleteProgram = function(program) { return this.$val.DeleteProgram(program); };
-	Context.ptr.prototype.DeleteRenderbuffer = function(renderbuffer) {
-		var $ptr, c, renderbuffer;
-		c = this;
-		c.Object.deleteRenderbuffer(renderbuffer.Object);
-	};
-	Context.prototype.DeleteRenderbuffer = function(renderbuffer) { return this.$val.DeleteRenderbuffer(renderbuffer); };
-	Context.ptr.prototype.DeleteShader = function(shader) {
-		var $ptr, c, shader;
-		c = this;
-		c.Object.deleteShader(shader.Object);
-	};
-	Context.prototype.DeleteShader = function(shader) { return this.$val.DeleteShader(shader); };
-	Context.ptr.prototype.DeleteTexture = function(texture) {
-		var $ptr, c, texture;
-		c = this;
-		c.Object.deleteTexture(texture.Object);
-	};
-	Context.prototype.DeleteTexture = function(texture) { return this.$val.DeleteTexture(texture); };
-	Context.ptr.prototype.DepthMask = function(flag) {
-		var $ptr, c, flag;
-		c = this;
-		c.Object.depthMask($externalize(flag, $Bool));
-	};
-	Context.prototype.DepthMask = function(flag) { return this.$val.DepthMask(flag); };
-	Context.ptr.prototype.DepthRange = function(zNear, zFar) {
-		var $ptr, c, zFar, zNear;
-		c = this;
-		c.Object.depthRange(zNear, zFar);
-	};
-	Context.prototype.DepthRange = function(zNear, zFar) { return this.$val.DepthRange(zNear, zFar); };
-	Context.ptr.prototype.DetachShader = function(program, shader) {
-		var $ptr, c, program, shader;
-		c = this;
-		c.Object.detachShader(program.Object, shader.Object);
-	};
-	Context.prototype.DetachShader = function(program, shader) { return this.$val.DetachShader(program, shader); };
-	Context.ptr.prototype.Disable = function(cap) {
-		var $ptr, c, cap;
-		c = this;
-		c.Object.disable(cap);
-	};
-	Context.prototype.Disable = function(cap) { return this.$val.Disable(cap); };
-	Context.ptr.prototype.DisableVertexAttribArray = function(index) {
-		var $ptr, c, index;
-		c = this;
-		c.Object.disableVertexAttribArray(index);
-	};
-	Context.prototype.DisableVertexAttribArray = function(index) { return this.$val.DisableVertexAttribArray(index); };
-	Context.ptr.prototype.DrawArrays = function(mode, first, count) {
-		var $ptr, c, count, first, mode;
-		c = this;
-		c.Object.drawArrays(mode, first, count);
-	};
-	Context.prototype.DrawArrays = function(mode, first, count) { return this.$val.DrawArrays(mode, first, count); };
-	Context.ptr.prototype.DrawElements = function(mode, count, typ, offset) {
-		var $ptr, c, count, mode, offset, typ;
-		c = this;
-		c.Object.drawElements(mode, count, typ, offset);
-	};
-	Context.prototype.DrawElements = function(mode, count, typ, offset) { return this.$val.DrawElements(mode, count, typ, offset); };
-	Context.ptr.prototype.Enable = function(cap) {
-		var $ptr, c, cap;
-		c = this;
-		c.Object.enable(cap);
-	};
-	Context.prototype.Enable = function(cap) { return this.$val.Enable(cap); };
-	Context.ptr.prototype.EnableVertexAttribArray = function(index) {
-		var $ptr, c, index;
-		c = this;
-		c.Object.enableVertexAttribArray(index);
-	};
-	Context.prototype.EnableVertexAttribArray = function(index) { return this.$val.EnableVertexAttribArray(index); };
-	Context.ptr.prototype.Finish = function() {
-		var $ptr, c;
-		c = this;
-		c.Object.finish();
-	};
-	Context.prototype.Finish = function() { return this.$val.Finish(); };
-	Context.ptr.prototype.Flush = function() {
-		var $ptr, c;
-		c = this;
-		c.Object.flush();
-	};
-	Context.prototype.Flush = function() { return this.$val.Flush(); };
-	Context.ptr.prototype.FrameBufferRenderBuffer = function(target, attachment, renderbufferTarget, renderbuffer) {
-		var $ptr, attachment, c, renderbuffer, renderbufferTarget, target;
-		c = this;
-		c.Object.framebufferRenderBuffer(target, attachment, renderbufferTarget, $externalize(renderbuffer, ptrType$2));
-	};
-	Context.prototype.FrameBufferRenderBuffer = function(target, attachment, renderbufferTarget, renderbuffer) { return this.$val.FrameBufferRenderBuffer(target, attachment, renderbufferTarget, renderbuffer); };
-	Context.ptr.prototype.FramebufferTexture2D = function(target, attachment, textarget, texture, level) {
-		var $ptr, attachment, c, level, target, textarget, texture;
-		c = this;
-		c.Object.framebufferTexture2D(target, attachment, textarget, $externalize(texture, ptrType$5), level);
-	};
-	Context.prototype.FramebufferTexture2D = function(target, attachment, textarget, texture, level) { return this.$val.FramebufferTexture2D(target, attachment, textarget, texture, level); };
-	Context.ptr.prototype.FrontFace = function(mode) {
-		var $ptr, c, mode;
-		c = this;
-		c.Object.frontFace(mode);
-	};
-	Context.prototype.FrontFace = function(mode) { return this.$val.FrontFace(mode); };
-	Context.ptr.prototype.GenerateMipmap = function(target) {
-		var $ptr, c, target;
-		c = this;
-		c.Object.generateMipmap(target);
-	};
-	Context.prototype.GenerateMipmap = function(target) { return this.$val.GenerateMipmap(target); };
-	Context.ptr.prototype.GetActiveAttrib = function(program, index) {
-		var $ptr, c, index, program;
-		c = this;
-		return $internalize(c.Object.getActiveAttrib(program.Object, index), $String);
-	};
-	Context.prototype.GetActiveAttrib = function(program, index) { return this.$val.GetActiveAttrib(program, index); };
-	Context.ptr.prototype.GetActiveUniform = function(program, index) {
-		var $ptr, c, index, program;
-		c = this;
-		return $internalize(c.Object.getActiveUniform(program.Object, index), $String);
-	};
-	Context.prototype.GetActiveUniform = function(program, index) { return this.$val.GetActiveUniform(program, index); };
-	Context.ptr.prototype.GetAttachedShaders = function(program) {
-		var $ptr, c, i, objs, program, shaders;
-		c = this;
-		objs = c.Object.getAttachedShaders(program.Object);
-		shaders = $makeSlice(sliceType, $parseInt(objs.length));
-		i = 0;
-		while (true) {
-			if (!(i < $parseInt(objs.length))) { break; }
-			((i < 0 || i >= shaders.$length) ? $throwRuntimeError("index out of range") : shaders.$array[shaders.$offset + i] = new Shader.ptr(objs[i]));
-			i = i + (1) >> 0;
-		}
-		return shaders;
-	};
-	Context.prototype.GetAttachedShaders = function(program) { return this.$val.GetAttachedShaders(program); };
-	Context.ptr.prototype.GetAttribLocation = function(program, name) {
-		var $ptr, c, name, program;
-		c = this;
-		return $parseInt(c.Object.getAttribLocation(program.Object, $externalize(name, $String))) >> 0;
-	};
-	Context.prototype.GetAttribLocation = function(program, name) { return this.$val.GetAttribLocation(program, name); };
-	Context.ptr.prototype.GetBufferParameter = function(target, pname) {
-		var $ptr, c, pname, target;
-		c = this;
-		return $parseInt(c.Object.getBufferParameter(target, pname)) >> 0;
-	};
-	Context.prototype.GetBufferParameter = function(target, pname) { return this.$val.GetBufferParameter(target, pname); };
-	Context.ptr.prototype.GetParameter = function(pname) {
-		var $ptr, c, pname;
-		c = this;
-		return c.Object.getParameter(pname);
-	};
-	Context.prototype.GetParameter = function(pname) { return this.$val.GetParameter(pname); };
-	Context.ptr.prototype.GetError = function() {
-		var $ptr, c;
-		c = this;
-		return $parseInt(c.Object.getError()) >> 0;
-	};
-	Context.prototype.GetError = function() { return this.$val.GetError(); };
-	Context.ptr.prototype.GetExtension = function(name) {
-		var $ptr, c, name;
-		c = this;
-		return c.Object.getExtension($externalize(name, $String));
-	};
-	Context.prototype.GetExtension = function(name) { return this.$val.GetExtension(name); };
-	Context.ptr.prototype.GetFramebufferAttachmentParameter = function(target, attachment, pname) {
-		var $ptr, attachment, c, pname, target;
-		c = this;
-		return c.Object.getFramebufferAttachmentParameter(target, attachment, pname);
-	};
-	Context.prototype.GetFramebufferAttachmentParameter = function(target, attachment, pname) { return this.$val.GetFramebufferAttachmentParameter(target, attachment, pname); };
-	Context.ptr.prototype.GetProgramParameteri = function(program, pname) {
-		var $ptr, c, pname, program;
-		c = this;
-		return $parseInt(c.Object.getProgramParameter(program.Object, pname)) >> 0;
-	};
-	Context.prototype.GetProgramParameteri = function(program, pname) { return this.$val.GetProgramParameteri(program, pname); };
-	Context.ptr.prototype.GetProgramParameterb = function(program, pname) {
-		var $ptr, c, pname, program;
-		c = this;
-		return !!(c.Object.getProgramParameter(program.Object, pname));
-	};
-	Context.prototype.GetProgramParameterb = function(program, pname) { return this.$val.GetProgramParameterb(program, pname); };
-	Context.ptr.prototype.GetProgramInfoLog = function(program) {
-		var $ptr, c, program;
-		c = this;
-		return $internalize(c.Object.getProgramInfoLog(program.Object), $String);
-	};
-	Context.prototype.GetProgramInfoLog = function(program) { return this.$val.GetProgramInfoLog(program); };
-	Context.ptr.prototype.GetRenderbufferParameter = function(target, pname) {
-		var $ptr, c, pname, target;
-		c = this;
-		return $parseInt(c.Object.getRenderbufferParameter(target, pname)) >> 0;
-	};
-	Context.prototype.GetRenderbufferParameter = function(target, pname) { return this.$val.GetRenderbufferParameter(target, pname); };
-	Context.ptr.prototype.GetShaderParameter = function(shader, pname) {
-		var $ptr, c, pname, shader;
-		c = this;
-		return c.Object.getShaderParameter(shader.Object, pname);
-	};
-	Context.prototype.GetShaderParameter = function(shader, pname) { return this.$val.GetShaderParameter(shader, pname); };
-	Context.ptr.prototype.GetShaderParameterb = function(shader, pname) {
-		var $ptr, c, pname, shader;
-		c = this;
-		return !!(c.Object.getShaderParameter(shader.Object, pname));
-	};
-	Context.prototype.GetShaderParameterb = function(shader, pname) { return this.$val.GetShaderParameterb(shader, pname); };
-	Context.ptr.prototype.GetShaderInfoLog = function(shader) {
-		var $ptr, c, shader;
-		c = this;
-		return $internalize(c.Object.getShaderInfoLog(shader.Object), $String);
-	};
-	Context.prototype.GetShaderInfoLog = function(shader) { return this.$val.GetShaderInfoLog(shader); };
-	Context.ptr.prototype.GetShaderSource = function(shader) {
-		var $ptr, c, shader;
-		c = this;
-		return $internalize(c.Object.getShaderSource(shader.Object), $String);
-	};
-	Context.prototype.GetShaderSource = function(shader) { return this.$val.GetShaderSource(shader); };
-	Context.ptr.prototype.GetSupportedExtensions = function() {
-		var $ptr, c, ext, extensions, i;
-		c = this;
-		ext = c.Object.getSupportedExtensions();
-		extensions = $makeSlice(sliceType$1, $parseInt(ext.length));
-		i = 0;
-		while (true) {
-			if (!(i < $parseInt(ext.length))) { break; }
-			((i < 0 || i >= extensions.$length) ? $throwRuntimeError("index out of range") : extensions.$array[extensions.$offset + i] = $internalize(ext[i], $String));
-			i = i + (1) >> 0;
-		}
-		return extensions;
-	};
-	Context.prototype.GetSupportedExtensions = function() { return this.$val.GetSupportedExtensions(); };
-	Context.ptr.prototype.GetTexParameter = function(target, pname) {
-		var $ptr, c, pname, target;
-		c = this;
-		return c.Object.getTexParameter(target, pname);
-	};
-	Context.prototype.GetTexParameter = function(target, pname) { return this.$val.GetTexParameter(target, pname); };
-	Context.ptr.prototype.GetUniform = function(program, location) {
-		var $ptr, c, location, program;
-		c = this;
-		return c.Object.getUniform(program.Object, location.Object);
-	};
-	Context.prototype.GetUniform = function(program, location) { return this.$val.GetUniform(program, location); };
-	Context.ptr.prototype.GetUniformLocation = function(program, name) {
-		var $ptr, c, name, program;
-		c = this;
-		return new UniformLocation.ptr(c.Object.getUniformLocation(program.Object, $externalize(name, $String)));
-	};
-	Context.prototype.GetUniformLocation = function(program, name) { return this.$val.GetUniformLocation(program, name); };
-	Context.ptr.prototype.GetVertexAttrib = function(index, pname) {
-		var $ptr, c, index, pname;
-		c = this;
-		return c.Object.getVertexAttrib(index, pname);
-	};
-	Context.prototype.GetVertexAttrib = function(index, pname) { return this.$val.GetVertexAttrib(index, pname); };
-	Context.ptr.prototype.GetVertexAttribOffset = function(index, pname) {
-		var $ptr, c, index, pname;
-		c = this;
-		return $parseInt(c.Object.getVertexAttribOffset(index, pname)) >> 0;
-	};
-	Context.prototype.GetVertexAttribOffset = function(index, pname) { return this.$val.GetVertexAttribOffset(index, pname); };
-	Context.ptr.prototype.IsBuffer = function(buffer) {
-		var $ptr, buffer, c;
-		c = this;
-		return !!(c.Object.isBuffer(buffer));
-	};
-	Context.prototype.IsBuffer = function(buffer) { return this.$val.IsBuffer(buffer); };
-	Context.ptr.prototype.IsContextLost = function() {
-		var $ptr, c;
-		c = this;
-		return !!(c.Object.isContextLost());
-	};
-	Context.prototype.IsContextLost = function() { return this.$val.IsContextLost(); };
-	Context.ptr.prototype.IsFramebuffer = function(framebuffer) {
-		var $ptr, c, framebuffer;
-		c = this;
-		return !!(c.Object.isFramebuffer(framebuffer.Object));
-	};
-	Context.prototype.IsFramebuffer = function(framebuffer) { return this.$val.IsFramebuffer(framebuffer); };
-	Context.ptr.prototype.IsProgram = function(program) {
-		var $ptr, c, program;
-		c = this;
-		return !!(c.Object.isProgram(program.Object));
-	};
-	Context.prototype.IsProgram = function(program) { return this.$val.IsProgram(program); };
-	Context.ptr.prototype.IsRenderbuffer = function(renderbuffer) {
-		var $ptr, c, renderbuffer;
-		c = this;
-		return !!(c.Object.isRenderbuffer(renderbuffer.Object));
-	};
-	Context.prototype.IsRenderbuffer = function(renderbuffer) { return this.$val.IsRenderbuffer(renderbuffer); };
-	Context.ptr.prototype.IsShader = function(shader) {
-		var $ptr, c, shader;
-		c = this;
-		return !!(c.Object.isShader(shader.Object));
-	};
-	Context.prototype.IsShader = function(shader) { return this.$val.IsShader(shader); };
-	Context.ptr.prototype.IsTexture = function(texture) {
-		var $ptr, c, texture;
-		c = this;
-		return !!(c.Object.isTexture(texture.Object));
-	};
-	Context.prototype.IsTexture = function(texture) { return this.$val.IsTexture(texture); };
-	Context.ptr.prototype.IsEnabled = function(capability) {
-		var $ptr, c, capability;
-		c = this;
-		return !!(c.Object.isEnabled(capability));
-	};
-	Context.prototype.IsEnabled = function(capability) { return this.$val.IsEnabled(capability); };
-	Context.ptr.prototype.LineWidth = function(width) {
-		var $ptr, c, width;
-		c = this;
-		c.Object.lineWidth(width);
-	};
-	Context.prototype.LineWidth = function(width) { return this.$val.LineWidth(width); };
-	Context.ptr.prototype.LinkProgram = function(program) {
-		var $ptr, c, program;
-		c = this;
-		c.Object.linkProgram(program.Object);
-	};
-	Context.prototype.LinkProgram = function(program) { return this.$val.LinkProgram(program); };
-	Context.ptr.prototype.PixelStorei = function(pname, param) {
-		var $ptr, c, param, pname;
-		c = this;
-		c.Object.pixelStorei(pname, param);
-	};
-	Context.prototype.PixelStorei = function(pname, param) { return this.$val.PixelStorei(pname, param); };
-	Context.ptr.prototype.PolygonOffset = function(factor, units) {
-		var $ptr, c, factor, units;
-		c = this;
-		c.Object.polygonOffset(factor, units);
-	};
-	Context.prototype.PolygonOffset = function(factor, units) { return this.$val.PolygonOffset(factor, units); };
-	Context.ptr.prototype.ReadPixels = function(x, y, width, height, format, typ, pixels) {
-		var $ptr, c, format, height, pixels, typ, width, x, y;
-		c = this;
-		c.Object.readPixels(x, y, width, height, format, typ, pixels);
-	};
-	Context.prototype.ReadPixels = function(x, y, width, height, format, typ, pixels) { return this.$val.ReadPixels(x, y, width, height, format, typ, pixels); };
-	Context.ptr.prototype.RenderbufferStorage = function(target, internalFormat, width, height) {
-		var $ptr, c, height, internalFormat, target, width;
-		c = this;
-		c.Object.renderbufferStorage(target, internalFormat, width, height);
-	};
-	Context.prototype.RenderbufferStorage = function(target, internalFormat, width, height) { return this.$val.RenderbufferStorage(target, internalFormat, width, height); };
-	Context.ptr.prototype.Scissor = function(x, y, width, height) {
-		var $ptr, c, height, width, x, y;
-		c = this;
-		c.Object.scissor(x, y, width, height);
-	};
-	Context.prototype.Scissor = function(x, y, width, height) { return this.$val.Scissor(x, y, width, height); };
-	Context.ptr.prototype.ShaderSource = function(shader, source) {
-		var $ptr, c, shader, source;
-		c = this;
-		c.Object.shaderSource(shader.Object, $externalize(source, $String));
-	};
-	Context.prototype.ShaderSource = function(shader, source) { return this.$val.ShaderSource(shader, source); };
-	Context.ptr.prototype.TexImage2D = function(target, level, internalFormat, format, kind, data) {
-		var $ptr, c, data, format, internalFormat, kind, level, pix, target;
-		c = this;
-		pix = null;
-		if ($interfaceIsEqual(data, $ifaceNil)) {
-			pix = null;
-		} else {
-			pix = $assertType(data, ptrType$7);
-		}
-		c.Object.texImage2D(target, level, internalFormat, format, kind, pix);
-	};
-	Context.prototype.TexImage2D = function(target, level, internalFormat, format, kind, data) { return this.$val.TexImage2D(target, level, internalFormat, format, kind, data); };
-	Context.ptr.prototype.TexParameteri = function(target, pname, param) {
-		var $ptr, c, param, pname, target;
-		c = this;
-		c.Object.texParameteri(target, pname, param);
-	};
-	Context.prototype.TexParameteri = function(target, pname, param) { return this.$val.TexParameteri(target, pname, param); };
-	Context.ptr.prototype.TexSubImage2D = function(target, level, xoffset, yoffset, format, typ, image) {
-		var $ptr, c, format, image, level, target, typ, xoffset, yoffset;
-		c = this;
-		c.Object.texSubImage2D(target, level, xoffset, yoffset, format, typ, image);
-	};
-	Context.prototype.TexSubImage2D = function(target, level, xoffset, yoffset, format, typ, image) { return this.$val.TexSubImage2D(target, level, xoffset, yoffset, format, typ, image); };
-	Context.ptr.prototype.Uniform1f = function(location, x) {
-		var $ptr, c, location, x;
-		c = this;
-		c.Object.uniform1f(location.Object, x);
-	};
-	Context.prototype.Uniform1f = function(location, x) { return this.$val.Uniform1f(location, x); };
-	Context.ptr.prototype.Uniform1i = function(location, x) {
-		var $ptr, c, location, x;
-		c = this;
-		c.Object.uniform1i(location.Object, x);
-	};
-	Context.prototype.Uniform1i = function(location, x) { return this.$val.Uniform1i(location, x); };
-	Context.ptr.prototype.Uniform2f = function(location, x, y) {
-		var $ptr, c, location, x, y;
-		c = this;
-		c.Object.uniform2f(location.Object, x, y);
-	};
-	Context.prototype.Uniform2f = function(location, x, y) { return this.$val.Uniform2f(location, x, y); };
-	Context.ptr.prototype.Uniform2i = function(location, x, y) {
-		var $ptr, c, location, x, y;
-		c = this;
-		c.Object.uniform2i(location.Object, x, y);
-	};
-	Context.prototype.Uniform2i = function(location, x, y) { return this.$val.Uniform2i(location, x, y); };
-	Context.ptr.prototype.Uniform3f = function(location, x, y, z) {
-		var $ptr, c, location, x, y, z;
-		c = this;
-		c.Object.uniform3f(location.Object, x, y, z);
-	};
-	Context.prototype.Uniform3f = function(location, x, y, z) { return this.$val.Uniform3f(location, x, y, z); };
-	Context.ptr.prototype.Uniform3i = function(location, x, y, z) {
-		var $ptr, c, location, x, y, z;
-		c = this;
-		c.Object.uniform3i(location.Object, x, y, z);
-	};
-	Context.prototype.Uniform3i = function(location, x, y, z) { return this.$val.Uniform3i(location, x, y, z); };
-	Context.ptr.prototype.Uniform4f = function(location, x, y, z, w) {
-		var $ptr, c, location, w, x, y, z;
-		c = this;
-		c.Object.uniform4f(location.Object, x, y, z, w);
-	};
-	Context.prototype.Uniform4f = function(location, x, y, z, w) { return this.$val.Uniform4f(location, x, y, z, w); };
-	Context.ptr.prototype.Uniform4i = function(location, x, y, z, w) {
-		var $ptr, c, location, w, x, y, z;
-		c = this;
-		c.Object.uniform4i(location.Object, x, y, z, w);
-	};
-	Context.prototype.Uniform4i = function(location, x, y, z, w) { return this.$val.Uniform4i(location, x, y, z, w); };
-	Context.ptr.prototype.UniformMatrix2fv = function(location, transpose, value) {
-		var $ptr, c, location, transpose, value;
-		c = this;
-		c.Object.uniformMatrix2fv(location.Object, $externalize(transpose, $Bool), $externalize(value, sliceType$2));
-	};
-	Context.prototype.UniformMatrix2fv = function(location, transpose, value) { return this.$val.UniformMatrix2fv(location, transpose, value); };
-	Context.ptr.prototype.UniformMatrix3fv = function(location, transpose, value) {
-		var $ptr, c, location, transpose, value;
-		c = this;
-		c.Object.uniformMatrix3fv(location.Object, $externalize(transpose, $Bool), $externalize(value, sliceType$2));
-	};
-	Context.prototype.UniformMatrix3fv = function(location, transpose, value) { return this.$val.UniformMatrix3fv(location, transpose, value); };
-	Context.ptr.prototype.UniformMatrix4fv = function(location, transpose, value) {
-		var $ptr, c, location, transpose, value;
-		c = this;
-		c.Object.uniformMatrix4fv(location.Object, $externalize(transpose, $Bool), $externalize(value, sliceType$2));
-	};
-	Context.prototype.UniformMatrix4fv = function(location, transpose, value) { return this.$val.UniformMatrix4fv(location, transpose, value); };
-	Context.ptr.prototype.UseProgram = function(program) {
-		var $ptr, c, program;
-		c = this;
-		c.Object.useProgram(program.Object);
-	};
-	Context.prototype.UseProgram = function(program) { return this.$val.UseProgram(program); };
-	Context.ptr.prototype.ValidateProgram = function(program) {
-		var $ptr, c, program;
-		c = this;
-		c.Object.validateProgram(program.Object);
-	};
-	Context.prototype.ValidateProgram = function(program) { return this.$val.ValidateProgram(program); };
-	Context.ptr.prototype.VertexAttribPointer = function(index, size, typ, normal, stride, offset) {
-		var $ptr, c, index, normal, offset, size, stride, typ;
-		c = this;
-		c.Object.vertexAttribPointer(index, size, typ, $externalize(normal, $Bool), stride, offset);
-	};
-	Context.prototype.VertexAttribPointer = function(index, size, typ, normal, stride, offset) { return this.$val.VertexAttribPointer(index, size, typ, normal, stride, offset); };
-	Context.ptr.prototype.Viewport = function(x, y, width, height) {
-		var $ptr, c, height, width, x, y;
-		c = this;
-		c.Object.viewport(x, y, width, height);
-	};
-	Context.prototype.Viewport = function(x, y, width, height) { return this.$val.Viewport(x, y, width, height); };
-	ptrType.methods = [{prop: "GetContextAttributes", name: "GetContextAttributes", pkg: "", typ: $funcType([], [ContextAttributes], false)}, {prop: "BlendColor", name: "BlendColor", pkg: "", typ: $funcType([$Float64, $Float64, $Float64, $Float64], [], false)}, {prop: "BlendEquation", name: "BlendEquation", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "BlendEquationSeparate", name: "BlendEquationSeparate", pkg: "", typ: $funcType([$Int, $Int], [], false)}, {prop: "BlendFunc", name: "BlendFunc", pkg: "", typ: $funcType([$Int, $Int], [], false)}, {prop: "BlendFuncSeparate", name: "BlendFuncSeparate", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "DepthFunc", name: "DepthFunc", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "SampleCoverage", name: "SampleCoverage", pkg: "", typ: $funcType([$Float64, $Bool], [], false)}, {prop: "StencilFunc", name: "StencilFunc", pkg: "", typ: $funcType([$Int, $Int, $Int], [], false)}, {prop: "StencilFuncSeparate", name: "StencilFuncSeparate", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "ActiveTexture", name: "ActiveTexture", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "AttachShader", name: "AttachShader", pkg: "", typ: $funcType([ptrType$8, ptrType$6], [], false)}, {prop: "BindAttribLocation", name: "BindAttribLocation", pkg: "", typ: $funcType([ptrType$8, $Int, $String], [], false)}, {prop: "BindBuffer", name: "BindBuffer", pkg: "", typ: $funcType([$Int, ptrType$3], [], false)}, {prop: "BindFramebuffer", name: "BindFramebuffer", pkg: "", typ: $funcType([$Int, ptrType$4], [], false)}, {prop: "BindRenderbuffer", name: "BindRenderbuffer", pkg: "", typ: $funcType([$Int, ptrType$2], [], false)}, {prop: "BindTexture", name: "BindTexture", pkg: "", typ: $funcType([$Int, ptrType$5], [], false)}, {prop: "BufferData", name: "BufferData", pkg: "", typ: $funcType([$Int, $emptyInterface, $Int], [], false)}, {prop: "BufferSubData", name: "BufferSubData", pkg: "", typ: $funcType([$Int, $Int, $emptyInterface], [], false)}, {prop: "CheckFramebufferStatus", name: "CheckFramebufferStatus", pkg: "", typ: $funcType([$Int], [$Int], false)}, {prop: "Clear", name: "Clear", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "ClearColor", name: "ClearColor", pkg: "", typ: $funcType([$Float32, $Float32, $Float32, $Float32], [], false)}, {prop: "ClearDepth", name: "ClearDepth", pkg: "", typ: $funcType([$Float64], [], false)}, {prop: "ClearStencil", name: "ClearStencil", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "ColorMask", name: "ColorMask", pkg: "", typ: $funcType([$Bool, $Bool, $Bool, $Bool], [], false)}, {prop: "CompileShader", name: "CompileShader", pkg: "", typ: $funcType([ptrType$6], [], false)}, {prop: "CopyTexImage2D", name: "CopyTexImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, $Int, $Int], [], false)}, {prop: "CopyTexSubImage2D", name: "CopyTexSubImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, $Int, $Int], [], false)}, {prop: "CreateBuffer", name: "CreateBuffer", pkg: "", typ: $funcType([], [ptrType$3], false)}, {prop: "CreateFramebuffer", name: "CreateFramebuffer", pkg: "", typ: $funcType([], [ptrType$4], false)}, {prop: "CreateProgram", name: "CreateProgram", pkg: "", typ: $funcType([], [ptrType$8], false)}, {prop: "CreateRenderbuffer", name: "CreateRenderbuffer", pkg: "", typ: $funcType([], [ptrType$2], false)}, {prop: "CreateShader", name: "CreateShader", pkg: "", typ: $funcType([$Int], [ptrType$6], false)}, {prop: "CreateTexture", name: "CreateTexture", pkg: "", typ: $funcType([], [ptrType$5], false)}, {prop: "CullFace", name: "CullFace", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "DeleteBuffer", name: "DeleteBuffer", pkg: "", typ: $funcType([ptrType$3], [], false)}, {prop: "DeleteFramebuffer", name: "DeleteFramebuffer", pkg: "", typ: $funcType([ptrType$4], [], false)}, {prop: "DeleteProgram", name: "DeleteProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "DeleteRenderbuffer", name: "DeleteRenderbuffer", pkg: "", typ: $funcType([ptrType$2], [], false)}, {prop: "DeleteShader", name: "DeleteShader", pkg: "", typ: $funcType([ptrType$6], [], false)}, {prop: "DeleteTexture", name: "DeleteTexture", pkg: "", typ: $funcType([ptrType$5], [], false)}, {prop: "DepthMask", name: "DepthMask", pkg: "", typ: $funcType([$Bool], [], false)}, {prop: "DepthRange", name: "DepthRange", pkg: "", typ: $funcType([$Float64, $Float64], [], false)}, {prop: "DetachShader", name: "DetachShader", pkg: "", typ: $funcType([ptrType$8, ptrType$6], [], false)}, {prop: "Disable", name: "Disable", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "DisableVertexAttribArray", name: "DisableVertexAttribArray", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "DrawArrays", name: "DrawArrays", pkg: "", typ: $funcType([$Int, $Int, $Int], [], false)}, {prop: "DrawElements", name: "DrawElements", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "Enable", name: "Enable", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "EnableVertexAttribArray", name: "EnableVertexAttribArray", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "Finish", name: "Finish", pkg: "", typ: $funcType([], [], false)}, {prop: "Flush", name: "Flush", pkg: "", typ: $funcType([], [], false)}, {prop: "FrameBufferRenderBuffer", name: "FrameBufferRenderBuffer", pkg: "", typ: $funcType([$Int, $Int, $Int, ptrType$2], [], false)}, {prop: "FramebufferTexture2D", name: "FramebufferTexture2D", pkg: "", typ: $funcType([$Int, $Int, $Int, ptrType$5, $Int], [], false)}, {prop: "FrontFace", name: "FrontFace", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "GenerateMipmap", name: "GenerateMipmap", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "GetActiveAttrib", name: "GetActiveAttrib", pkg: "", typ: $funcType([ptrType$8, $Int], [$String], false)}, {prop: "GetActiveUniform", name: "GetActiveUniform", pkg: "", typ: $funcType([ptrType$8, $Int], [$String], false)}, {prop: "GetAttachedShaders", name: "GetAttachedShaders", pkg: "", typ: $funcType([ptrType$8], [sliceType], false)}, {prop: "GetAttribLocation", name: "GetAttribLocation", pkg: "", typ: $funcType([ptrType$8, $String], [$Int], false)}, {prop: "GetBufferParameter", name: "GetBufferParameter", pkg: "", typ: $funcType([$Int, $Int], [$Int], false)}, {prop: "GetParameter", name: "GetParameter", pkg: "", typ: $funcType([$Int], [ptrType$7], false)}, {prop: "GetError", name: "GetError", pkg: "", typ: $funcType([], [$Int], false)}, {prop: "GetExtension", name: "GetExtension", pkg: "", typ: $funcType([$String], [ptrType$7], false)}, {prop: "GetFramebufferAttachmentParameter", name: "GetFramebufferAttachmentParameter", pkg: "", typ: $funcType([$Int, $Int, $Int], [ptrType$7], false)}, {prop: "GetProgramParameteri", name: "GetProgramParameteri", pkg: "", typ: $funcType([ptrType$8, $Int], [$Int], false)}, {prop: "GetProgramParameterb", name: "GetProgramParameterb", pkg: "", typ: $funcType([ptrType$8, $Int], [$Bool], false)}, {prop: "GetProgramInfoLog", name: "GetProgramInfoLog", pkg: "", typ: $funcType([ptrType$8], [$String], false)}, {prop: "GetRenderbufferParameter", name: "GetRenderbufferParameter", pkg: "", typ: $funcType([$Int, $Int], [$Int], false)}, {prop: "GetShaderParameter", name: "GetShaderParameter", pkg: "", typ: $funcType([ptrType$6, $Int], [ptrType$7], false)}, {prop: "GetShaderParameterb", name: "GetShaderParameterb", pkg: "", typ: $funcType([ptrType$6, $Int], [$Bool], false)}, {prop: "GetShaderInfoLog", name: "GetShaderInfoLog", pkg: "", typ: $funcType([ptrType$6], [$String], false)}, {prop: "GetShaderSource", name: "GetShaderSource", pkg: "", typ: $funcType([ptrType$6], [$String], false)}, {prop: "GetSupportedExtensions", name: "GetSupportedExtensions", pkg: "", typ: $funcType([], [sliceType$1], false)}, {prop: "GetTexParameter", name: "GetTexParameter", pkg: "", typ: $funcType([$Int, $Int], [ptrType$7], false)}, {prop: "GetUniform", name: "GetUniform", pkg: "", typ: $funcType([ptrType$8, ptrType$9], [ptrType$7], false)}, {prop: "GetUniformLocation", name: "GetUniformLocation", pkg: "", typ: $funcType([ptrType$8, $String], [ptrType$9], false)}, {prop: "GetVertexAttrib", name: "GetVertexAttrib", pkg: "", typ: $funcType([$Int, $Int], [ptrType$7], false)}, {prop: "GetVertexAttribOffset", name: "GetVertexAttribOffset", pkg: "", typ: $funcType([$Int, $Int], [$Int], false)}, {prop: "IsBuffer", name: "IsBuffer", pkg: "", typ: $funcType([ptrType$7], [$Bool], false)}, {prop: "IsContextLost", name: "IsContextLost", pkg: "", typ: $funcType([], [$Bool], false)}, {prop: "IsFramebuffer", name: "IsFramebuffer", pkg: "", typ: $funcType([ptrType$4], [$Bool], false)}, {prop: "IsProgram", name: "IsProgram", pkg: "", typ: $funcType([ptrType$8], [$Bool], false)}, {prop: "IsRenderbuffer", name: "IsRenderbuffer", pkg: "", typ: $funcType([ptrType$2], [$Bool], false)}, {prop: "IsShader", name: "IsShader", pkg: "", typ: $funcType([ptrType$6], [$Bool], false)}, {prop: "IsTexture", name: "IsTexture", pkg: "", typ: $funcType([ptrType$5], [$Bool], false)}, {prop: "IsEnabled", name: "IsEnabled", pkg: "", typ: $funcType([$Int], [$Bool], false)}, {prop: "LineWidth", name: "LineWidth", pkg: "", typ: $funcType([$Float64], [], false)}, {prop: "LinkProgram", name: "LinkProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "PixelStorei", name: "PixelStorei", pkg: "", typ: $funcType([$Int, $Int], [], false)}, {prop: "PolygonOffset", name: "PolygonOffset", pkg: "", typ: $funcType([$Float64, $Float64], [], false)}, {prop: "ReadPixels", name: "ReadPixels", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, ptrType$7], [], false)}, {prop: "RenderbufferStorage", name: "RenderbufferStorage", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "Scissor", name: "Scissor", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "ShaderSource", name: "ShaderSource", pkg: "", typ: $funcType([ptrType$6, $String], [], false)}, {prop: "TexImage2D", name: "TexImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $emptyInterface], [], false)}, {prop: "TexParameteri", name: "TexParameteri", pkg: "", typ: $funcType([$Int, $Int, $Int], [], false)}, {prop: "TexSubImage2D", name: "TexSubImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, ptrType$7], [], false)}, {prop: "Uniform1f", name: "Uniform1f", pkg: "", typ: $funcType([ptrType$9, $Float32], [], false)}, {prop: "Uniform1i", name: "Uniform1i", pkg: "", typ: $funcType([ptrType$9, $Int], [], false)}, {prop: "Uniform2f", name: "Uniform2f", pkg: "", typ: $funcType([ptrType$9, $Float32, $Float32], [], false)}, {prop: "Uniform2i", name: "Uniform2i", pkg: "", typ: $funcType([ptrType$9, $Int, $Int], [], false)}, {prop: "Uniform3f", name: "Uniform3f", pkg: "", typ: $funcType([ptrType$9, $Float32, $Float32, $Float32], [], false)}, {prop: "Uniform3i", name: "Uniform3i", pkg: "", typ: $funcType([ptrType$9, $Int, $Int, $Int], [], false)}, {prop: "Uniform4f", name: "Uniform4f", pkg: "", typ: $funcType([ptrType$9, $Float32, $Float32, $Float32, $Float32], [], false)}, {prop: "Uniform4i", name: "Uniform4i", pkg: "", typ: $funcType([ptrType$9, $Int, $Int, $Int, $Int], [], false)}, {prop: "UniformMatrix2fv", name: "UniformMatrix2fv", pkg: "", typ: $funcType([ptrType$9, $Bool, sliceType$2], [], false)}, {prop: "UniformMatrix3fv", name: "UniformMatrix3fv", pkg: "", typ: $funcType([ptrType$9, $Bool, sliceType$2], [], false)}, {prop: "UniformMatrix4fv", name: "UniformMatrix4fv", pkg: "", typ: $funcType([ptrType$9, $Bool, sliceType$2], [], false)}, {prop: "UseProgram", name: "UseProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "ValidateProgram", name: "ValidateProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "VertexAttribPointer", name: "VertexAttribPointer", pkg: "", typ: $funcType([$Int, $Int, $Int, $Bool, $Int, $Int], [], false)}, {prop: "Viewport", name: "Viewport", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}];
-	Texture.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
-	Buffer.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
-	FrameBuffer.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
-	RenderBuffer.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
-	Program.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
-	UniformLocation.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
-	Shader.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
-	ContextAttributes.init([{prop: "Alpha", name: "Alpha", pkg: "", typ: $Bool, tag: ""}, {prop: "Depth", name: "Depth", pkg: "", typ: $Bool, tag: ""}, {prop: "Stencil", name: "Stencil", pkg: "", typ: $Bool, tag: ""}, {prop: "Antialias", name: "Antialias", pkg: "", typ: $Bool, tag: ""}, {prop: "PremultipliedAlpha", name: "PremultipliedAlpha", pkg: "", typ: $Bool, tag: ""}, {prop: "PreserveDrawingBuffer", name: "PreserveDrawingBuffer", pkg: "", typ: $Bool, tag: ""}]);
-	Context.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}, {prop: "ARRAY_BUFFER", name: "ARRAY_BUFFER", pkg: "", typ: $Int, tag: "js:\"ARRAY_BUFFER\""}, {prop: "ARRAY_BUFFER_BINDING", name: "ARRAY_BUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"ARRAY_BUFFER_BINDING\""}, {prop: "ATTACHED_SHADERS", name: "ATTACHED_SHADERS", pkg: "", typ: $Int, tag: "js:\"ATTACHED_SHADERS\""}, {prop: "BACK", name: "BACK", pkg: "", typ: $Int, tag: "js:\"BACK\""}, {prop: "BLEND", name: "BLEND", pkg: "", typ: $Int, tag: "js:\"BLEND\""}, {prop: "BLEND_COLOR", name: "BLEND_COLOR", pkg: "", typ: $Int, tag: "js:\"BLEND_COLOR\""}, {prop: "BLEND_DST_ALPHA", name: "BLEND_DST_ALPHA", pkg: "", typ: $Int, tag: "js:\"BLEND_DST_ALPHA\""}, {prop: "BLEND_DST_RGB", name: "BLEND_DST_RGB", pkg: "", typ: $Int, tag: "js:\"BLEND_DST_RGB\""}, {prop: "BLEND_EQUATION", name: "BLEND_EQUATION", pkg: "", typ: $Int, tag: "js:\"BLEND_EQUATION\""}, {prop: "BLEND_EQUATION_ALPHA", name: "BLEND_EQUATION_ALPHA", pkg: "", typ: $Int, tag: "js:\"BLEND_EQUATION_ALPHA\""}, {prop: "BLEND_EQUATION_RGB", name: "BLEND_EQUATION_RGB", pkg: "", typ: $Int, tag: "js:\"BLEND_EQUATION_RGB\""}, {prop: "BLEND_SRC_ALPHA", name: "BLEND_SRC_ALPHA", pkg: "", typ: $Int, tag: "js:\"BLEND_SRC_ALPHA\""}, {prop: "BLEND_SRC_RGB", name: "BLEND_SRC_RGB", pkg: "", typ: $Int, tag: "js:\"BLEND_SRC_RGB\""}, {prop: "BLUE_BITS", name: "BLUE_BITS", pkg: "", typ: $Int, tag: "js:\"BLUE_BITS\""}, {prop: "BOOL", name: "BOOL", pkg: "", typ: $Int, tag: "js:\"BOOL\""}, {prop: "BOOL_VEC2", name: "BOOL_VEC2", pkg: "", typ: $Int, tag: "js:\"BOOL_VEC2\""}, {prop: "BOOL_VEC3", name: "BOOL_VEC3", pkg: "", typ: $Int, tag: "js:\"BOOL_VEC3\""}, {prop: "BOOL_VEC4", name: "BOOL_VEC4", pkg: "", typ: $Int, tag: "js:\"BOOL_VEC4\""}, {prop: "BROWSER_DEFAULT_WEBGL", name: "BROWSER_DEFAULT_WEBGL", pkg: "", typ: $Int, tag: "js:\"BROWSER_DEFAULT_WEBGL\""}, {prop: "BUFFER_SIZE", name: "BUFFER_SIZE", pkg: "", typ: $Int, tag: "js:\"BUFFER_SIZE\""}, {prop: "BUFFER_USAGE", name: "BUFFER_USAGE", pkg: "", typ: $Int, tag: "js:\"BUFFER_USAGE\""}, {prop: "BYTE", name: "BYTE", pkg: "", typ: $Int, tag: "js:\"BYTE\""}, {prop: "CCW", name: "CCW", pkg: "", typ: $Int, tag: "js:\"CCW\""}, {prop: "CLAMP_TO_EDGE", name: "CLAMP_TO_EDGE", pkg: "", typ: $Int, tag: "js:\"CLAMP_TO_EDGE\""}, {prop: "COLOR_ATTACHMENT0", name: "COLOR_ATTACHMENT0", pkg: "", typ: $Int, tag: "js:\"COLOR_ATTACHMENT0\""}, {prop: "COLOR_BUFFER_BIT", name: "COLOR_BUFFER_BIT", pkg: "", typ: $Int, tag: "js:\"COLOR_BUFFER_BIT\""}, {prop: "COLOR_CLEAR_VALUE", name: "COLOR_CLEAR_VALUE", pkg: "", typ: $Int, tag: "js:\"COLOR_CLEAR_VALUE\""}, {prop: "COLOR_WRITEMASK", name: "COLOR_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"COLOR_WRITEMASK\""}, {prop: "COMPILE_STATUS", name: "COMPILE_STATUS", pkg: "", typ: $Int, tag: "js:\"COMPILE_STATUS\""}, {prop: "COMPRESSED_TEXTURE_FORMATS", name: "COMPRESSED_TEXTURE_FORMATS", pkg: "", typ: $Int, tag: "js:\"COMPRESSED_TEXTURE_FORMATS\""}, {prop: "CONSTANT_ALPHA", name: "CONSTANT_ALPHA", pkg: "", typ: $Int, tag: "js:\"CONSTANT_ALPHA\""}, {prop: "CONSTANT_COLOR", name: "CONSTANT_COLOR", pkg: "", typ: $Int, tag: "js:\"CONSTANT_COLOR\""}, {prop: "CONTEXT_LOST_WEBGL", name: "CONTEXT_LOST_WEBGL", pkg: "", typ: $Int, tag: "js:\"CONTEXT_LOST_WEBGL\""}, {prop: "CULL_FACE", name: "CULL_FACE", pkg: "", typ: $Int, tag: "js:\"CULL_FACE\""}, {prop: "CULL_FACE_MODE", name: "CULL_FACE_MODE", pkg: "", typ: $Int, tag: "js:\"CULL_FACE_MODE\""}, {prop: "CURRENT_PROGRAM", name: "CURRENT_PROGRAM", pkg: "", typ: $Int, tag: "js:\"CURRENT_PROGRAM\""}, {prop: "CURRENT_VERTEX_ATTRIB", name: "CURRENT_VERTEX_ATTRIB", pkg: "", typ: $Int, tag: "js:\"CURRENT_VERTEX_ATTRIB\""}, {prop: "CW", name: "CW", pkg: "", typ: $Int, tag: "js:\"CW\""}, {prop: "DECR", name: "DECR", pkg: "", typ: $Int, tag: "js:\"DECR\""}, {prop: "DECR_WRAP", name: "DECR_WRAP", pkg: "", typ: $Int, tag: "js:\"DECR_WRAP\""}, {prop: "DELETE_STATUS", name: "DELETE_STATUS", pkg: "", typ: $Int, tag: "js:\"DELETE_STATUS\""}, {prop: "DEPTH_ATTACHMENT", name: "DEPTH_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"DEPTH_ATTACHMENT\""}, {prop: "DEPTH_BITS", name: "DEPTH_BITS", pkg: "", typ: $Int, tag: "js:\"DEPTH_BITS\""}, {prop: "DEPTH_BUFFER_BIT", name: "DEPTH_BUFFER_BIT", pkg: "", typ: $Int, tag: "js:\"DEPTH_BUFFER_BIT\""}, {prop: "DEPTH_CLEAR_VALUE", name: "DEPTH_CLEAR_VALUE", pkg: "", typ: $Int, tag: "js:\"DEPTH_CLEAR_VALUE\""}, {prop: "DEPTH_COMPONENT", name: "DEPTH_COMPONENT", pkg: "", typ: $Int, tag: "js:\"DEPTH_COMPONENT\""}, {prop: "DEPTH_COMPONENT16", name: "DEPTH_COMPONENT16", pkg: "", typ: $Int, tag: "js:\"DEPTH_COMPONENT16\""}, {prop: "DEPTH_FUNC", name: "DEPTH_FUNC", pkg: "", typ: $Int, tag: "js:\"DEPTH_FUNC\""}, {prop: "DEPTH_RANGE", name: "DEPTH_RANGE", pkg: "", typ: $Int, tag: "js:\"DEPTH_RANGE\""}, {prop: "DEPTH_STENCIL", name: "DEPTH_STENCIL", pkg: "", typ: $Int, tag: "js:\"DEPTH_STENCIL\""}, {prop: "DEPTH_STENCIL_ATTACHMENT", name: "DEPTH_STENCIL_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"DEPTH_STENCIL_ATTACHMENT\""}, {prop: "DEPTH_TEST", name: "DEPTH_TEST", pkg: "", typ: $Int, tag: "js:\"DEPTH_TEST\""}, {prop: "DEPTH_WRITEMASK", name: "DEPTH_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"DEPTH_WRITEMASK\""}, {prop: "DITHER", name: "DITHER", pkg: "", typ: $Int, tag: "js:\"DITHER\""}, {prop: "DONT_CARE", name: "DONT_CARE", pkg: "", typ: $Int, tag: "js:\"DONT_CARE\""}, {prop: "DST_ALPHA", name: "DST_ALPHA", pkg: "", typ: $Int, tag: "js:\"DST_ALPHA\""}, {prop: "DST_COLOR", name: "DST_COLOR", pkg: "", typ: $Int, tag: "js:\"DST_COLOR\""}, {prop: "DYNAMIC_DRAW", name: "DYNAMIC_DRAW", pkg: "", typ: $Int, tag: "js:\"DYNAMIC_DRAW\""}, {prop: "ELEMENT_ARRAY_BUFFER", name: "ELEMENT_ARRAY_BUFFER", pkg: "", typ: $Int, tag: "js:\"ELEMENT_ARRAY_BUFFER\""}, {prop: "ELEMENT_ARRAY_BUFFER_BINDING", name: "ELEMENT_ARRAY_BUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"ELEMENT_ARRAY_BUFFER_BINDING\""}, {prop: "EQUAL", name: "EQUAL", pkg: "", typ: $Int, tag: "js:\"EQUAL\""}, {prop: "FASTEST", name: "FASTEST", pkg: "", typ: $Int, tag: "js:\"FASTEST\""}, {prop: "FLOAT", name: "FLOAT", pkg: "", typ: $Int, tag: "js:\"FLOAT\""}, {prop: "FLOAT_MAT2", name: "FLOAT_MAT2", pkg: "", typ: $Int, tag: "js:\"FLOAT_MAT2\""}, {prop: "FLOAT_MAT3", name: "FLOAT_MAT3", pkg: "", typ: $Int, tag: "js:\"FLOAT_MAT3\""}, {prop: "FLOAT_MAT4", name: "FLOAT_MAT4", pkg: "", typ: $Int, tag: "js:\"FLOAT_MAT4\""}, {prop: "FLOAT_VEC2", name: "FLOAT_VEC2", pkg: "", typ: $Int, tag: "js:\"FLOAT_VEC2\""}, {prop: "FLOAT_VEC3", name: "FLOAT_VEC3", pkg: "", typ: $Int, tag: "js:\"FLOAT_VEC3\""}, {prop: "FLOAT_VEC4", name: "FLOAT_VEC4", pkg: "", typ: $Int, tag: "js:\"FLOAT_VEC4\""}, {prop: "FRAGMENT_SHADER", name: "FRAGMENT_SHADER", pkg: "", typ: $Int, tag: "js:\"FRAGMENT_SHADER\""}, {prop: "FRAMEBUFFER", name: "FRAMEBUFFER", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER\""}, {prop: "FRAMEBUFFER_ATTACHMENT_OBJECT_NAME", name: "FRAMEBUFFER_ATTACHMENT_OBJECT_NAME", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_OBJECT_NAME\""}, {prop: "FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE", name: "FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE\""}, {prop: "FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE", name: "FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE\""}, {prop: "FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL", name: "FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL\""}, {prop: "FRAMEBUFFER_BINDING", name: "FRAMEBUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_BINDING\""}, {prop: "FRAMEBUFFER_COMPLETE", name: "FRAMEBUFFER_COMPLETE", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_COMPLETE\""}, {prop: "FRAMEBUFFER_INCOMPLETE_ATTACHMENT", name: "FRAMEBUFFER_INCOMPLETE_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_INCOMPLETE_ATTACHMENT\""}, {prop: "FRAMEBUFFER_INCOMPLETE_DIMENSIONS", name: "FRAMEBUFFER_INCOMPLETE_DIMENSIONS", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_INCOMPLETE_DIMENSIONS\""}, {prop: "FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT", name: "FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT\""}, {prop: "FRAMEBUFFER_UNSUPPORTED", name: "FRAMEBUFFER_UNSUPPORTED", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_UNSUPPORTED\""}, {prop: "FRONT", name: "FRONT", pkg: "", typ: $Int, tag: "js:\"FRONT\""}, {prop: "FRONT_AND_BACK", name: "FRONT_AND_BACK", pkg: "", typ: $Int, tag: "js:\"FRONT_AND_BACK\""}, {prop: "FRONT_FACE", name: "FRONT_FACE", pkg: "", typ: $Int, tag: "js:\"FRONT_FACE\""}, {prop: "FUNC_ADD", name: "FUNC_ADD", pkg: "", typ: $Int, tag: "js:\"FUNC_ADD\""}, {prop: "FUNC_REVERSE_SUBTRACT", name: "FUNC_REVERSE_SUBTRACT", pkg: "", typ: $Int, tag: "js:\"FUNC_REVERSE_SUBTRACT\""}, {prop: "FUNC_SUBTRACT", name: "FUNC_SUBTRACT", pkg: "", typ: $Int, tag: "js:\"FUNC_SUBTRACT\""}, {prop: "GENERATE_MIPMAP_HINT", name: "GENERATE_MIPMAP_HINT", pkg: "", typ: $Int, tag: "js:\"GENERATE_MIPMAP_HINT\""}, {prop: "GEQUAL", name: "GEQUAL", pkg: "", typ: $Int, tag: "js:\"GEQUAL\""}, {prop: "GREATER", name: "GREATER", pkg: "", typ: $Int, tag: "js:\"GREATER\""}, {prop: "GREEN_BITS", name: "GREEN_BITS", pkg: "", typ: $Int, tag: "js:\"GREEN_BITS\""}, {prop: "HIGH_FLOAT", name: "HIGH_FLOAT", pkg: "", typ: $Int, tag: "js:\"HIGH_FLOAT\""}, {prop: "HIGH_INT", name: "HIGH_INT", pkg: "", typ: $Int, tag: "js:\"HIGH_INT\""}, {prop: "INCR", name: "INCR", pkg: "", typ: $Int, tag: "js:\"INCR\""}, {prop: "INCR_WRAP", name: "INCR_WRAP", pkg: "", typ: $Int, tag: "js:\"INCR_WRAP\""}, {prop: "INFO_LOG_LENGTH", name: "INFO_LOG_LENGTH", pkg: "", typ: $Int, tag: "js:\"INFO_LOG_LENGTH\""}, {prop: "INT", name: "INT", pkg: "", typ: $Int, tag: "js:\"INT\""}, {prop: "INT_VEC2", name: "INT_VEC2", pkg: "", typ: $Int, tag: "js:\"INT_VEC2\""}, {prop: "INT_VEC3", name: "INT_VEC3", pkg: "", typ: $Int, tag: "js:\"INT_VEC3\""}, {prop: "INT_VEC4", name: "INT_VEC4", pkg: "", typ: $Int, tag: "js:\"INT_VEC4\""}, {prop: "INVALID_ENUM", name: "INVALID_ENUM", pkg: "", typ: $Int, tag: "js:\"INVALID_ENUM\""}, {prop: "INVALID_FRAMEBUFFER_OPERATION", name: "INVALID_FRAMEBUFFER_OPERATION", pkg: "", typ: $Int, tag: "js:\"INVALID_FRAMEBUFFER_OPERATION\""}, {prop: "INVALID_OPERATION", name: "INVALID_OPERATION", pkg: "", typ: $Int, tag: "js:\"INVALID_OPERATION\""}, {prop: "INVALID_VALUE", name: "INVALID_VALUE", pkg: "", typ: $Int, tag: "js:\"INVALID_VALUE\""}, {prop: "INVERT", name: "INVERT", pkg: "", typ: $Int, tag: "js:\"INVERT\""}, {prop: "KEEP", name: "KEEP", pkg: "", typ: $Int, tag: "js:\"KEEP\""}, {prop: "LEQUAL", name: "LEQUAL", pkg: "", typ: $Int, tag: "js:\"LEQUAL\""}, {prop: "LESS", name: "LESS", pkg: "", typ: $Int, tag: "js:\"LESS\""}, {prop: "LINEAR", name: "LINEAR", pkg: "", typ: $Int, tag: "js:\"LINEAR\""}, {prop: "LINEAR_MIPMAP_LINEAR", name: "LINEAR_MIPMAP_LINEAR", pkg: "", typ: $Int, tag: "js:\"LINEAR_MIPMAP_LINEAR\""}, {prop: "LINEAR_MIPMAP_NEAREST", name: "LINEAR_MIPMAP_NEAREST", pkg: "", typ: $Int, tag: "js:\"LINEAR_MIPMAP_NEAREST\""}, {prop: "LINES", name: "LINES", pkg: "", typ: $Int, tag: "js:\"LINES\""}, {prop: "LINE_LOOP", name: "LINE_LOOP", pkg: "", typ: $Int, tag: "js:\"LINE_LOOP\""}, {prop: "LINE_STRIP", name: "LINE_STRIP", pkg: "", typ: $Int, tag: "js:\"LINE_STRIP\""}, {prop: "LINE_WIDTH", name: "LINE_WIDTH", pkg: "", typ: $Int, tag: "js:\"LINE_WIDTH\""}, {prop: "LINK_STATUS", name: "LINK_STATUS", pkg: "", typ: $Int, tag: "js:\"LINK_STATUS\""}, {prop: "LOW_FLOAT", name: "LOW_FLOAT", pkg: "", typ: $Int, tag: "js:\"LOW_FLOAT\""}, {prop: "LOW_INT", name: "LOW_INT", pkg: "", typ: $Int, tag: "js:\"LOW_INT\""}, {prop: "LUMINANCE", name: "LUMINANCE", pkg: "", typ: $Int, tag: "js:\"LUMINANCE\""}, {prop: "LUMINANCE_ALPHA", name: "LUMINANCE_ALPHA", pkg: "", typ: $Int, tag: "js:\"LUMINANCE_ALPHA\""}, {prop: "MAX_COMBINED_TEXTURE_IMAGE_UNITS", name: "MAX_COMBINED_TEXTURE_IMAGE_UNITS", pkg: "", typ: $Int, tag: "js:\"MAX_COMBINED_TEXTURE_IMAGE_UNITS\""}, {prop: "MAX_CUBE_MAP_TEXTURE_SIZE", name: "MAX_CUBE_MAP_TEXTURE_SIZE", pkg: "", typ: $Int, tag: "js:\"MAX_CUBE_MAP_TEXTURE_SIZE\""}, {prop: "MAX_FRAGMENT_UNIFORM_VECTORS", name: "MAX_FRAGMENT_UNIFORM_VECTORS", pkg: "", typ: $Int, tag: "js:\"MAX_FRAGMENT_UNIFORM_VECTORS\""}, {prop: "MAX_RENDERBUFFER_SIZE", name: "MAX_RENDERBUFFER_SIZE", pkg: "", typ: $Int, tag: "js:\"MAX_RENDERBUFFER_SIZE\""}, {prop: "MAX_TEXTURE_IMAGE_UNITS", name: "MAX_TEXTURE_IMAGE_UNITS", pkg: "", typ: $Int, tag: "js:\"MAX_TEXTURE_IMAGE_UNITS\""}, {prop: "MAX_TEXTURE_SIZE", name: "MAX_TEXTURE_SIZE", pkg: "", typ: $Int, tag: "js:\"MAX_TEXTURE_SIZE\""}, {prop: "MAX_VARYING_VECTORS", name: "MAX_VARYING_VECTORS", pkg: "", typ: $Int, tag: "js:\"MAX_VARYING_VECTORS\""}, {prop: "MAX_VERTEX_ATTRIBS", name: "MAX_VERTEX_ATTRIBS", pkg: "", typ: $Int, tag: "js:\"MAX_VERTEX_ATTRIBS\""}, {prop: "MAX_VERTEX_TEXTURE_IMAGE_UNITS", name: "MAX_VERTEX_TEXTURE_IMAGE_UNITS", pkg: "", typ: $Int, tag: "js:\"MAX_VERTEX_TEXTURE_IMAGE_UNITS\""}, {prop: "MAX_VERTEX_UNIFORM_VECTORS", name: "MAX_VERTEX_UNIFORM_VECTORS", pkg: "", typ: $Int, tag: "js:\"MAX_VERTEX_UNIFORM_VECTORS\""}, {prop: "MAX_VIEWPORT_DIMS", name: "MAX_VIEWPORT_DIMS", pkg: "", typ: $Int, tag: "js:\"MAX_VIEWPORT_DIMS\""}, {prop: "MEDIUM_FLOAT", name: "MEDIUM_FLOAT", pkg: "", typ: $Int, tag: "js:\"MEDIUM_FLOAT\""}, {prop: "MEDIUM_INT", name: "MEDIUM_INT", pkg: "", typ: $Int, tag: "js:\"MEDIUM_INT\""}, {prop: "MIRRORED_REPEAT", name: "MIRRORED_REPEAT", pkg: "", typ: $Int, tag: "js:\"MIRRORED_REPEAT\""}, {prop: "NEAREST", name: "NEAREST", pkg: "", typ: $Int, tag: "js:\"NEAREST\""}, {prop: "NEAREST_MIPMAP_LINEAR", name: "NEAREST_MIPMAP_LINEAR", pkg: "", typ: $Int, tag: "js:\"NEAREST_MIPMAP_LINEAR\""}, {prop: "NEAREST_MIPMAP_NEAREST", name: "NEAREST_MIPMAP_NEAREST", pkg: "", typ: $Int, tag: "js:\"NEAREST_MIPMAP_NEAREST\""}, {prop: "NEVER", name: "NEVER", pkg: "", typ: $Int, tag: "js:\"NEVER\""}, {prop: "NICEST", name: "NICEST", pkg: "", typ: $Int, tag: "js:\"NICEST\""}, {prop: "NONE", name: "NONE", pkg: "", typ: $Int, tag: "js:\"NONE\""}, {prop: "NOTEQUAL", name: "NOTEQUAL", pkg: "", typ: $Int, tag: "js:\"NOTEQUAL\""}, {prop: "NO_ERROR", name: "NO_ERROR", pkg: "", typ: $Int, tag: "js:\"NO_ERROR\""}, {prop: "NUM_COMPRESSED_TEXTURE_FORMATS", name: "NUM_COMPRESSED_TEXTURE_FORMATS", pkg: "", typ: $Int, tag: "js:\"NUM_COMPRESSED_TEXTURE_FORMATS\""}, {prop: "ONE", name: "ONE", pkg: "", typ: $Int, tag: "js:\"ONE\""}, {prop: "ONE_MINUS_CONSTANT_ALPHA", name: "ONE_MINUS_CONSTANT_ALPHA", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_CONSTANT_ALPHA\""}, {prop: "ONE_MINUS_CONSTANT_COLOR", name: "ONE_MINUS_CONSTANT_COLOR", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_CONSTANT_COLOR\""}, {prop: "ONE_MINUS_DST_ALPHA", name: "ONE_MINUS_DST_ALPHA", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_DST_ALPHA\""}, {prop: "ONE_MINUS_DST_COLOR", name: "ONE_MINUS_DST_COLOR", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_DST_COLOR\""}, {prop: "ONE_MINUS_SRC_ALPHA", name: "ONE_MINUS_SRC_ALPHA", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_SRC_ALPHA\""}, {prop: "ONE_MINUS_SRC_COLOR", name: "ONE_MINUS_SRC_COLOR", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_SRC_COLOR\""}, {prop: "OUT_OF_MEMORY", name: "OUT_OF_MEMORY", pkg: "", typ: $Int, tag: "js:\"OUT_OF_MEMORY\""}, {prop: "PACK_ALIGNMENT", name: "PACK_ALIGNMENT", pkg: "", typ: $Int, tag: "js:\"PACK_ALIGNMENT\""}, {prop: "POINTS", name: "POINTS", pkg: "", typ: $Int, tag: "js:\"POINTS\""}, {prop: "POLYGON_OFFSET_FACTOR", name: "POLYGON_OFFSET_FACTOR", pkg: "", typ: $Int, tag: "js:\"POLYGON_OFFSET_FACTOR\""}, {prop: "POLYGON_OFFSET_FILL", name: "POLYGON_OFFSET_FILL", pkg: "", typ: $Int, tag: "js:\"POLYGON_OFFSET_FILL\""}, {prop: "POLYGON_OFFSET_UNITS", name: "POLYGON_OFFSET_UNITS", pkg: "", typ: $Int, tag: "js:\"POLYGON_OFFSET_UNITS\""}, {prop: "RED_BITS", name: "RED_BITS", pkg: "", typ: $Int, tag: "js:\"RED_BITS\""}, {prop: "RENDERBUFFER", name: "RENDERBUFFER", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER\""}, {prop: "RENDERBUFFER_ALPHA_SIZE", name: "RENDERBUFFER_ALPHA_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_ALPHA_SIZE\""}, {prop: "RENDERBUFFER_BINDING", name: "RENDERBUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_BINDING\""}, {prop: "RENDERBUFFER_BLUE_SIZE", name: "RENDERBUFFER_BLUE_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_BLUE_SIZE\""}, {prop: "RENDERBUFFER_DEPTH_SIZE", name: "RENDERBUFFER_DEPTH_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_DEPTH_SIZE\""}, {prop: "RENDERBUFFER_GREEN_SIZE", name: "RENDERBUFFER_GREEN_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_GREEN_SIZE\""}, {prop: "RENDERBUFFER_HEIGHT", name: "RENDERBUFFER_HEIGHT", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_HEIGHT\""}, {prop: "RENDERBUFFER_INTERNAL_FORMAT", name: "RENDERBUFFER_INTERNAL_FORMAT", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_INTERNAL_FORMAT\""}, {prop: "RENDERBUFFER_RED_SIZE", name: "RENDERBUFFER_RED_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_RED_SIZE\""}, {prop: "RENDERBUFFER_STENCIL_SIZE", name: "RENDERBUFFER_STENCIL_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_STENCIL_SIZE\""}, {prop: "RENDERBUFFER_WIDTH", name: "RENDERBUFFER_WIDTH", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_WIDTH\""}, {prop: "RENDERER", name: "RENDERER", pkg: "", typ: $Int, tag: "js:\"RENDERER\""}, {prop: "REPEAT", name: "REPEAT", pkg: "", typ: $Int, tag: "js:\"REPEAT\""}, {prop: "REPLACE", name: "REPLACE", pkg: "", typ: $Int, tag: "js:\"REPLACE\""}, {prop: "RGB", name: "RGB", pkg: "", typ: $Int, tag: "js:\"RGB\""}, {prop: "RGB5_A1", name: "RGB5_A1", pkg: "", typ: $Int, tag: "js:\"RGB5_A1\""}, {prop: "RGB565", name: "RGB565", pkg: "", typ: $Int, tag: "js:\"RGB565\""}, {prop: "RGBA", name: "RGBA", pkg: "", typ: $Int, tag: "js:\"RGBA\""}, {prop: "RGBA4", name: "RGBA4", pkg: "", typ: $Int, tag: "js:\"RGBA4\""}, {prop: "SAMPLER_2D", name: "SAMPLER_2D", pkg: "", typ: $Int, tag: "js:\"SAMPLER_2D\""}, {prop: "SAMPLER_CUBE", name: "SAMPLER_CUBE", pkg: "", typ: $Int, tag: "js:\"SAMPLER_CUBE\""}, {prop: "SAMPLES", name: "SAMPLES", pkg: "", typ: $Int, tag: "js:\"SAMPLES\""}, {prop: "SAMPLE_ALPHA_TO_COVERAGE", name: "SAMPLE_ALPHA_TO_COVERAGE", pkg: "", typ: $Int, tag: "js:\"SAMPLE_ALPHA_TO_COVERAGE\""}, {prop: "SAMPLE_BUFFERS", name: "SAMPLE_BUFFERS", pkg: "", typ: $Int, tag: "js:\"SAMPLE_BUFFERS\""}, {prop: "SAMPLE_COVERAGE", name: "SAMPLE_COVERAGE", pkg: "", typ: $Int, tag: "js:\"SAMPLE_COVERAGE\""}, {prop: "SAMPLE_COVERAGE_INVERT", name: "SAMPLE_COVERAGE_INVERT", pkg: "", typ: $Int, tag: "js:\"SAMPLE_COVERAGE_INVERT\""}, {prop: "SAMPLE_COVERAGE_VALUE", name: "SAMPLE_COVERAGE_VALUE", pkg: "", typ: $Int, tag: "js:\"SAMPLE_COVERAGE_VALUE\""}, {prop: "SCISSOR_BOX", name: "SCISSOR_BOX", pkg: "", typ: $Int, tag: "js:\"SCISSOR_BOX\""}, {prop: "SCISSOR_TEST", name: "SCISSOR_TEST", pkg: "", typ: $Int, tag: "js:\"SCISSOR_TEST\""}, {prop: "SHADER_COMPILER", name: "SHADER_COMPILER", pkg: "", typ: $Int, tag: "js:\"SHADER_COMPILER\""}, {prop: "SHADER_SOURCE_LENGTH", name: "SHADER_SOURCE_LENGTH", pkg: "", typ: $Int, tag: "js:\"SHADER_SOURCE_LENGTH\""}, {prop: "SHADER_TYPE", name: "SHADER_TYPE", pkg: "", typ: $Int, tag: "js:\"SHADER_TYPE\""}, {prop: "SHADING_LANGUAGE_VERSION", name: "SHADING_LANGUAGE_VERSION", pkg: "", typ: $Int, tag: "js:\"SHADING_LANGUAGE_VERSION\""}, {prop: "SHORT", name: "SHORT", pkg: "", typ: $Int, tag: "js:\"SHORT\""}, {prop: "SRC_ALPHA", name: "SRC_ALPHA", pkg: "", typ: $Int, tag: "js:\"SRC_ALPHA\""}, {prop: "SRC_ALPHA_SATURATE", name: "SRC_ALPHA_SATURATE", pkg: "", typ: $Int, tag: "js:\"SRC_ALPHA_SATURATE\""}, {prop: "SRC_COLOR", name: "SRC_COLOR", pkg: "", typ: $Int, tag: "js:\"SRC_COLOR\""}, {prop: "STATIC_DRAW", name: "STATIC_DRAW", pkg: "", typ: $Int, tag: "js:\"STATIC_DRAW\""}, {prop: "STENCIL_ATTACHMENT", name: "STENCIL_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"STENCIL_ATTACHMENT\""}, {prop: "STENCIL_BACK_FAIL", name: "STENCIL_BACK_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_FAIL\""}, {prop: "STENCIL_BACK_FUNC", name: "STENCIL_BACK_FUNC", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_FUNC\""}, {prop: "STENCIL_BACK_PASS_DEPTH_FAIL", name: "STENCIL_BACK_PASS_DEPTH_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_PASS_DEPTH_FAIL\""}, {prop: "STENCIL_BACK_PASS_DEPTH_PASS", name: "STENCIL_BACK_PASS_DEPTH_PASS", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_PASS_DEPTH_PASS\""}, {prop: "STENCIL_BACK_REF", name: "STENCIL_BACK_REF", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_REF\""}, {prop: "STENCIL_BACK_VALUE_MASK", name: "STENCIL_BACK_VALUE_MASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_VALUE_MASK\""}, {prop: "STENCIL_BACK_WRITEMASK", name: "STENCIL_BACK_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_WRITEMASK\""}, {prop: "STENCIL_BITS", name: "STENCIL_BITS", pkg: "", typ: $Int, tag: "js:\"STENCIL_BITS\""}, {prop: "STENCIL_BUFFER_BIT", name: "STENCIL_BUFFER_BIT", pkg: "", typ: $Int, tag: "js:\"STENCIL_BUFFER_BIT\""}, {prop: "STENCIL_CLEAR_VALUE", name: "STENCIL_CLEAR_VALUE", pkg: "", typ: $Int, tag: "js:\"STENCIL_CLEAR_VALUE\""}, {prop: "STENCIL_FAIL", name: "STENCIL_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_FAIL\""}, {prop: "STENCIL_FUNC", name: "STENCIL_FUNC", pkg: "", typ: $Int, tag: "js:\"STENCIL_FUNC\""}, {prop: "STENCIL_INDEX", name: "STENCIL_INDEX", pkg: "", typ: $Int, tag: "js:\"STENCIL_INDEX\""}, {prop: "STENCIL_INDEX8", name: "STENCIL_INDEX8", pkg: "", typ: $Int, tag: "js:\"STENCIL_INDEX8\""}, {prop: "STENCIL_PASS_DEPTH_FAIL", name: "STENCIL_PASS_DEPTH_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_PASS_DEPTH_FAIL\""}, {prop: "STENCIL_PASS_DEPTH_PASS", name: "STENCIL_PASS_DEPTH_PASS", pkg: "", typ: $Int, tag: "js:\"STENCIL_PASS_DEPTH_PASS\""}, {prop: "STENCIL_REF", name: "STENCIL_REF", pkg: "", typ: $Int, tag: "js:\"STENCIL_REF\""}, {prop: "STENCIL_TEST", name: "STENCIL_TEST", pkg: "", typ: $Int, tag: "js:\"STENCIL_TEST\""}, {prop: "STENCIL_VALUE_MASK", name: "STENCIL_VALUE_MASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_VALUE_MASK\""}, {prop: "STENCIL_WRITEMASK", name: "STENCIL_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_WRITEMASK\""}, {prop: "STREAM_DRAW", name: "STREAM_DRAW", pkg: "", typ: $Int, tag: "js:\"STREAM_DRAW\""}, {prop: "SUBPIXEL_BITS", name: "SUBPIXEL_BITS", pkg: "", typ: $Int, tag: "js:\"SUBPIXEL_BITS\""}, {prop: "TEXTURE", name: "TEXTURE", pkg: "", typ: $Int, tag: "js:\"TEXTURE\""}, {prop: "TEXTURE0", name: "TEXTURE0", pkg: "", typ: $Int, tag: "js:\"TEXTURE0\""}, {prop: "TEXTURE1", name: "TEXTURE1", pkg: "", typ: $Int, tag: "js:\"TEXTURE1\""}, {prop: "TEXTURE2", name: "TEXTURE2", pkg: "", typ: $Int, tag: "js:\"TEXTURE2\""}, {prop: "TEXTURE3", name: "TEXTURE3", pkg: "", typ: $Int, tag: "js:\"TEXTURE3\""}, {prop: "TEXTURE4", name: "TEXTURE4", pkg: "", typ: $Int, tag: "js:\"TEXTURE4\""}, {prop: "TEXTURE5", name: "TEXTURE5", pkg: "", typ: $Int, tag: "js:\"TEXTURE5\""}, {prop: "TEXTURE6", name: "TEXTURE6", pkg: "", typ: $Int, tag: "js:\"TEXTURE6\""}, {prop: "TEXTURE7", name: "TEXTURE7", pkg: "", typ: $Int, tag: "js:\"TEXTURE7\""}, {prop: "TEXTURE8", name: "TEXTURE8", pkg: "", typ: $Int, tag: "js:\"TEXTURE8\""}, {prop: "TEXTURE9", name: "TEXTURE9", pkg: "", typ: $Int, tag: "js:\"TEXTURE9\""}, {prop: "TEXTURE10", name: "TEXTURE10", pkg: "", typ: $Int, tag: "js:\"TEXTURE10\""}, {prop: "TEXTURE11", name: "TEXTURE11", pkg: "", typ: $Int, tag: "js:\"TEXTURE11\""}, {prop: "TEXTURE12", name: "TEXTURE12", pkg: "", typ: $Int, tag: "js:\"TEXTURE12\""}, {prop: "TEXTURE13", name: "TEXTURE13", pkg: "", typ: $Int, tag: "js:\"TEXTURE13\""}, {prop: "TEXTURE14", name: "TEXTURE14", pkg: "", typ: $Int, tag: "js:\"TEXTURE14\""}, {prop: "TEXTURE15", name: "TEXTURE15", pkg: "", typ: $Int, tag: "js:\"TEXTURE15\""}, {prop: "TEXTURE16", name: "TEXTURE16", pkg: "", typ: $Int, tag: "js:\"TEXTURE16\""}, {prop: "TEXTURE17", name: "TEXTURE17", pkg: "", typ: $Int, tag: "js:\"TEXTURE17\""}, {prop: "TEXTURE18", name: "TEXTURE18", pkg: "", typ: $Int, tag: "js:\"TEXTURE18\""}, {prop: "TEXTURE19", name: "TEXTURE19", pkg: "", typ: $Int, tag: "js:\"TEXTURE19\""}, {prop: "TEXTURE20", name: "TEXTURE20", pkg: "", typ: $Int, tag: "js:\"TEXTURE20\""}, {prop: "TEXTURE21", name: "TEXTURE21", pkg: "", typ: $Int, tag: "js:\"TEXTURE21\""}, {prop: "TEXTURE22", name: "TEXTURE22", pkg: "", typ: $Int, tag: "js:\"TEXTURE22\""}, {prop: "TEXTURE23", name: "TEXTURE23", pkg: "", typ: $Int, tag: "js:\"TEXTURE23\""}, {prop: "TEXTURE24", name: "TEXTURE24", pkg: "", typ: $Int, tag: "js:\"TEXTURE24\""}, {prop: "TEXTURE25", name: "TEXTURE25", pkg: "", typ: $Int, tag: "js:\"TEXTURE25\""}, {prop: "TEXTURE26", name: "TEXTURE26", pkg: "", typ: $Int, tag: "js:\"TEXTURE26\""}, {prop: "TEXTURE27", name: "TEXTURE27", pkg: "", typ: $Int, tag: "js:\"TEXTURE27\""}, {prop: "TEXTURE28", name: "TEXTURE28", pkg: "", typ: $Int, tag: "js:\"TEXTURE28\""}, {prop: "TEXTURE29", name: "TEXTURE29", pkg: "", typ: $Int, tag: "js:\"TEXTURE29\""}, {prop: "TEXTURE30", name: "TEXTURE30", pkg: "", typ: $Int, tag: "js:\"TEXTURE30\""}, {prop: "TEXTURE31", name: "TEXTURE31", pkg: "", typ: $Int, tag: "js:\"TEXTURE31\""}, {prop: "TEXTURE_2D", name: "TEXTURE_2D", pkg: "", typ: $Int, tag: "js:\"TEXTURE_2D\""}, {prop: "TEXTURE_BINDING_2D", name: "TEXTURE_BINDING_2D", pkg: "", typ: $Int, tag: "js:\"TEXTURE_BINDING_2D\""}, {prop: "TEXTURE_BINDING_CUBE_MAP", name: "TEXTURE_BINDING_CUBE_MAP", pkg: "", typ: $Int, tag: "js:\"TEXTURE_BINDING_CUBE_MAP\""}, {prop: "TEXTURE_CUBE_MAP", name: "TEXTURE_CUBE_MAP", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP\""}, {prop: "TEXTURE_CUBE_MAP_NEGATIVE_X", name: "TEXTURE_CUBE_MAP_NEGATIVE_X", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_NEGATIVE_X\""}, {prop: "TEXTURE_CUBE_MAP_NEGATIVE_Y", name: "TEXTURE_CUBE_MAP_NEGATIVE_Y", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_NEGATIVE_Y\""}, {prop: "TEXTURE_CUBE_MAP_NEGATIVE_Z", name: "TEXTURE_CUBE_MAP_NEGATIVE_Z", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_NEGATIVE_Z\""}, {prop: "TEXTURE_CUBE_MAP_POSITIVE_X", name: "TEXTURE_CUBE_MAP_POSITIVE_X", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_POSITIVE_X\""}, {prop: "TEXTURE_CUBE_MAP_POSITIVE_Y", name: "TEXTURE_CUBE_MAP_POSITIVE_Y", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_POSITIVE_Y\""}, {prop: "TEXTURE_CUBE_MAP_POSITIVE_Z", name: "TEXTURE_CUBE_MAP_POSITIVE_Z", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_POSITIVE_Z\""}, {prop: "TEXTURE_MAG_FILTER", name: "TEXTURE_MAG_FILTER", pkg: "", typ: $Int, tag: "js:\"TEXTURE_MAG_FILTER\""}, {prop: "TEXTURE_MIN_FILTER", name: "TEXTURE_MIN_FILTER", pkg: "", typ: $Int, tag: "js:\"TEXTURE_MIN_FILTER\""}, {prop: "TEXTURE_WRAP_S", name: "TEXTURE_WRAP_S", pkg: "", typ: $Int, tag: "js:\"TEXTURE_WRAP_S\""}, {prop: "TEXTURE_WRAP_T", name: "TEXTURE_WRAP_T", pkg: "", typ: $Int, tag: "js:\"TEXTURE_WRAP_T\""}, {prop: "TRIANGLES", name: "TRIANGLES", pkg: "", typ: $Int, tag: "js:\"TRIANGLES\""}, {prop: "TRIANGLE_FAN", name: "TRIANGLE_FAN", pkg: "", typ: $Int, tag: "js:\"TRIANGLE_FAN\""}, {prop: "TRIANGLE_STRIP", name: "TRIANGLE_STRIP", pkg: "", typ: $Int, tag: "js:\"TRIANGLE_STRIP\""}, {prop: "UNPACK_ALIGNMENT", name: "UNPACK_ALIGNMENT", pkg: "", typ: $Int, tag: "js:\"UNPACK_ALIGNMENT\""}, {prop: "UNPACK_COLORSPACE_CONVERSION_WEBGL", name: "UNPACK_COLORSPACE_CONVERSION_WEBGL", pkg: "", typ: $Int, tag: "js:\"UNPACK_COLORSPACE_CONVERSION_WEBGL\""}, {prop: "UNPACK_FLIP_Y_WEBGL", name: "UNPACK_FLIP_Y_WEBGL", pkg: "", typ: $Int, tag: "js:\"UNPACK_FLIP_Y_WEBGL\""}, {prop: "UNPACK_PREMULTIPLY_ALPHA_WEBGL", name: "UNPACK_PREMULTIPLY_ALPHA_WEBGL", pkg: "", typ: $Int, tag: "js:\"UNPACK_PREMULTIPLY_ALPHA_WEBGL\""}, {prop: "UNSIGNED_BYTE", name: "UNSIGNED_BYTE", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_BYTE\""}, {prop: "UNSIGNED_INT", name: "UNSIGNED_INT", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_INT\""}, {prop: "UNSIGNED_SHORT", name: "UNSIGNED_SHORT", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT\""}, {prop: "UNSIGNED_SHORT_4_4_4_4", name: "UNSIGNED_SHORT_4_4_4_4", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT_4_4_4_4\""}, {prop: "UNSIGNED_SHORT_5_5_5_1", name: "UNSIGNED_SHORT_5_5_5_1", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT_5_5_5_1\""}, {prop: "UNSIGNED_SHORT_5_6_5", name: "UNSIGNED_SHORT_5_6_5", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT_5_6_5\""}, {prop: "VALIDATE_STATUS", name: "VALIDATE_STATUS", pkg: "", typ: $Int, tag: "js:\"VALIDATE_STATUS\""}, {prop: "VENDOR", name: "VENDOR", pkg: "", typ: $Int, tag: "js:\"VENDOR\""}, {prop: "VERSION", name: "VERSION", pkg: "", typ: $Int, tag: "js:\"VERSION\""}, {prop: "VERTEX_ATTRIB_ARRAY_BUFFER_BINDING", name: "VERTEX_ATTRIB_ARRAY_BUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_BUFFER_BINDING\""}, {prop: "VERTEX_ATTRIB_ARRAY_ENABLED", name: "VERTEX_ATTRIB_ARRAY_ENABLED", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_ENABLED\""}, {prop: "VERTEX_ATTRIB_ARRAY_NORMALIZED", name: "VERTEX_ATTRIB_ARRAY_NORMALIZED", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_NORMALIZED\""}, {prop: "VERTEX_ATTRIB_ARRAY_POINTER", name: "VERTEX_ATTRIB_ARRAY_POINTER", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_POINTER\""}, {prop: "VERTEX_ATTRIB_ARRAY_SIZE", name: "VERTEX_ATTRIB_ARRAY_SIZE", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_SIZE\""}, {prop: "VERTEX_ATTRIB_ARRAY_STRIDE", name: "VERTEX_ATTRIB_ARRAY_STRIDE", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_STRIDE\""}, {prop: "VERTEX_ATTRIB_ARRAY_TYPE", name: "VERTEX_ATTRIB_ARRAY_TYPE", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_TYPE\""}, {prop: "VERTEX_SHADER", name: "VERTEX_SHADER", pkg: "", typ: $Int, tag: "js:\"VERTEX_SHADER\""}, {prop: "VIEWPORT", name: "VIEWPORT", pkg: "", typ: $Int, tag: "js:\"VIEWPORT\""}, {prop: "ZERO", name: "ZERO", pkg: "", typ: $Int, tag: "js:\"ZERO\""}]);
-	$init = function() {
-		$pkg.$init = function() {};
-		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		$r = errors.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		$r = js.$init(); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
-	};
-	$pkg.$init = $init;
-	return $pkg;
-})();
 $packages["internal/race"] = (function() {
 	var $pkg = {}, $init, Acquire, Release, ReleaseMerge, Disable, Enable, ReadRange, WriteRange;
 	Acquire = function(addr) {
@@ -18034,6 +16605,1435 @@ $packages["fmt"] = (function() {
 	$pkg.$init = $init;
 	return $pkg;
 })();
+$packages["github.com/ajhager/webgl"] = (function() {
+	var $pkg = {}, $init, errors, js, Texture, Buffer, FrameBuffer, RenderBuffer, Program, UniformLocation, Shader, ContextAttributes, Context, ptrType, ptrType$1, mapType, ptrType$2, ptrType$3, ptrType$4, ptrType$5, ptrType$6, sliceType, sliceType$1, ptrType$7, sliceType$2, ptrType$8, ptrType$9, DefaultAttributes, NewContext;
+	errors = $packages["errors"];
+	js = $packages["github.com/gopherjs/gopherjs/js"];
+	Texture = $pkg.Texture = $newType(0, $kindStruct, "webgl.Texture", "Texture", "github.com/ajhager/webgl", function(Object_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			return;
+		}
+		this.Object = Object_;
+	});
+	Buffer = $pkg.Buffer = $newType(0, $kindStruct, "webgl.Buffer", "Buffer", "github.com/ajhager/webgl", function(Object_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			return;
+		}
+		this.Object = Object_;
+	});
+	FrameBuffer = $pkg.FrameBuffer = $newType(0, $kindStruct, "webgl.FrameBuffer", "FrameBuffer", "github.com/ajhager/webgl", function(Object_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			return;
+		}
+		this.Object = Object_;
+	});
+	RenderBuffer = $pkg.RenderBuffer = $newType(0, $kindStruct, "webgl.RenderBuffer", "RenderBuffer", "github.com/ajhager/webgl", function(Object_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			return;
+		}
+		this.Object = Object_;
+	});
+	Program = $pkg.Program = $newType(0, $kindStruct, "webgl.Program", "Program", "github.com/ajhager/webgl", function(Object_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			return;
+		}
+		this.Object = Object_;
+	});
+	UniformLocation = $pkg.UniformLocation = $newType(0, $kindStruct, "webgl.UniformLocation", "UniformLocation", "github.com/ajhager/webgl", function(Object_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			return;
+		}
+		this.Object = Object_;
+	});
+	Shader = $pkg.Shader = $newType(0, $kindStruct, "webgl.Shader", "Shader", "github.com/ajhager/webgl", function(Object_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			return;
+		}
+		this.Object = Object_;
+	});
+	ContextAttributes = $pkg.ContextAttributes = $newType(0, $kindStruct, "webgl.ContextAttributes", "ContextAttributes", "github.com/ajhager/webgl", function(Alpha_, Depth_, Stencil_, Antialias_, PremultipliedAlpha_, PreserveDrawingBuffer_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Alpha = false;
+			this.Depth = false;
+			this.Stencil = false;
+			this.Antialias = false;
+			this.PremultipliedAlpha = false;
+			this.PreserveDrawingBuffer = false;
+			return;
+		}
+		this.Alpha = Alpha_;
+		this.Depth = Depth_;
+		this.Stencil = Stencil_;
+		this.Antialias = Antialias_;
+		this.PremultipliedAlpha = PremultipliedAlpha_;
+		this.PreserveDrawingBuffer = PreserveDrawingBuffer_;
+	});
+	Context = $pkg.Context = $newType(0, $kindStruct, "webgl.Context", "Context", "github.com/ajhager/webgl", function(Object_, ARRAY_BUFFER_, ARRAY_BUFFER_BINDING_, ATTACHED_SHADERS_, BACK_, BLEND_, BLEND_COLOR_, BLEND_DST_ALPHA_, BLEND_DST_RGB_, BLEND_EQUATION_, BLEND_EQUATION_ALPHA_, BLEND_EQUATION_RGB_, BLEND_SRC_ALPHA_, BLEND_SRC_RGB_, BLUE_BITS_, BOOL_, BOOL_VEC2_, BOOL_VEC3_, BOOL_VEC4_, BROWSER_DEFAULT_WEBGL_, BUFFER_SIZE_, BUFFER_USAGE_, BYTE_, CCW_, CLAMP_TO_EDGE_, COLOR_ATTACHMENT0_, COLOR_BUFFER_BIT_, COLOR_CLEAR_VALUE_, COLOR_WRITEMASK_, COMPILE_STATUS_, COMPRESSED_TEXTURE_FORMATS_, CONSTANT_ALPHA_, CONSTANT_COLOR_, CONTEXT_LOST_WEBGL_, CULL_FACE_, CULL_FACE_MODE_, CURRENT_PROGRAM_, CURRENT_VERTEX_ATTRIB_, CW_, DECR_, DECR_WRAP_, DELETE_STATUS_, DEPTH_ATTACHMENT_, DEPTH_BITS_, DEPTH_BUFFER_BIT_, DEPTH_CLEAR_VALUE_, DEPTH_COMPONENT_, DEPTH_COMPONENT16_, DEPTH_FUNC_, DEPTH_RANGE_, DEPTH_STENCIL_, DEPTH_STENCIL_ATTACHMENT_, DEPTH_TEST_, DEPTH_WRITEMASK_, DITHER_, DONT_CARE_, DST_ALPHA_, DST_COLOR_, DYNAMIC_DRAW_, ELEMENT_ARRAY_BUFFER_, ELEMENT_ARRAY_BUFFER_BINDING_, EQUAL_, FASTEST_, FLOAT_, FLOAT_MAT2_, FLOAT_MAT3_, FLOAT_MAT4_, FLOAT_VEC2_, FLOAT_VEC3_, FLOAT_VEC4_, FRAGMENT_SHADER_, FRAMEBUFFER_, FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_, FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_, FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_, FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_, FRAMEBUFFER_BINDING_, FRAMEBUFFER_COMPLETE_, FRAMEBUFFER_INCOMPLETE_ATTACHMENT_, FRAMEBUFFER_INCOMPLETE_DIMENSIONS_, FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_, FRAMEBUFFER_UNSUPPORTED_, FRONT_, FRONT_AND_BACK_, FRONT_FACE_, FUNC_ADD_, FUNC_REVERSE_SUBTRACT_, FUNC_SUBTRACT_, GENERATE_MIPMAP_HINT_, GEQUAL_, GREATER_, GREEN_BITS_, HIGH_FLOAT_, HIGH_INT_, INCR_, INCR_WRAP_, INFO_LOG_LENGTH_, INT_, INT_VEC2_, INT_VEC3_, INT_VEC4_, INVALID_ENUM_, INVALID_FRAMEBUFFER_OPERATION_, INVALID_OPERATION_, INVALID_VALUE_, INVERT_, KEEP_, LEQUAL_, LESS_, LINEAR_, LINEAR_MIPMAP_LINEAR_, LINEAR_MIPMAP_NEAREST_, LINES_, LINE_LOOP_, LINE_STRIP_, LINE_WIDTH_, LINK_STATUS_, LOW_FLOAT_, LOW_INT_, LUMINANCE_, LUMINANCE_ALPHA_, MAX_COMBINED_TEXTURE_IMAGE_UNITS_, MAX_CUBE_MAP_TEXTURE_SIZE_, MAX_FRAGMENT_UNIFORM_VECTORS_, MAX_RENDERBUFFER_SIZE_, MAX_TEXTURE_IMAGE_UNITS_, MAX_TEXTURE_SIZE_, MAX_VARYING_VECTORS_, MAX_VERTEX_ATTRIBS_, MAX_VERTEX_TEXTURE_IMAGE_UNITS_, MAX_VERTEX_UNIFORM_VECTORS_, MAX_VIEWPORT_DIMS_, MEDIUM_FLOAT_, MEDIUM_INT_, MIRRORED_REPEAT_, NEAREST_, NEAREST_MIPMAP_LINEAR_, NEAREST_MIPMAP_NEAREST_, NEVER_, NICEST_, NONE_, NOTEQUAL_, NO_ERROR_, NUM_COMPRESSED_TEXTURE_FORMATS_, ONE_, ONE_MINUS_CONSTANT_ALPHA_, ONE_MINUS_CONSTANT_COLOR_, ONE_MINUS_DST_ALPHA_, ONE_MINUS_DST_COLOR_, ONE_MINUS_SRC_ALPHA_, ONE_MINUS_SRC_COLOR_, OUT_OF_MEMORY_, PACK_ALIGNMENT_, POINTS_, POLYGON_OFFSET_FACTOR_, POLYGON_OFFSET_FILL_, POLYGON_OFFSET_UNITS_, RED_BITS_, RENDERBUFFER_, RENDERBUFFER_ALPHA_SIZE_, RENDERBUFFER_BINDING_, RENDERBUFFER_BLUE_SIZE_, RENDERBUFFER_DEPTH_SIZE_, RENDERBUFFER_GREEN_SIZE_, RENDERBUFFER_HEIGHT_, RENDERBUFFER_INTERNAL_FORMAT_, RENDERBUFFER_RED_SIZE_, RENDERBUFFER_STENCIL_SIZE_, RENDERBUFFER_WIDTH_, RENDERER_, REPEAT_, REPLACE_, RGB_, RGB5_A1_, RGB565_, RGBA_, RGBA4_, SAMPLER_2D_, SAMPLER_CUBE_, SAMPLES_, SAMPLE_ALPHA_TO_COVERAGE_, SAMPLE_BUFFERS_, SAMPLE_COVERAGE_, SAMPLE_COVERAGE_INVERT_, SAMPLE_COVERAGE_VALUE_, SCISSOR_BOX_, SCISSOR_TEST_, SHADER_COMPILER_, SHADER_SOURCE_LENGTH_, SHADER_TYPE_, SHADING_LANGUAGE_VERSION_, SHORT_, SRC_ALPHA_, SRC_ALPHA_SATURATE_, SRC_COLOR_, STATIC_DRAW_, STENCIL_ATTACHMENT_, STENCIL_BACK_FAIL_, STENCIL_BACK_FUNC_, STENCIL_BACK_PASS_DEPTH_FAIL_, STENCIL_BACK_PASS_DEPTH_PASS_, STENCIL_BACK_REF_, STENCIL_BACK_VALUE_MASK_, STENCIL_BACK_WRITEMASK_, STENCIL_BITS_, STENCIL_BUFFER_BIT_, STENCIL_CLEAR_VALUE_, STENCIL_FAIL_, STENCIL_FUNC_, STENCIL_INDEX_, STENCIL_INDEX8_, STENCIL_PASS_DEPTH_FAIL_, STENCIL_PASS_DEPTH_PASS_, STENCIL_REF_, STENCIL_TEST_, STENCIL_VALUE_MASK_, STENCIL_WRITEMASK_, STREAM_DRAW_, SUBPIXEL_BITS_, TEXTURE_, TEXTURE0_, TEXTURE1_, TEXTURE2_, TEXTURE3_, TEXTURE4_, TEXTURE5_, TEXTURE6_, TEXTURE7_, TEXTURE8_, TEXTURE9_, TEXTURE10_, TEXTURE11_, TEXTURE12_, TEXTURE13_, TEXTURE14_, TEXTURE15_, TEXTURE16_, TEXTURE17_, TEXTURE18_, TEXTURE19_, TEXTURE20_, TEXTURE21_, TEXTURE22_, TEXTURE23_, TEXTURE24_, TEXTURE25_, TEXTURE26_, TEXTURE27_, TEXTURE28_, TEXTURE29_, TEXTURE30_, TEXTURE31_, TEXTURE_2D_, TEXTURE_BINDING_2D_, TEXTURE_BINDING_CUBE_MAP_, TEXTURE_CUBE_MAP_, TEXTURE_CUBE_MAP_NEGATIVE_X_, TEXTURE_CUBE_MAP_NEGATIVE_Y_, TEXTURE_CUBE_MAP_NEGATIVE_Z_, TEXTURE_CUBE_MAP_POSITIVE_X_, TEXTURE_CUBE_MAP_POSITIVE_Y_, TEXTURE_CUBE_MAP_POSITIVE_Z_, TEXTURE_MAG_FILTER_, TEXTURE_MIN_FILTER_, TEXTURE_WRAP_S_, TEXTURE_WRAP_T_, TRIANGLES_, TRIANGLE_FAN_, TRIANGLE_STRIP_, UNPACK_ALIGNMENT_, UNPACK_COLORSPACE_CONVERSION_WEBGL_, UNPACK_FLIP_Y_WEBGL_, UNPACK_PREMULTIPLY_ALPHA_WEBGL_, UNSIGNED_BYTE_, UNSIGNED_INT_, UNSIGNED_SHORT_, UNSIGNED_SHORT_4_4_4_4_, UNSIGNED_SHORT_5_5_5_1_, UNSIGNED_SHORT_5_6_5_, VALIDATE_STATUS_, VENDOR_, VERSION_, VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_, VERTEX_ATTRIB_ARRAY_ENABLED_, VERTEX_ATTRIB_ARRAY_NORMALIZED_, VERTEX_ATTRIB_ARRAY_POINTER_, VERTEX_ATTRIB_ARRAY_SIZE_, VERTEX_ATTRIB_ARRAY_STRIDE_, VERTEX_ATTRIB_ARRAY_TYPE_, VERTEX_SHADER_, VIEWPORT_, ZERO_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Object = null;
+			this.ARRAY_BUFFER = 0;
+			this.ARRAY_BUFFER_BINDING = 0;
+			this.ATTACHED_SHADERS = 0;
+			this.BACK = 0;
+			this.BLEND = 0;
+			this.BLEND_COLOR = 0;
+			this.BLEND_DST_ALPHA = 0;
+			this.BLEND_DST_RGB = 0;
+			this.BLEND_EQUATION = 0;
+			this.BLEND_EQUATION_ALPHA = 0;
+			this.BLEND_EQUATION_RGB = 0;
+			this.BLEND_SRC_ALPHA = 0;
+			this.BLEND_SRC_RGB = 0;
+			this.BLUE_BITS = 0;
+			this.BOOL = 0;
+			this.BOOL_VEC2 = 0;
+			this.BOOL_VEC3 = 0;
+			this.BOOL_VEC4 = 0;
+			this.BROWSER_DEFAULT_WEBGL = 0;
+			this.BUFFER_SIZE = 0;
+			this.BUFFER_USAGE = 0;
+			this.BYTE = 0;
+			this.CCW = 0;
+			this.CLAMP_TO_EDGE = 0;
+			this.COLOR_ATTACHMENT0 = 0;
+			this.COLOR_BUFFER_BIT = 0;
+			this.COLOR_CLEAR_VALUE = 0;
+			this.COLOR_WRITEMASK = 0;
+			this.COMPILE_STATUS = 0;
+			this.COMPRESSED_TEXTURE_FORMATS = 0;
+			this.CONSTANT_ALPHA = 0;
+			this.CONSTANT_COLOR = 0;
+			this.CONTEXT_LOST_WEBGL = 0;
+			this.CULL_FACE = 0;
+			this.CULL_FACE_MODE = 0;
+			this.CURRENT_PROGRAM = 0;
+			this.CURRENT_VERTEX_ATTRIB = 0;
+			this.CW = 0;
+			this.DECR = 0;
+			this.DECR_WRAP = 0;
+			this.DELETE_STATUS = 0;
+			this.DEPTH_ATTACHMENT = 0;
+			this.DEPTH_BITS = 0;
+			this.DEPTH_BUFFER_BIT = 0;
+			this.DEPTH_CLEAR_VALUE = 0;
+			this.DEPTH_COMPONENT = 0;
+			this.DEPTH_COMPONENT16 = 0;
+			this.DEPTH_FUNC = 0;
+			this.DEPTH_RANGE = 0;
+			this.DEPTH_STENCIL = 0;
+			this.DEPTH_STENCIL_ATTACHMENT = 0;
+			this.DEPTH_TEST = 0;
+			this.DEPTH_WRITEMASK = 0;
+			this.DITHER = 0;
+			this.DONT_CARE = 0;
+			this.DST_ALPHA = 0;
+			this.DST_COLOR = 0;
+			this.DYNAMIC_DRAW = 0;
+			this.ELEMENT_ARRAY_BUFFER = 0;
+			this.ELEMENT_ARRAY_BUFFER_BINDING = 0;
+			this.EQUAL = 0;
+			this.FASTEST = 0;
+			this.FLOAT = 0;
+			this.FLOAT_MAT2 = 0;
+			this.FLOAT_MAT3 = 0;
+			this.FLOAT_MAT4 = 0;
+			this.FLOAT_VEC2 = 0;
+			this.FLOAT_VEC3 = 0;
+			this.FLOAT_VEC4 = 0;
+			this.FRAGMENT_SHADER = 0;
+			this.FRAMEBUFFER = 0;
+			this.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = 0;
+			this.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = 0;
+			this.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = 0;
+			this.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = 0;
+			this.FRAMEBUFFER_BINDING = 0;
+			this.FRAMEBUFFER_COMPLETE = 0;
+			this.FRAMEBUFFER_INCOMPLETE_ATTACHMENT = 0;
+			this.FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0;
+			this.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = 0;
+			this.FRAMEBUFFER_UNSUPPORTED = 0;
+			this.FRONT = 0;
+			this.FRONT_AND_BACK = 0;
+			this.FRONT_FACE = 0;
+			this.FUNC_ADD = 0;
+			this.FUNC_REVERSE_SUBTRACT = 0;
+			this.FUNC_SUBTRACT = 0;
+			this.GENERATE_MIPMAP_HINT = 0;
+			this.GEQUAL = 0;
+			this.GREATER = 0;
+			this.GREEN_BITS = 0;
+			this.HIGH_FLOAT = 0;
+			this.HIGH_INT = 0;
+			this.INCR = 0;
+			this.INCR_WRAP = 0;
+			this.INFO_LOG_LENGTH = 0;
+			this.INT = 0;
+			this.INT_VEC2 = 0;
+			this.INT_VEC3 = 0;
+			this.INT_VEC4 = 0;
+			this.INVALID_ENUM = 0;
+			this.INVALID_FRAMEBUFFER_OPERATION = 0;
+			this.INVALID_OPERATION = 0;
+			this.INVALID_VALUE = 0;
+			this.INVERT = 0;
+			this.KEEP = 0;
+			this.LEQUAL = 0;
+			this.LESS = 0;
+			this.LINEAR = 0;
+			this.LINEAR_MIPMAP_LINEAR = 0;
+			this.LINEAR_MIPMAP_NEAREST = 0;
+			this.LINES = 0;
+			this.LINE_LOOP = 0;
+			this.LINE_STRIP = 0;
+			this.LINE_WIDTH = 0;
+			this.LINK_STATUS = 0;
+			this.LOW_FLOAT = 0;
+			this.LOW_INT = 0;
+			this.LUMINANCE = 0;
+			this.LUMINANCE_ALPHA = 0;
+			this.MAX_COMBINED_TEXTURE_IMAGE_UNITS = 0;
+			this.MAX_CUBE_MAP_TEXTURE_SIZE = 0;
+			this.MAX_FRAGMENT_UNIFORM_VECTORS = 0;
+			this.MAX_RENDERBUFFER_SIZE = 0;
+			this.MAX_TEXTURE_IMAGE_UNITS = 0;
+			this.MAX_TEXTURE_SIZE = 0;
+			this.MAX_VARYING_VECTORS = 0;
+			this.MAX_VERTEX_ATTRIBS = 0;
+			this.MAX_VERTEX_TEXTURE_IMAGE_UNITS = 0;
+			this.MAX_VERTEX_UNIFORM_VECTORS = 0;
+			this.MAX_VIEWPORT_DIMS = 0;
+			this.MEDIUM_FLOAT = 0;
+			this.MEDIUM_INT = 0;
+			this.MIRRORED_REPEAT = 0;
+			this.NEAREST = 0;
+			this.NEAREST_MIPMAP_LINEAR = 0;
+			this.NEAREST_MIPMAP_NEAREST = 0;
+			this.NEVER = 0;
+			this.NICEST = 0;
+			this.NONE = 0;
+			this.NOTEQUAL = 0;
+			this.NO_ERROR = 0;
+			this.NUM_COMPRESSED_TEXTURE_FORMATS = 0;
+			this.ONE = 0;
+			this.ONE_MINUS_CONSTANT_ALPHA = 0;
+			this.ONE_MINUS_CONSTANT_COLOR = 0;
+			this.ONE_MINUS_DST_ALPHA = 0;
+			this.ONE_MINUS_DST_COLOR = 0;
+			this.ONE_MINUS_SRC_ALPHA = 0;
+			this.ONE_MINUS_SRC_COLOR = 0;
+			this.OUT_OF_MEMORY = 0;
+			this.PACK_ALIGNMENT = 0;
+			this.POINTS = 0;
+			this.POLYGON_OFFSET_FACTOR = 0;
+			this.POLYGON_OFFSET_FILL = 0;
+			this.POLYGON_OFFSET_UNITS = 0;
+			this.RED_BITS = 0;
+			this.RENDERBUFFER = 0;
+			this.RENDERBUFFER_ALPHA_SIZE = 0;
+			this.RENDERBUFFER_BINDING = 0;
+			this.RENDERBUFFER_BLUE_SIZE = 0;
+			this.RENDERBUFFER_DEPTH_SIZE = 0;
+			this.RENDERBUFFER_GREEN_SIZE = 0;
+			this.RENDERBUFFER_HEIGHT = 0;
+			this.RENDERBUFFER_INTERNAL_FORMAT = 0;
+			this.RENDERBUFFER_RED_SIZE = 0;
+			this.RENDERBUFFER_STENCIL_SIZE = 0;
+			this.RENDERBUFFER_WIDTH = 0;
+			this.RENDERER = 0;
+			this.REPEAT = 0;
+			this.REPLACE = 0;
+			this.RGB = 0;
+			this.RGB5_A1 = 0;
+			this.RGB565 = 0;
+			this.RGBA = 0;
+			this.RGBA4 = 0;
+			this.SAMPLER_2D = 0;
+			this.SAMPLER_CUBE = 0;
+			this.SAMPLES = 0;
+			this.SAMPLE_ALPHA_TO_COVERAGE = 0;
+			this.SAMPLE_BUFFERS = 0;
+			this.SAMPLE_COVERAGE = 0;
+			this.SAMPLE_COVERAGE_INVERT = 0;
+			this.SAMPLE_COVERAGE_VALUE = 0;
+			this.SCISSOR_BOX = 0;
+			this.SCISSOR_TEST = 0;
+			this.SHADER_COMPILER = 0;
+			this.SHADER_SOURCE_LENGTH = 0;
+			this.SHADER_TYPE = 0;
+			this.SHADING_LANGUAGE_VERSION = 0;
+			this.SHORT = 0;
+			this.SRC_ALPHA = 0;
+			this.SRC_ALPHA_SATURATE = 0;
+			this.SRC_COLOR = 0;
+			this.STATIC_DRAW = 0;
+			this.STENCIL_ATTACHMENT = 0;
+			this.STENCIL_BACK_FAIL = 0;
+			this.STENCIL_BACK_FUNC = 0;
+			this.STENCIL_BACK_PASS_DEPTH_FAIL = 0;
+			this.STENCIL_BACK_PASS_DEPTH_PASS = 0;
+			this.STENCIL_BACK_REF = 0;
+			this.STENCIL_BACK_VALUE_MASK = 0;
+			this.STENCIL_BACK_WRITEMASK = 0;
+			this.STENCIL_BITS = 0;
+			this.STENCIL_BUFFER_BIT = 0;
+			this.STENCIL_CLEAR_VALUE = 0;
+			this.STENCIL_FAIL = 0;
+			this.STENCIL_FUNC = 0;
+			this.STENCIL_INDEX = 0;
+			this.STENCIL_INDEX8 = 0;
+			this.STENCIL_PASS_DEPTH_FAIL = 0;
+			this.STENCIL_PASS_DEPTH_PASS = 0;
+			this.STENCIL_REF = 0;
+			this.STENCIL_TEST = 0;
+			this.STENCIL_VALUE_MASK = 0;
+			this.STENCIL_WRITEMASK = 0;
+			this.STREAM_DRAW = 0;
+			this.SUBPIXEL_BITS = 0;
+			this.TEXTURE = 0;
+			this.TEXTURE0 = 0;
+			this.TEXTURE1 = 0;
+			this.TEXTURE2 = 0;
+			this.TEXTURE3 = 0;
+			this.TEXTURE4 = 0;
+			this.TEXTURE5 = 0;
+			this.TEXTURE6 = 0;
+			this.TEXTURE7 = 0;
+			this.TEXTURE8 = 0;
+			this.TEXTURE9 = 0;
+			this.TEXTURE10 = 0;
+			this.TEXTURE11 = 0;
+			this.TEXTURE12 = 0;
+			this.TEXTURE13 = 0;
+			this.TEXTURE14 = 0;
+			this.TEXTURE15 = 0;
+			this.TEXTURE16 = 0;
+			this.TEXTURE17 = 0;
+			this.TEXTURE18 = 0;
+			this.TEXTURE19 = 0;
+			this.TEXTURE20 = 0;
+			this.TEXTURE21 = 0;
+			this.TEXTURE22 = 0;
+			this.TEXTURE23 = 0;
+			this.TEXTURE24 = 0;
+			this.TEXTURE25 = 0;
+			this.TEXTURE26 = 0;
+			this.TEXTURE27 = 0;
+			this.TEXTURE28 = 0;
+			this.TEXTURE29 = 0;
+			this.TEXTURE30 = 0;
+			this.TEXTURE31 = 0;
+			this.TEXTURE_2D = 0;
+			this.TEXTURE_BINDING_2D = 0;
+			this.TEXTURE_BINDING_CUBE_MAP = 0;
+			this.TEXTURE_CUBE_MAP = 0;
+			this.TEXTURE_CUBE_MAP_NEGATIVE_X = 0;
+			this.TEXTURE_CUBE_MAP_NEGATIVE_Y = 0;
+			this.TEXTURE_CUBE_MAP_NEGATIVE_Z = 0;
+			this.TEXTURE_CUBE_MAP_POSITIVE_X = 0;
+			this.TEXTURE_CUBE_MAP_POSITIVE_Y = 0;
+			this.TEXTURE_CUBE_MAP_POSITIVE_Z = 0;
+			this.TEXTURE_MAG_FILTER = 0;
+			this.TEXTURE_MIN_FILTER = 0;
+			this.TEXTURE_WRAP_S = 0;
+			this.TEXTURE_WRAP_T = 0;
+			this.TRIANGLES = 0;
+			this.TRIANGLE_FAN = 0;
+			this.TRIANGLE_STRIP = 0;
+			this.UNPACK_ALIGNMENT = 0;
+			this.UNPACK_COLORSPACE_CONVERSION_WEBGL = 0;
+			this.UNPACK_FLIP_Y_WEBGL = 0;
+			this.UNPACK_PREMULTIPLY_ALPHA_WEBGL = 0;
+			this.UNSIGNED_BYTE = 0;
+			this.UNSIGNED_INT = 0;
+			this.UNSIGNED_SHORT = 0;
+			this.UNSIGNED_SHORT_4_4_4_4 = 0;
+			this.UNSIGNED_SHORT_5_5_5_1 = 0;
+			this.UNSIGNED_SHORT_5_6_5 = 0;
+			this.VALIDATE_STATUS = 0;
+			this.VENDOR = 0;
+			this.VERSION = 0;
+			this.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = 0;
+			this.VERTEX_ATTRIB_ARRAY_ENABLED = 0;
+			this.VERTEX_ATTRIB_ARRAY_NORMALIZED = 0;
+			this.VERTEX_ATTRIB_ARRAY_POINTER = 0;
+			this.VERTEX_ATTRIB_ARRAY_SIZE = 0;
+			this.VERTEX_ATTRIB_ARRAY_STRIDE = 0;
+			this.VERTEX_ATTRIB_ARRAY_TYPE = 0;
+			this.VERTEX_SHADER = 0;
+			this.VIEWPORT = 0;
+			this.ZERO = 0;
+			return;
+		}
+		this.Object = Object_;
+		this.ARRAY_BUFFER = ARRAY_BUFFER_;
+		this.ARRAY_BUFFER_BINDING = ARRAY_BUFFER_BINDING_;
+		this.ATTACHED_SHADERS = ATTACHED_SHADERS_;
+		this.BACK = BACK_;
+		this.BLEND = BLEND_;
+		this.BLEND_COLOR = BLEND_COLOR_;
+		this.BLEND_DST_ALPHA = BLEND_DST_ALPHA_;
+		this.BLEND_DST_RGB = BLEND_DST_RGB_;
+		this.BLEND_EQUATION = BLEND_EQUATION_;
+		this.BLEND_EQUATION_ALPHA = BLEND_EQUATION_ALPHA_;
+		this.BLEND_EQUATION_RGB = BLEND_EQUATION_RGB_;
+		this.BLEND_SRC_ALPHA = BLEND_SRC_ALPHA_;
+		this.BLEND_SRC_RGB = BLEND_SRC_RGB_;
+		this.BLUE_BITS = BLUE_BITS_;
+		this.BOOL = BOOL_;
+		this.BOOL_VEC2 = BOOL_VEC2_;
+		this.BOOL_VEC3 = BOOL_VEC3_;
+		this.BOOL_VEC4 = BOOL_VEC4_;
+		this.BROWSER_DEFAULT_WEBGL = BROWSER_DEFAULT_WEBGL_;
+		this.BUFFER_SIZE = BUFFER_SIZE_;
+		this.BUFFER_USAGE = BUFFER_USAGE_;
+		this.BYTE = BYTE_;
+		this.CCW = CCW_;
+		this.CLAMP_TO_EDGE = CLAMP_TO_EDGE_;
+		this.COLOR_ATTACHMENT0 = COLOR_ATTACHMENT0_;
+		this.COLOR_BUFFER_BIT = COLOR_BUFFER_BIT_;
+		this.COLOR_CLEAR_VALUE = COLOR_CLEAR_VALUE_;
+		this.COLOR_WRITEMASK = COLOR_WRITEMASK_;
+		this.COMPILE_STATUS = COMPILE_STATUS_;
+		this.COMPRESSED_TEXTURE_FORMATS = COMPRESSED_TEXTURE_FORMATS_;
+		this.CONSTANT_ALPHA = CONSTANT_ALPHA_;
+		this.CONSTANT_COLOR = CONSTANT_COLOR_;
+		this.CONTEXT_LOST_WEBGL = CONTEXT_LOST_WEBGL_;
+		this.CULL_FACE = CULL_FACE_;
+		this.CULL_FACE_MODE = CULL_FACE_MODE_;
+		this.CURRENT_PROGRAM = CURRENT_PROGRAM_;
+		this.CURRENT_VERTEX_ATTRIB = CURRENT_VERTEX_ATTRIB_;
+		this.CW = CW_;
+		this.DECR = DECR_;
+		this.DECR_WRAP = DECR_WRAP_;
+		this.DELETE_STATUS = DELETE_STATUS_;
+		this.DEPTH_ATTACHMENT = DEPTH_ATTACHMENT_;
+		this.DEPTH_BITS = DEPTH_BITS_;
+		this.DEPTH_BUFFER_BIT = DEPTH_BUFFER_BIT_;
+		this.DEPTH_CLEAR_VALUE = DEPTH_CLEAR_VALUE_;
+		this.DEPTH_COMPONENT = DEPTH_COMPONENT_;
+		this.DEPTH_COMPONENT16 = DEPTH_COMPONENT16_;
+		this.DEPTH_FUNC = DEPTH_FUNC_;
+		this.DEPTH_RANGE = DEPTH_RANGE_;
+		this.DEPTH_STENCIL = DEPTH_STENCIL_;
+		this.DEPTH_STENCIL_ATTACHMENT = DEPTH_STENCIL_ATTACHMENT_;
+		this.DEPTH_TEST = DEPTH_TEST_;
+		this.DEPTH_WRITEMASK = DEPTH_WRITEMASK_;
+		this.DITHER = DITHER_;
+		this.DONT_CARE = DONT_CARE_;
+		this.DST_ALPHA = DST_ALPHA_;
+		this.DST_COLOR = DST_COLOR_;
+		this.DYNAMIC_DRAW = DYNAMIC_DRAW_;
+		this.ELEMENT_ARRAY_BUFFER = ELEMENT_ARRAY_BUFFER_;
+		this.ELEMENT_ARRAY_BUFFER_BINDING = ELEMENT_ARRAY_BUFFER_BINDING_;
+		this.EQUAL = EQUAL_;
+		this.FASTEST = FASTEST_;
+		this.FLOAT = FLOAT_;
+		this.FLOAT_MAT2 = FLOAT_MAT2_;
+		this.FLOAT_MAT3 = FLOAT_MAT3_;
+		this.FLOAT_MAT4 = FLOAT_MAT4_;
+		this.FLOAT_VEC2 = FLOAT_VEC2_;
+		this.FLOAT_VEC3 = FLOAT_VEC3_;
+		this.FLOAT_VEC4 = FLOAT_VEC4_;
+		this.FRAGMENT_SHADER = FRAGMENT_SHADER_;
+		this.FRAMEBUFFER = FRAMEBUFFER_;
+		this.FRAMEBUFFER_ATTACHMENT_OBJECT_NAME = FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_;
+		this.FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE = FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_;
+		this.FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE = FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_;
+		this.FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL = FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_;
+		this.FRAMEBUFFER_BINDING = FRAMEBUFFER_BINDING_;
+		this.FRAMEBUFFER_COMPLETE = FRAMEBUFFER_COMPLETE_;
+		this.FRAMEBUFFER_INCOMPLETE_ATTACHMENT = FRAMEBUFFER_INCOMPLETE_ATTACHMENT_;
+		this.FRAMEBUFFER_INCOMPLETE_DIMENSIONS = FRAMEBUFFER_INCOMPLETE_DIMENSIONS_;
+		this.FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT = FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_;
+		this.FRAMEBUFFER_UNSUPPORTED = FRAMEBUFFER_UNSUPPORTED_;
+		this.FRONT = FRONT_;
+		this.FRONT_AND_BACK = FRONT_AND_BACK_;
+		this.FRONT_FACE = FRONT_FACE_;
+		this.FUNC_ADD = FUNC_ADD_;
+		this.FUNC_REVERSE_SUBTRACT = FUNC_REVERSE_SUBTRACT_;
+		this.FUNC_SUBTRACT = FUNC_SUBTRACT_;
+		this.GENERATE_MIPMAP_HINT = GENERATE_MIPMAP_HINT_;
+		this.GEQUAL = GEQUAL_;
+		this.GREATER = GREATER_;
+		this.GREEN_BITS = GREEN_BITS_;
+		this.HIGH_FLOAT = HIGH_FLOAT_;
+		this.HIGH_INT = HIGH_INT_;
+		this.INCR = INCR_;
+		this.INCR_WRAP = INCR_WRAP_;
+		this.INFO_LOG_LENGTH = INFO_LOG_LENGTH_;
+		this.INT = INT_;
+		this.INT_VEC2 = INT_VEC2_;
+		this.INT_VEC3 = INT_VEC3_;
+		this.INT_VEC4 = INT_VEC4_;
+		this.INVALID_ENUM = INVALID_ENUM_;
+		this.INVALID_FRAMEBUFFER_OPERATION = INVALID_FRAMEBUFFER_OPERATION_;
+		this.INVALID_OPERATION = INVALID_OPERATION_;
+		this.INVALID_VALUE = INVALID_VALUE_;
+		this.INVERT = INVERT_;
+		this.KEEP = KEEP_;
+		this.LEQUAL = LEQUAL_;
+		this.LESS = LESS_;
+		this.LINEAR = LINEAR_;
+		this.LINEAR_MIPMAP_LINEAR = LINEAR_MIPMAP_LINEAR_;
+		this.LINEAR_MIPMAP_NEAREST = LINEAR_MIPMAP_NEAREST_;
+		this.LINES = LINES_;
+		this.LINE_LOOP = LINE_LOOP_;
+		this.LINE_STRIP = LINE_STRIP_;
+		this.LINE_WIDTH = LINE_WIDTH_;
+		this.LINK_STATUS = LINK_STATUS_;
+		this.LOW_FLOAT = LOW_FLOAT_;
+		this.LOW_INT = LOW_INT_;
+		this.LUMINANCE = LUMINANCE_;
+		this.LUMINANCE_ALPHA = LUMINANCE_ALPHA_;
+		this.MAX_COMBINED_TEXTURE_IMAGE_UNITS = MAX_COMBINED_TEXTURE_IMAGE_UNITS_;
+		this.MAX_CUBE_MAP_TEXTURE_SIZE = MAX_CUBE_MAP_TEXTURE_SIZE_;
+		this.MAX_FRAGMENT_UNIFORM_VECTORS = MAX_FRAGMENT_UNIFORM_VECTORS_;
+		this.MAX_RENDERBUFFER_SIZE = MAX_RENDERBUFFER_SIZE_;
+		this.MAX_TEXTURE_IMAGE_UNITS = MAX_TEXTURE_IMAGE_UNITS_;
+		this.MAX_TEXTURE_SIZE = MAX_TEXTURE_SIZE_;
+		this.MAX_VARYING_VECTORS = MAX_VARYING_VECTORS_;
+		this.MAX_VERTEX_ATTRIBS = MAX_VERTEX_ATTRIBS_;
+		this.MAX_VERTEX_TEXTURE_IMAGE_UNITS = MAX_VERTEX_TEXTURE_IMAGE_UNITS_;
+		this.MAX_VERTEX_UNIFORM_VECTORS = MAX_VERTEX_UNIFORM_VECTORS_;
+		this.MAX_VIEWPORT_DIMS = MAX_VIEWPORT_DIMS_;
+		this.MEDIUM_FLOAT = MEDIUM_FLOAT_;
+		this.MEDIUM_INT = MEDIUM_INT_;
+		this.MIRRORED_REPEAT = MIRRORED_REPEAT_;
+		this.NEAREST = NEAREST_;
+		this.NEAREST_MIPMAP_LINEAR = NEAREST_MIPMAP_LINEAR_;
+		this.NEAREST_MIPMAP_NEAREST = NEAREST_MIPMAP_NEAREST_;
+		this.NEVER = NEVER_;
+		this.NICEST = NICEST_;
+		this.NONE = NONE_;
+		this.NOTEQUAL = NOTEQUAL_;
+		this.NO_ERROR = NO_ERROR_;
+		this.NUM_COMPRESSED_TEXTURE_FORMATS = NUM_COMPRESSED_TEXTURE_FORMATS_;
+		this.ONE = ONE_;
+		this.ONE_MINUS_CONSTANT_ALPHA = ONE_MINUS_CONSTANT_ALPHA_;
+		this.ONE_MINUS_CONSTANT_COLOR = ONE_MINUS_CONSTANT_COLOR_;
+		this.ONE_MINUS_DST_ALPHA = ONE_MINUS_DST_ALPHA_;
+		this.ONE_MINUS_DST_COLOR = ONE_MINUS_DST_COLOR_;
+		this.ONE_MINUS_SRC_ALPHA = ONE_MINUS_SRC_ALPHA_;
+		this.ONE_MINUS_SRC_COLOR = ONE_MINUS_SRC_COLOR_;
+		this.OUT_OF_MEMORY = OUT_OF_MEMORY_;
+		this.PACK_ALIGNMENT = PACK_ALIGNMENT_;
+		this.POINTS = POINTS_;
+		this.POLYGON_OFFSET_FACTOR = POLYGON_OFFSET_FACTOR_;
+		this.POLYGON_OFFSET_FILL = POLYGON_OFFSET_FILL_;
+		this.POLYGON_OFFSET_UNITS = POLYGON_OFFSET_UNITS_;
+		this.RED_BITS = RED_BITS_;
+		this.RENDERBUFFER = RENDERBUFFER_;
+		this.RENDERBUFFER_ALPHA_SIZE = RENDERBUFFER_ALPHA_SIZE_;
+		this.RENDERBUFFER_BINDING = RENDERBUFFER_BINDING_;
+		this.RENDERBUFFER_BLUE_SIZE = RENDERBUFFER_BLUE_SIZE_;
+		this.RENDERBUFFER_DEPTH_SIZE = RENDERBUFFER_DEPTH_SIZE_;
+		this.RENDERBUFFER_GREEN_SIZE = RENDERBUFFER_GREEN_SIZE_;
+		this.RENDERBUFFER_HEIGHT = RENDERBUFFER_HEIGHT_;
+		this.RENDERBUFFER_INTERNAL_FORMAT = RENDERBUFFER_INTERNAL_FORMAT_;
+		this.RENDERBUFFER_RED_SIZE = RENDERBUFFER_RED_SIZE_;
+		this.RENDERBUFFER_STENCIL_SIZE = RENDERBUFFER_STENCIL_SIZE_;
+		this.RENDERBUFFER_WIDTH = RENDERBUFFER_WIDTH_;
+		this.RENDERER = RENDERER_;
+		this.REPEAT = REPEAT_;
+		this.REPLACE = REPLACE_;
+		this.RGB = RGB_;
+		this.RGB5_A1 = RGB5_A1_;
+		this.RGB565 = RGB565_;
+		this.RGBA = RGBA_;
+		this.RGBA4 = RGBA4_;
+		this.SAMPLER_2D = SAMPLER_2D_;
+		this.SAMPLER_CUBE = SAMPLER_CUBE_;
+		this.SAMPLES = SAMPLES_;
+		this.SAMPLE_ALPHA_TO_COVERAGE = SAMPLE_ALPHA_TO_COVERAGE_;
+		this.SAMPLE_BUFFERS = SAMPLE_BUFFERS_;
+		this.SAMPLE_COVERAGE = SAMPLE_COVERAGE_;
+		this.SAMPLE_COVERAGE_INVERT = SAMPLE_COVERAGE_INVERT_;
+		this.SAMPLE_COVERAGE_VALUE = SAMPLE_COVERAGE_VALUE_;
+		this.SCISSOR_BOX = SCISSOR_BOX_;
+		this.SCISSOR_TEST = SCISSOR_TEST_;
+		this.SHADER_COMPILER = SHADER_COMPILER_;
+		this.SHADER_SOURCE_LENGTH = SHADER_SOURCE_LENGTH_;
+		this.SHADER_TYPE = SHADER_TYPE_;
+		this.SHADING_LANGUAGE_VERSION = SHADING_LANGUAGE_VERSION_;
+		this.SHORT = SHORT_;
+		this.SRC_ALPHA = SRC_ALPHA_;
+		this.SRC_ALPHA_SATURATE = SRC_ALPHA_SATURATE_;
+		this.SRC_COLOR = SRC_COLOR_;
+		this.STATIC_DRAW = STATIC_DRAW_;
+		this.STENCIL_ATTACHMENT = STENCIL_ATTACHMENT_;
+		this.STENCIL_BACK_FAIL = STENCIL_BACK_FAIL_;
+		this.STENCIL_BACK_FUNC = STENCIL_BACK_FUNC_;
+		this.STENCIL_BACK_PASS_DEPTH_FAIL = STENCIL_BACK_PASS_DEPTH_FAIL_;
+		this.STENCIL_BACK_PASS_DEPTH_PASS = STENCIL_BACK_PASS_DEPTH_PASS_;
+		this.STENCIL_BACK_REF = STENCIL_BACK_REF_;
+		this.STENCIL_BACK_VALUE_MASK = STENCIL_BACK_VALUE_MASK_;
+		this.STENCIL_BACK_WRITEMASK = STENCIL_BACK_WRITEMASK_;
+		this.STENCIL_BITS = STENCIL_BITS_;
+		this.STENCIL_BUFFER_BIT = STENCIL_BUFFER_BIT_;
+		this.STENCIL_CLEAR_VALUE = STENCIL_CLEAR_VALUE_;
+		this.STENCIL_FAIL = STENCIL_FAIL_;
+		this.STENCIL_FUNC = STENCIL_FUNC_;
+		this.STENCIL_INDEX = STENCIL_INDEX_;
+		this.STENCIL_INDEX8 = STENCIL_INDEX8_;
+		this.STENCIL_PASS_DEPTH_FAIL = STENCIL_PASS_DEPTH_FAIL_;
+		this.STENCIL_PASS_DEPTH_PASS = STENCIL_PASS_DEPTH_PASS_;
+		this.STENCIL_REF = STENCIL_REF_;
+		this.STENCIL_TEST = STENCIL_TEST_;
+		this.STENCIL_VALUE_MASK = STENCIL_VALUE_MASK_;
+		this.STENCIL_WRITEMASK = STENCIL_WRITEMASK_;
+		this.STREAM_DRAW = STREAM_DRAW_;
+		this.SUBPIXEL_BITS = SUBPIXEL_BITS_;
+		this.TEXTURE = TEXTURE_;
+		this.TEXTURE0 = TEXTURE0_;
+		this.TEXTURE1 = TEXTURE1_;
+		this.TEXTURE2 = TEXTURE2_;
+		this.TEXTURE3 = TEXTURE3_;
+		this.TEXTURE4 = TEXTURE4_;
+		this.TEXTURE5 = TEXTURE5_;
+		this.TEXTURE6 = TEXTURE6_;
+		this.TEXTURE7 = TEXTURE7_;
+		this.TEXTURE8 = TEXTURE8_;
+		this.TEXTURE9 = TEXTURE9_;
+		this.TEXTURE10 = TEXTURE10_;
+		this.TEXTURE11 = TEXTURE11_;
+		this.TEXTURE12 = TEXTURE12_;
+		this.TEXTURE13 = TEXTURE13_;
+		this.TEXTURE14 = TEXTURE14_;
+		this.TEXTURE15 = TEXTURE15_;
+		this.TEXTURE16 = TEXTURE16_;
+		this.TEXTURE17 = TEXTURE17_;
+		this.TEXTURE18 = TEXTURE18_;
+		this.TEXTURE19 = TEXTURE19_;
+		this.TEXTURE20 = TEXTURE20_;
+		this.TEXTURE21 = TEXTURE21_;
+		this.TEXTURE22 = TEXTURE22_;
+		this.TEXTURE23 = TEXTURE23_;
+		this.TEXTURE24 = TEXTURE24_;
+		this.TEXTURE25 = TEXTURE25_;
+		this.TEXTURE26 = TEXTURE26_;
+		this.TEXTURE27 = TEXTURE27_;
+		this.TEXTURE28 = TEXTURE28_;
+		this.TEXTURE29 = TEXTURE29_;
+		this.TEXTURE30 = TEXTURE30_;
+		this.TEXTURE31 = TEXTURE31_;
+		this.TEXTURE_2D = TEXTURE_2D_;
+		this.TEXTURE_BINDING_2D = TEXTURE_BINDING_2D_;
+		this.TEXTURE_BINDING_CUBE_MAP = TEXTURE_BINDING_CUBE_MAP_;
+		this.TEXTURE_CUBE_MAP = TEXTURE_CUBE_MAP_;
+		this.TEXTURE_CUBE_MAP_NEGATIVE_X = TEXTURE_CUBE_MAP_NEGATIVE_X_;
+		this.TEXTURE_CUBE_MAP_NEGATIVE_Y = TEXTURE_CUBE_MAP_NEGATIVE_Y_;
+		this.TEXTURE_CUBE_MAP_NEGATIVE_Z = TEXTURE_CUBE_MAP_NEGATIVE_Z_;
+		this.TEXTURE_CUBE_MAP_POSITIVE_X = TEXTURE_CUBE_MAP_POSITIVE_X_;
+		this.TEXTURE_CUBE_MAP_POSITIVE_Y = TEXTURE_CUBE_MAP_POSITIVE_Y_;
+		this.TEXTURE_CUBE_MAP_POSITIVE_Z = TEXTURE_CUBE_MAP_POSITIVE_Z_;
+		this.TEXTURE_MAG_FILTER = TEXTURE_MAG_FILTER_;
+		this.TEXTURE_MIN_FILTER = TEXTURE_MIN_FILTER_;
+		this.TEXTURE_WRAP_S = TEXTURE_WRAP_S_;
+		this.TEXTURE_WRAP_T = TEXTURE_WRAP_T_;
+		this.TRIANGLES = TRIANGLES_;
+		this.TRIANGLE_FAN = TRIANGLE_FAN_;
+		this.TRIANGLE_STRIP = TRIANGLE_STRIP_;
+		this.UNPACK_ALIGNMENT = UNPACK_ALIGNMENT_;
+		this.UNPACK_COLORSPACE_CONVERSION_WEBGL = UNPACK_COLORSPACE_CONVERSION_WEBGL_;
+		this.UNPACK_FLIP_Y_WEBGL = UNPACK_FLIP_Y_WEBGL_;
+		this.UNPACK_PREMULTIPLY_ALPHA_WEBGL = UNPACK_PREMULTIPLY_ALPHA_WEBGL_;
+		this.UNSIGNED_BYTE = UNSIGNED_BYTE_;
+		this.UNSIGNED_INT = UNSIGNED_INT_;
+		this.UNSIGNED_SHORT = UNSIGNED_SHORT_;
+		this.UNSIGNED_SHORT_4_4_4_4 = UNSIGNED_SHORT_4_4_4_4_;
+		this.UNSIGNED_SHORT_5_5_5_1 = UNSIGNED_SHORT_5_5_5_1_;
+		this.UNSIGNED_SHORT_5_6_5 = UNSIGNED_SHORT_5_6_5_;
+		this.VALIDATE_STATUS = VALIDATE_STATUS_;
+		this.VENDOR = VENDOR_;
+		this.VERSION = VERSION_;
+		this.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING = VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_;
+		this.VERTEX_ATTRIB_ARRAY_ENABLED = VERTEX_ATTRIB_ARRAY_ENABLED_;
+		this.VERTEX_ATTRIB_ARRAY_NORMALIZED = VERTEX_ATTRIB_ARRAY_NORMALIZED_;
+		this.VERTEX_ATTRIB_ARRAY_POINTER = VERTEX_ATTRIB_ARRAY_POINTER_;
+		this.VERTEX_ATTRIB_ARRAY_SIZE = VERTEX_ATTRIB_ARRAY_SIZE_;
+		this.VERTEX_ATTRIB_ARRAY_STRIDE = VERTEX_ATTRIB_ARRAY_STRIDE_;
+		this.VERTEX_ATTRIB_ARRAY_TYPE = VERTEX_ATTRIB_ARRAY_TYPE_;
+		this.VERTEX_SHADER = VERTEX_SHADER_;
+		this.VIEWPORT = VIEWPORT_;
+		this.ZERO = ZERO_;
+	});
+	ptrType = $ptrType(Context);
+	ptrType$1 = $ptrType(ContextAttributes);
+	mapType = $mapType($String, $Bool);
+	ptrType$2 = $ptrType(RenderBuffer);
+	ptrType$3 = $ptrType(Buffer);
+	ptrType$4 = $ptrType(FrameBuffer);
+	ptrType$5 = $ptrType(Texture);
+	ptrType$6 = $ptrType(Shader);
+	sliceType = $sliceType(ptrType$6);
+	sliceType$1 = $sliceType($String);
+	ptrType$7 = $ptrType(js.Object);
+	sliceType$2 = $sliceType($Float32);
+	ptrType$8 = $ptrType(Program);
+	ptrType$9 = $ptrType(UniformLocation);
+	DefaultAttributes = function() {
+		var $ptr;
+		return new ContextAttributes.ptr(true, true, false, true, true, false);
+	};
+	$pkg.DefaultAttributes = DefaultAttributes;
+	NewContext = function(canvas, ca) {
+		var $ptr, attrs, ca, canvas, ctx, gl;
+		if ($global.WebGLRenderingContext === undefined) {
+			return [ptrType.nil, errors.New("Your browser doesn't appear to support webgl.")];
+		}
+		if (ca === ptrType$1.nil) {
+			ca = DefaultAttributes();
+		}
+		attrs = $makeMap($String.keyFor, [{ k: "alpha", v: ca.Alpha }, { k: "depth", v: ca.Depth }, { k: "stencil", v: ca.Stencil }, { k: "antialias", v: ca.Antialias }, { k: "premultipliedAlpha", v: ca.PremultipliedAlpha }, { k: "preserveDrawingBuffer", v: ca.PreserveDrawingBuffer }]);
+		gl = canvas.getContext($externalize("webgl", $String), $externalize(attrs, mapType));
+		if (gl === null) {
+			gl = canvas.getContext($externalize("experimental-webgl", $String), $externalize(attrs, mapType));
+			if (gl === null) {
+				return [ptrType.nil, errors.New("Creating a webgl context has failed.")];
+			}
+		}
+		ctx = new Context.ptr(null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		ctx.Object = gl;
+		return [ctx, $ifaceNil];
+	};
+	$pkg.NewContext = NewContext;
+	Context.ptr.prototype.GetContextAttributes = function() {
+		var $ptr, c, ca;
+		c = this;
+		ca = c.Object.getContextAttributes();
+		return new ContextAttributes.ptr(!!(ca.alpha), !!(ca.depth), !!(ca.stencil), !!(ca.antialias), !!(ca.premultipliedAlpha), !!(ca.preservedDrawingBuffer));
+	};
+	Context.prototype.GetContextAttributes = function() { return this.$val.GetContextAttributes(); };
+	Context.ptr.prototype.BlendColor = function(r, g, b, a) {
+		var $ptr, a, b, c, g, r;
+		c = this;
+		c.Object.blendColor(r, g, b, a);
+	};
+	Context.prototype.BlendColor = function(r, g, b, a) { return this.$val.BlendColor(r, g, b, a); };
+	Context.ptr.prototype.BlendEquation = function(mode) {
+		var $ptr, c, mode;
+		c = this;
+		c.Object.blendEquation(mode);
+	};
+	Context.prototype.BlendEquation = function(mode) { return this.$val.BlendEquation(mode); };
+	Context.ptr.prototype.BlendEquationSeparate = function(modeRGB, modeAlpha) {
+		var $ptr, c, modeAlpha, modeRGB;
+		c = this;
+		c.Object.blendEquationSeparate(modeRGB, modeAlpha);
+	};
+	Context.prototype.BlendEquationSeparate = function(modeRGB, modeAlpha) { return this.$val.BlendEquationSeparate(modeRGB, modeAlpha); };
+	Context.ptr.prototype.BlendFunc = function(sfactor, dfactor) {
+		var $ptr, c, dfactor, sfactor;
+		c = this;
+		c.Object.blendFunc(sfactor, dfactor);
+	};
+	Context.prototype.BlendFunc = function(sfactor, dfactor) { return this.$val.BlendFunc(sfactor, dfactor); };
+	Context.ptr.prototype.BlendFuncSeparate = function(srcRGB, dstRGB, srcAlpha, dstAlpha) {
+		var $ptr, c, dstAlpha, dstRGB, srcAlpha, srcRGB;
+		c = this;
+		c.Object.blendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
+	};
+	Context.prototype.BlendFuncSeparate = function(srcRGB, dstRGB, srcAlpha, dstAlpha) { return this.$val.BlendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha); };
+	Context.ptr.prototype.DepthFunc = function(fun) {
+		var $ptr, c, fun;
+		c = this;
+		c.Object.depthFunc(fun);
+	};
+	Context.prototype.DepthFunc = function(fun) { return this.$val.DepthFunc(fun); };
+	Context.ptr.prototype.SampleCoverage = function(value, invert) {
+		var $ptr, c, invert, value;
+		c = this;
+		c.Object.sampleCoverage(value, $externalize(invert, $Bool));
+	};
+	Context.prototype.SampleCoverage = function(value, invert) { return this.$val.SampleCoverage(value, invert); };
+	Context.ptr.prototype.StencilFunc = function(function$1, ref, mask) {
+		var $ptr, c, function$1, mask, ref;
+		c = this;
+		c.Object.stencilFunc(function$1, ref, mask);
+	};
+	Context.prototype.StencilFunc = function(function$1, ref, mask) { return this.$val.StencilFunc(function$1, ref, mask); };
+	Context.ptr.prototype.StencilFuncSeparate = function(face, function$1, ref, mask) {
+		var $ptr, c, face, function$1, mask, ref;
+		c = this;
+		c.Object.stencilFuncSeparate(face, function$1, ref, mask);
+	};
+	Context.prototype.StencilFuncSeparate = function(face, function$1, ref, mask) { return this.$val.StencilFuncSeparate(face, function$1, ref, mask); };
+	Context.ptr.prototype.ActiveTexture = function(texture) {
+		var $ptr, c, texture;
+		c = this;
+		c.Object.activeTexture(texture);
+	};
+	Context.prototype.ActiveTexture = function(texture) { return this.$val.ActiveTexture(texture); };
+	Context.ptr.prototype.AttachShader = function(program, shader) {
+		var $ptr, c, program, shader;
+		c = this;
+		c.Object.attachShader(program.Object, shader.Object);
+	};
+	Context.prototype.AttachShader = function(program, shader) { return this.$val.AttachShader(program, shader); };
+	Context.ptr.prototype.BindAttribLocation = function(program, index, name) {
+		var $ptr, c, index, name, program;
+		c = this;
+		c.Object.bindAttribLocation(program.Object, index, $externalize(name, $String));
+	};
+	Context.prototype.BindAttribLocation = function(program, index, name) { return this.$val.BindAttribLocation(program, index, name); };
+	Context.ptr.prototype.BindBuffer = function(target, buffer) {
+		var $ptr, buffer, c, target;
+		c = this;
+		c.Object.bindBuffer(target, buffer.Object);
+	};
+	Context.prototype.BindBuffer = function(target, buffer) { return this.$val.BindBuffer(target, buffer); };
+	Context.ptr.prototype.BindFramebuffer = function(target, framebuffer) {
+		var $ptr, c, framebuffer, target;
+		c = this;
+		c.Object.bindFramebuffer(target, framebuffer.Object);
+	};
+	Context.prototype.BindFramebuffer = function(target, framebuffer) { return this.$val.BindFramebuffer(target, framebuffer); };
+	Context.ptr.prototype.BindRenderbuffer = function(target, renderbuffer) {
+		var $ptr, c, renderbuffer, target;
+		c = this;
+		c.Object.bindRenderbuffer(target, $externalize(renderbuffer, ptrType$2));
+	};
+	Context.prototype.BindRenderbuffer = function(target, renderbuffer) { return this.$val.BindRenderbuffer(target, renderbuffer); };
+	Context.ptr.prototype.BindTexture = function(target, texture) {
+		var $ptr, c, target, texture;
+		c = this;
+		c.Object.bindTexture(target, texture.Object);
+	};
+	Context.prototype.BindTexture = function(target, texture) { return this.$val.BindTexture(target, texture); };
+	Context.ptr.prototype.BufferData = function(target, data, usage) {
+		var $ptr, c, data, target, usage;
+		c = this;
+		c.Object.bufferData(target, $externalize(data, $emptyInterface), usage);
+	};
+	Context.prototype.BufferData = function(target, data, usage) { return this.$val.BufferData(target, data, usage); };
+	Context.ptr.prototype.BufferSubData = function(target, offset, data) {
+		var $ptr, c, data, offset, target;
+		c = this;
+		c.Object.bufferSubData(target, offset, $externalize(data, $emptyInterface));
+	};
+	Context.prototype.BufferSubData = function(target, offset, data) { return this.$val.BufferSubData(target, offset, data); };
+	Context.ptr.prototype.CheckFramebufferStatus = function(target) {
+		var $ptr, c, target;
+		c = this;
+		return $parseInt(c.Object.checkFramebufferStatus(target)) >> 0;
+	};
+	Context.prototype.CheckFramebufferStatus = function(target) { return this.$val.CheckFramebufferStatus(target); };
+	Context.ptr.prototype.Clear = function(flags) {
+		var $ptr, c, flags;
+		c = this;
+		c.Object.clear(flags);
+	};
+	Context.prototype.Clear = function(flags) { return this.$val.Clear(flags); };
+	Context.ptr.prototype.ClearColor = function(r, g, b, a) {
+		var $ptr, a, b, c, g, r;
+		c = this;
+		c.Object.clearColor(r, g, b, a);
+	};
+	Context.prototype.ClearColor = function(r, g, b, a) { return this.$val.ClearColor(r, g, b, a); };
+	Context.ptr.prototype.ClearDepth = function(depth) {
+		var $ptr, c, depth;
+		c = this;
+		c.Object.clearDepth(depth);
+	};
+	Context.prototype.ClearDepth = function(depth) { return this.$val.ClearDepth(depth); };
+	Context.ptr.prototype.ClearStencil = function(s) {
+		var $ptr, c, s;
+		c = this;
+		c.Object.clearStencil(s);
+	};
+	Context.prototype.ClearStencil = function(s) { return this.$val.ClearStencil(s); };
+	Context.ptr.prototype.ColorMask = function(r, g, b, a) {
+		var $ptr, a, b, c, g, r;
+		c = this;
+		c.Object.colorMask($externalize(r, $Bool), $externalize(g, $Bool), $externalize(b, $Bool), $externalize(a, $Bool));
+	};
+	Context.prototype.ColorMask = function(r, g, b, a) { return this.$val.ColorMask(r, g, b, a); };
+	Context.ptr.prototype.CompileShader = function(shader) {
+		var $ptr, c, shader;
+		c = this;
+		c.Object.compileShader(shader.Object);
+	};
+	Context.prototype.CompileShader = function(shader) { return this.$val.CompileShader(shader); };
+	Context.ptr.prototype.CopyTexImage2D = function(target, level, internal, x, y, w, h, border) {
+		var $ptr, border, c, h, internal, level, target, w, x, y;
+		c = this;
+		c.Object.copyTexImage2D(target, level, internal, x, y, w, h, border);
+	};
+	Context.prototype.CopyTexImage2D = function(target, level, internal, x, y, w, h, border) { return this.$val.CopyTexImage2D(target, level, internal, x, y, w, h, border); };
+	Context.ptr.prototype.CopyTexSubImage2D = function(target, level, xoffset, yoffset, x, y, w, h) {
+		var $ptr, c, h, level, target, w, x, xoffset, y, yoffset;
+		c = this;
+		c.Object.copyTexSubImage2D(target, level, xoffset, yoffset, x, y, w, h);
+	};
+	Context.prototype.CopyTexSubImage2D = function(target, level, xoffset, yoffset, x, y, w, h) { return this.$val.CopyTexSubImage2D(target, level, xoffset, yoffset, x, y, w, h); };
+	Context.ptr.prototype.CreateBuffer = function() {
+		var $ptr, c;
+		c = this;
+		return new Buffer.ptr(c.Object.createBuffer());
+	};
+	Context.prototype.CreateBuffer = function() { return this.$val.CreateBuffer(); };
+	Context.ptr.prototype.CreateFramebuffer = function() {
+		var $ptr, c;
+		c = this;
+		return new FrameBuffer.ptr(c.Object.createFramebuffer());
+	};
+	Context.prototype.CreateFramebuffer = function() { return this.$val.CreateFramebuffer(); };
+	Context.ptr.prototype.CreateProgram = function() {
+		var $ptr, c;
+		c = this;
+		return new Program.ptr(c.Object.createProgram());
+	};
+	Context.prototype.CreateProgram = function() { return this.$val.CreateProgram(); };
+	Context.ptr.prototype.CreateRenderbuffer = function() {
+		var $ptr, c;
+		c = this;
+		return new RenderBuffer.ptr(c.Object.createRenderbuffer());
+	};
+	Context.prototype.CreateRenderbuffer = function() { return this.$val.CreateRenderbuffer(); };
+	Context.ptr.prototype.CreateShader = function(typ) {
+		var $ptr, c, typ;
+		c = this;
+		return new Shader.ptr(c.Object.createShader(typ));
+	};
+	Context.prototype.CreateShader = function(typ) { return this.$val.CreateShader(typ); };
+	Context.ptr.prototype.CreateTexture = function() {
+		var $ptr, c;
+		c = this;
+		return new Texture.ptr(c.Object.createTexture());
+	};
+	Context.prototype.CreateTexture = function() { return this.$val.CreateTexture(); };
+	Context.ptr.prototype.CullFace = function(mode) {
+		var $ptr, c, mode;
+		c = this;
+		c.Object.cullFace(mode);
+	};
+	Context.prototype.CullFace = function(mode) { return this.$val.CullFace(mode); };
+	Context.ptr.prototype.DeleteBuffer = function(buffer) {
+		var $ptr, buffer, c;
+		c = this;
+		c.Object.deleteBuffer($externalize(buffer, ptrType$3));
+	};
+	Context.prototype.DeleteBuffer = function(buffer) { return this.$val.DeleteBuffer(buffer); };
+	Context.ptr.prototype.DeleteFramebuffer = function(framebuffer) {
+		var $ptr, c, framebuffer;
+		c = this;
+		c.Object.deleteFramebuffer($externalize(framebuffer, ptrType$4));
+	};
+	Context.prototype.DeleteFramebuffer = function(framebuffer) { return this.$val.DeleteFramebuffer(framebuffer); };
+	Context.ptr.prototype.DeleteProgram = function(program) {
+		var $ptr, c, program;
+		c = this;
+		c.Object.deleteProgram(program.Object);
+	};
+	Context.prototype.DeleteProgram = function(program) { return this.$val.DeleteProgram(program); };
+	Context.ptr.prototype.DeleteRenderbuffer = function(renderbuffer) {
+		var $ptr, c, renderbuffer;
+		c = this;
+		c.Object.deleteRenderbuffer(renderbuffer.Object);
+	};
+	Context.prototype.DeleteRenderbuffer = function(renderbuffer) { return this.$val.DeleteRenderbuffer(renderbuffer); };
+	Context.ptr.prototype.DeleteShader = function(shader) {
+		var $ptr, c, shader;
+		c = this;
+		c.Object.deleteShader(shader.Object);
+	};
+	Context.prototype.DeleteShader = function(shader) { return this.$val.DeleteShader(shader); };
+	Context.ptr.prototype.DeleteTexture = function(texture) {
+		var $ptr, c, texture;
+		c = this;
+		c.Object.deleteTexture(texture.Object);
+	};
+	Context.prototype.DeleteTexture = function(texture) { return this.$val.DeleteTexture(texture); };
+	Context.ptr.prototype.DepthMask = function(flag) {
+		var $ptr, c, flag;
+		c = this;
+		c.Object.depthMask($externalize(flag, $Bool));
+	};
+	Context.prototype.DepthMask = function(flag) { return this.$val.DepthMask(flag); };
+	Context.ptr.prototype.DepthRange = function(zNear, zFar) {
+		var $ptr, c, zFar, zNear;
+		c = this;
+		c.Object.depthRange(zNear, zFar);
+	};
+	Context.prototype.DepthRange = function(zNear, zFar) { return this.$val.DepthRange(zNear, zFar); };
+	Context.ptr.prototype.DetachShader = function(program, shader) {
+		var $ptr, c, program, shader;
+		c = this;
+		c.Object.detachShader(program.Object, shader.Object);
+	};
+	Context.prototype.DetachShader = function(program, shader) { return this.$val.DetachShader(program, shader); };
+	Context.ptr.prototype.Disable = function(cap) {
+		var $ptr, c, cap;
+		c = this;
+		c.Object.disable(cap);
+	};
+	Context.prototype.Disable = function(cap) { return this.$val.Disable(cap); };
+	Context.ptr.prototype.DisableVertexAttribArray = function(index) {
+		var $ptr, c, index;
+		c = this;
+		c.Object.disableVertexAttribArray(index);
+	};
+	Context.prototype.DisableVertexAttribArray = function(index) { return this.$val.DisableVertexAttribArray(index); };
+	Context.ptr.prototype.DrawArrays = function(mode, first, count) {
+		var $ptr, c, count, first, mode;
+		c = this;
+		c.Object.drawArrays(mode, first, count);
+	};
+	Context.prototype.DrawArrays = function(mode, first, count) { return this.$val.DrawArrays(mode, first, count); };
+	Context.ptr.prototype.DrawElements = function(mode, count, typ, offset) {
+		var $ptr, c, count, mode, offset, typ;
+		c = this;
+		c.Object.drawElements(mode, count, typ, offset);
+	};
+	Context.prototype.DrawElements = function(mode, count, typ, offset) { return this.$val.DrawElements(mode, count, typ, offset); };
+	Context.ptr.prototype.Enable = function(cap) {
+		var $ptr, c, cap;
+		c = this;
+		c.Object.enable(cap);
+	};
+	Context.prototype.Enable = function(cap) { return this.$val.Enable(cap); };
+	Context.ptr.prototype.EnableVertexAttribArray = function(index) {
+		var $ptr, c, index;
+		c = this;
+		c.Object.enableVertexAttribArray(index);
+	};
+	Context.prototype.EnableVertexAttribArray = function(index) { return this.$val.EnableVertexAttribArray(index); };
+	Context.ptr.prototype.Finish = function() {
+		var $ptr, c;
+		c = this;
+		c.Object.finish();
+	};
+	Context.prototype.Finish = function() { return this.$val.Finish(); };
+	Context.ptr.prototype.Flush = function() {
+		var $ptr, c;
+		c = this;
+		c.Object.flush();
+	};
+	Context.prototype.Flush = function() { return this.$val.Flush(); };
+	Context.ptr.prototype.FrameBufferRenderBuffer = function(target, attachment, renderbufferTarget, renderbuffer) {
+		var $ptr, attachment, c, renderbuffer, renderbufferTarget, target;
+		c = this;
+		c.Object.framebufferRenderBuffer(target, attachment, renderbufferTarget, $externalize(renderbuffer, ptrType$2));
+	};
+	Context.prototype.FrameBufferRenderBuffer = function(target, attachment, renderbufferTarget, renderbuffer) { return this.$val.FrameBufferRenderBuffer(target, attachment, renderbufferTarget, renderbuffer); };
+	Context.ptr.prototype.FramebufferTexture2D = function(target, attachment, textarget, texture, level) {
+		var $ptr, attachment, c, level, target, textarget, texture;
+		c = this;
+		c.Object.framebufferTexture2D(target, attachment, textarget, $externalize(texture, ptrType$5), level);
+	};
+	Context.prototype.FramebufferTexture2D = function(target, attachment, textarget, texture, level) { return this.$val.FramebufferTexture2D(target, attachment, textarget, texture, level); };
+	Context.ptr.prototype.FrontFace = function(mode) {
+		var $ptr, c, mode;
+		c = this;
+		c.Object.frontFace(mode);
+	};
+	Context.prototype.FrontFace = function(mode) { return this.$val.FrontFace(mode); };
+	Context.ptr.prototype.GenerateMipmap = function(target) {
+		var $ptr, c, target;
+		c = this;
+		c.Object.generateMipmap(target);
+	};
+	Context.prototype.GenerateMipmap = function(target) { return this.$val.GenerateMipmap(target); };
+	Context.ptr.prototype.GetActiveAttrib = function(program, index) {
+		var $ptr, c, index, program;
+		c = this;
+		return $internalize(c.Object.getActiveAttrib(program.Object, index), $String);
+	};
+	Context.prototype.GetActiveAttrib = function(program, index) { return this.$val.GetActiveAttrib(program, index); };
+	Context.ptr.prototype.GetActiveUniform = function(program, index) {
+		var $ptr, c, index, program;
+		c = this;
+		return $internalize(c.Object.getActiveUniform(program.Object, index), $String);
+	};
+	Context.prototype.GetActiveUniform = function(program, index) { return this.$val.GetActiveUniform(program, index); };
+	Context.ptr.prototype.GetAttachedShaders = function(program) {
+		var $ptr, c, i, objs, program, shaders;
+		c = this;
+		objs = c.Object.getAttachedShaders(program.Object);
+		shaders = $makeSlice(sliceType, $parseInt(objs.length));
+		i = 0;
+		while (true) {
+			if (!(i < $parseInt(objs.length))) { break; }
+			((i < 0 || i >= shaders.$length) ? $throwRuntimeError("index out of range") : shaders.$array[shaders.$offset + i] = new Shader.ptr(objs[i]));
+			i = i + (1) >> 0;
+		}
+		return shaders;
+	};
+	Context.prototype.GetAttachedShaders = function(program) { return this.$val.GetAttachedShaders(program); };
+	Context.ptr.prototype.GetAttribLocation = function(program, name) {
+		var $ptr, c, name, program;
+		c = this;
+		return $parseInt(c.Object.getAttribLocation(program.Object, $externalize(name, $String))) >> 0;
+	};
+	Context.prototype.GetAttribLocation = function(program, name) { return this.$val.GetAttribLocation(program, name); };
+	Context.ptr.prototype.GetBufferParameter = function(target, pname) {
+		var $ptr, c, pname, target;
+		c = this;
+		return $parseInt(c.Object.getBufferParameter(target, pname)) >> 0;
+	};
+	Context.prototype.GetBufferParameter = function(target, pname) { return this.$val.GetBufferParameter(target, pname); };
+	Context.ptr.prototype.GetParameter = function(pname) {
+		var $ptr, c, pname;
+		c = this;
+		return c.Object.getParameter(pname);
+	};
+	Context.prototype.GetParameter = function(pname) { return this.$val.GetParameter(pname); };
+	Context.ptr.prototype.GetError = function() {
+		var $ptr, c;
+		c = this;
+		return $parseInt(c.Object.getError()) >> 0;
+	};
+	Context.prototype.GetError = function() { return this.$val.GetError(); };
+	Context.ptr.prototype.GetExtension = function(name) {
+		var $ptr, c, name;
+		c = this;
+		return c.Object.getExtension($externalize(name, $String));
+	};
+	Context.prototype.GetExtension = function(name) { return this.$val.GetExtension(name); };
+	Context.ptr.prototype.GetFramebufferAttachmentParameter = function(target, attachment, pname) {
+		var $ptr, attachment, c, pname, target;
+		c = this;
+		return c.Object.getFramebufferAttachmentParameter(target, attachment, pname);
+	};
+	Context.prototype.GetFramebufferAttachmentParameter = function(target, attachment, pname) { return this.$val.GetFramebufferAttachmentParameter(target, attachment, pname); };
+	Context.ptr.prototype.GetProgramParameteri = function(program, pname) {
+		var $ptr, c, pname, program;
+		c = this;
+		return $parseInt(c.Object.getProgramParameter(program.Object, pname)) >> 0;
+	};
+	Context.prototype.GetProgramParameteri = function(program, pname) { return this.$val.GetProgramParameteri(program, pname); };
+	Context.ptr.prototype.GetProgramParameterb = function(program, pname) {
+		var $ptr, c, pname, program;
+		c = this;
+		return !!(c.Object.getProgramParameter(program.Object, pname));
+	};
+	Context.prototype.GetProgramParameterb = function(program, pname) { return this.$val.GetProgramParameterb(program, pname); };
+	Context.ptr.prototype.GetProgramInfoLog = function(program) {
+		var $ptr, c, program;
+		c = this;
+		return $internalize(c.Object.getProgramInfoLog(program.Object), $String);
+	};
+	Context.prototype.GetProgramInfoLog = function(program) { return this.$val.GetProgramInfoLog(program); };
+	Context.ptr.prototype.GetRenderbufferParameter = function(target, pname) {
+		var $ptr, c, pname, target;
+		c = this;
+		return $parseInt(c.Object.getRenderbufferParameter(target, pname)) >> 0;
+	};
+	Context.prototype.GetRenderbufferParameter = function(target, pname) { return this.$val.GetRenderbufferParameter(target, pname); };
+	Context.ptr.prototype.GetShaderParameter = function(shader, pname) {
+		var $ptr, c, pname, shader;
+		c = this;
+		return c.Object.getShaderParameter(shader.Object, pname);
+	};
+	Context.prototype.GetShaderParameter = function(shader, pname) { return this.$val.GetShaderParameter(shader, pname); };
+	Context.ptr.prototype.GetShaderParameterb = function(shader, pname) {
+		var $ptr, c, pname, shader;
+		c = this;
+		return !!(c.Object.getShaderParameter(shader.Object, pname));
+	};
+	Context.prototype.GetShaderParameterb = function(shader, pname) { return this.$val.GetShaderParameterb(shader, pname); };
+	Context.ptr.prototype.GetShaderInfoLog = function(shader) {
+		var $ptr, c, shader;
+		c = this;
+		return $internalize(c.Object.getShaderInfoLog(shader.Object), $String);
+	};
+	Context.prototype.GetShaderInfoLog = function(shader) { return this.$val.GetShaderInfoLog(shader); };
+	Context.ptr.prototype.GetShaderSource = function(shader) {
+		var $ptr, c, shader;
+		c = this;
+		return $internalize(c.Object.getShaderSource(shader.Object), $String);
+	};
+	Context.prototype.GetShaderSource = function(shader) { return this.$val.GetShaderSource(shader); };
+	Context.ptr.prototype.GetSupportedExtensions = function() {
+		var $ptr, c, ext, extensions, i;
+		c = this;
+		ext = c.Object.getSupportedExtensions();
+		extensions = $makeSlice(sliceType$1, $parseInt(ext.length));
+		i = 0;
+		while (true) {
+			if (!(i < $parseInt(ext.length))) { break; }
+			((i < 0 || i >= extensions.$length) ? $throwRuntimeError("index out of range") : extensions.$array[extensions.$offset + i] = $internalize(ext[i], $String));
+			i = i + (1) >> 0;
+		}
+		return extensions;
+	};
+	Context.prototype.GetSupportedExtensions = function() { return this.$val.GetSupportedExtensions(); };
+	Context.ptr.prototype.GetTexParameter = function(target, pname) {
+		var $ptr, c, pname, target;
+		c = this;
+		return c.Object.getTexParameter(target, pname);
+	};
+	Context.prototype.GetTexParameter = function(target, pname) { return this.$val.GetTexParameter(target, pname); };
+	Context.ptr.prototype.GetUniform = function(program, location) {
+		var $ptr, c, location, program;
+		c = this;
+		return c.Object.getUniform(program.Object, location.Object);
+	};
+	Context.prototype.GetUniform = function(program, location) { return this.$val.GetUniform(program, location); };
+	Context.ptr.prototype.GetUniformLocation = function(program, name) {
+		var $ptr, c, name, program;
+		c = this;
+		return new UniformLocation.ptr(c.Object.getUniformLocation(program.Object, $externalize(name, $String)));
+	};
+	Context.prototype.GetUniformLocation = function(program, name) { return this.$val.GetUniformLocation(program, name); };
+	Context.ptr.prototype.GetVertexAttrib = function(index, pname) {
+		var $ptr, c, index, pname;
+		c = this;
+		return c.Object.getVertexAttrib(index, pname);
+	};
+	Context.prototype.GetVertexAttrib = function(index, pname) { return this.$val.GetVertexAttrib(index, pname); };
+	Context.ptr.prototype.GetVertexAttribOffset = function(index, pname) {
+		var $ptr, c, index, pname;
+		c = this;
+		return $parseInt(c.Object.getVertexAttribOffset(index, pname)) >> 0;
+	};
+	Context.prototype.GetVertexAttribOffset = function(index, pname) { return this.$val.GetVertexAttribOffset(index, pname); };
+	Context.ptr.prototype.IsBuffer = function(buffer) {
+		var $ptr, buffer, c;
+		c = this;
+		return !!(c.Object.isBuffer(buffer));
+	};
+	Context.prototype.IsBuffer = function(buffer) { return this.$val.IsBuffer(buffer); };
+	Context.ptr.prototype.IsContextLost = function() {
+		var $ptr, c;
+		c = this;
+		return !!(c.Object.isContextLost());
+	};
+	Context.prototype.IsContextLost = function() { return this.$val.IsContextLost(); };
+	Context.ptr.prototype.IsFramebuffer = function(framebuffer) {
+		var $ptr, c, framebuffer;
+		c = this;
+		return !!(c.Object.isFramebuffer(framebuffer.Object));
+	};
+	Context.prototype.IsFramebuffer = function(framebuffer) { return this.$val.IsFramebuffer(framebuffer); };
+	Context.ptr.prototype.IsProgram = function(program) {
+		var $ptr, c, program;
+		c = this;
+		return !!(c.Object.isProgram(program.Object));
+	};
+	Context.prototype.IsProgram = function(program) { return this.$val.IsProgram(program); };
+	Context.ptr.prototype.IsRenderbuffer = function(renderbuffer) {
+		var $ptr, c, renderbuffer;
+		c = this;
+		return !!(c.Object.isRenderbuffer(renderbuffer.Object));
+	};
+	Context.prototype.IsRenderbuffer = function(renderbuffer) { return this.$val.IsRenderbuffer(renderbuffer); };
+	Context.ptr.prototype.IsShader = function(shader) {
+		var $ptr, c, shader;
+		c = this;
+		return !!(c.Object.isShader(shader.Object));
+	};
+	Context.prototype.IsShader = function(shader) { return this.$val.IsShader(shader); };
+	Context.ptr.prototype.IsTexture = function(texture) {
+		var $ptr, c, texture;
+		c = this;
+		return !!(c.Object.isTexture(texture.Object));
+	};
+	Context.prototype.IsTexture = function(texture) { return this.$val.IsTexture(texture); };
+	Context.ptr.prototype.IsEnabled = function(capability) {
+		var $ptr, c, capability;
+		c = this;
+		return !!(c.Object.isEnabled(capability));
+	};
+	Context.prototype.IsEnabled = function(capability) { return this.$val.IsEnabled(capability); };
+	Context.ptr.prototype.LineWidth = function(width) {
+		var $ptr, c, width;
+		c = this;
+		c.Object.lineWidth(width);
+	};
+	Context.prototype.LineWidth = function(width) { return this.$val.LineWidth(width); };
+	Context.ptr.prototype.LinkProgram = function(program) {
+		var $ptr, c, program;
+		c = this;
+		c.Object.linkProgram(program.Object);
+	};
+	Context.prototype.LinkProgram = function(program) { return this.$val.LinkProgram(program); };
+	Context.ptr.prototype.PixelStorei = function(pname, param) {
+		var $ptr, c, param, pname;
+		c = this;
+		c.Object.pixelStorei(pname, param);
+	};
+	Context.prototype.PixelStorei = function(pname, param) { return this.$val.PixelStorei(pname, param); };
+	Context.ptr.prototype.PolygonOffset = function(factor, units) {
+		var $ptr, c, factor, units;
+		c = this;
+		c.Object.polygonOffset(factor, units);
+	};
+	Context.prototype.PolygonOffset = function(factor, units) { return this.$val.PolygonOffset(factor, units); };
+	Context.ptr.prototype.ReadPixels = function(x, y, width, height, format, typ, pixels) {
+		var $ptr, c, format, height, pixels, typ, width, x, y;
+		c = this;
+		c.Object.readPixels(x, y, width, height, format, typ, pixels);
+	};
+	Context.prototype.ReadPixels = function(x, y, width, height, format, typ, pixels) { return this.$val.ReadPixels(x, y, width, height, format, typ, pixels); };
+	Context.ptr.prototype.RenderbufferStorage = function(target, internalFormat, width, height) {
+		var $ptr, c, height, internalFormat, target, width;
+		c = this;
+		c.Object.renderbufferStorage(target, internalFormat, width, height);
+	};
+	Context.prototype.RenderbufferStorage = function(target, internalFormat, width, height) { return this.$val.RenderbufferStorage(target, internalFormat, width, height); };
+	Context.ptr.prototype.Scissor = function(x, y, width, height) {
+		var $ptr, c, height, width, x, y;
+		c = this;
+		c.Object.scissor(x, y, width, height);
+	};
+	Context.prototype.Scissor = function(x, y, width, height) { return this.$val.Scissor(x, y, width, height); };
+	Context.ptr.prototype.ShaderSource = function(shader, source) {
+		var $ptr, c, shader, source;
+		c = this;
+		c.Object.shaderSource(shader.Object, $externalize(source, $String));
+	};
+	Context.prototype.ShaderSource = function(shader, source) { return this.$val.ShaderSource(shader, source); };
+	Context.ptr.prototype.TexImage2D = function(target, level, internalFormat, format, kind, data) {
+		var $ptr, c, data, format, internalFormat, kind, level, pix, target;
+		c = this;
+		pix = null;
+		if ($interfaceIsEqual(data, $ifaceNil)) {
+			pix = null;
+		} else {
+			pix = $assertType(data, ptrType$7);
+		}
+		c.Object.texImage2D(target, level, internalFormat, format, kind, pix);
+	};
+	Context.prototype.TexImage2D = function(target, level, internalFormat, format, kind, data) { return this.$val.TexImage2D(target, level, internalFormat, format, kind, data); };
+	Context.ptr.prototype.TexParameteri = function(target, pname, param) {
+		var $ptr, c, param, pname, target;
+		c = this;
+		c.Object.texParameteri(target, pname, param);
+	};
+	Context.prototype.TexParameteri = function(target, pname, param) { return this.$val.TexParameteri(target, pname, param); };
+	Context.ptr.prototype.TexSubImage2D = function(target, level, xoffset, yoffset, format, typ, image) {
+		var $ptr, c, format, image, level, target, typ, xoffset, yoffset;
+		c = this;
+		c.Object.texSubImage2D(target, level, xoffset, yoffset, format, typ, image);
+	};
+	Context.prototype.TexSubImage2D = function(target, level, xoffset, yoffset, format, typ, image) { return this.$val.TexSubImage2D(target, level, xoffset, yoffset, format, typ, image); };
+	Context.ptr.prototype.Uniform1f = function(location, x) {
+		var $ptr, c, location, x;
+		c = this;
+		c.Object.uniform1f(location.Object, x);
+	};
+	Context.prototype.Uniform1f = function(location, x) { return this.$val.Uniform1f(location, x); };
+	Context.ptr.prototype.Uniform1i = function(location, x) {
+		var $ptr, c, location, x;
+		c = this;
+		c.Object.uniform1i(location.Object, x);
+	};
+	Context.prototype.Uniform1i = function(location, x) { return this.$val.Uniform1i(location, x); };
+	Context.ptr.prototype.Uniform2f = function(location, x, y) {
+		var $ptr, c, location, x, y;
+		c = this;
+		c.Object.uniform2f(location.Object, x, y);
+	};
+	Context.prototype.Uniform2f = function(location, x, y) { return this.$val.Uniform2f(location, x, y); };
+	Context.ptr.prototype.Uniform2i = function(location, x, y) {
+		var $ptr, c, location, x, y;
+		c = this;
+		c.Object.uniform2i(location.Object, x, y);
+	};
+	Context.prototype.Uniform2i = function(location, x, y) { return this.$val.Uniform2i(location, x, y); };
+	Context.ptr.prototype.Uniform3f = function(location, x, y, z) {
+		var $ptr, c, location, x, y, z;
+		c = this;
+		c.Object.uniform3f(location.Object, x, y, z);
+	};
+	Context.prototype.Uniform3f = function(location, x, y, z) { return this.$val.Uniform3f(location, x, y, z); };
+	Context.ptr.prototype.Uniform3i = function(location, x, y, z) {
+		var $ptr, c, location, x, y, z;
+		c = this;
+		c.Object.uniform3i(location.Object, x, y, z);
+	};
+	Context.prototype.Uniform3i = function(location, x, y, z) { return this.$val.Uniform3i(location, x, y, z); };
+	Context.ptr.prototype.Uniform4f = function(location, x, y, z, w) {
+		var $ptr, c, location, w, x, y, z;
+		c = this;
+		c.Object.uniform4f(location.Object, x, y, z, w);
+	};
+	Context.prototype.Uniform4f = function(location, x, y, z, w) { return this.$val.Uniform4f(location, x, y, z, w); };
+	Context.ptr.prototype.Uniform4i = function(location, x, y, z, w) {
+		var $ptr, c, location, w, x, y, z;
+		c = this;
+		c.Object.uniform4i(location.Object, x, y, z, w);
+	};
+	Context.prototype.Uniform4i = function(location, x, y, z, w) { return this.$val.Uniform4i(location, x, y, z, w); };
+	Context.ptr.prototype.UniformMatrix2fv = function(location, transpose, value) {
+		var $ptr, c, location, transpose, value;
+		c = this;
+		c.Object.uniformMatrix2fv(location.Object, $externalize(transpose, $Bool), $externalize(value, sliceType$2));
+	};
+	Context.prototype.UniformMatrix2fv = function(location, transpose, value) { return this.$val.UniformMatrix2fv(location, transpose, value); };
+	Context.ptr.prototype.UniformMatrix3fv = function(location, transpose, value) {
+		var $ptr, c, location, transpose, value;
+		c = this;
+		c.Object.uniformMatrix3fv(location.Object, $externalize(transpose, $Bool), $externalize(value, sliceType$2));
+	};
+	Context.prototype.UniformMatrix3fv = function(location, transpose, value) { return this.$val.UniformMatrix3fv(location, transpose, value); };
+	Context.ptr.prototype.UniformMatrix4fv = function(location, transpose, value) {
+		var $ptr, c, location, transpose, value;
+		c = this;
+		c.Object.uniformMatrix4fv(location.Object, $externalize(transpose, $Bool), $externalize(value, sliceType$2));
+	};
+	Context.prototype.UniformMatrix4fv = function(location, transpose, value) { return this.$val.UniformMatrix4fv(location, transpose, value); };
+	Context.ptr.prototype.UseProgram = function(program) {
+		var $ptr, c, program;
+		c = this;
+		c.Object.useProgram(program.Object);
+	};
+	Context.prototype.UseProgram = function(program) { return this.$val.UseProgram(program); };
+	Context.ptr.prototype.ValidateProgram = function(program) {
+		var $ptr, c, program;
+		c = this;
+		c.Object.validateProgram(program.Object);
+	};
+	Context.prototype.ValidateProgram = function(program) { return this.$val.ValidateProgram(program); };
+	Context.ptr.prototype.VertexAttribPointer = function(index, size, typ, normal, stride, offset) {
+		var $ptr, c, index, normal, offset, size, stride, typ;
+		c = this;
+		c.Object.vertexAttribPointer(index, size, typ, $externalize(normal, $Bool), stride, offset);
+	};
+	Context.prototype.VertexAttribPointer = function(index, size, typ, normal, stride, offset) { return this.$val.VertexAttribPointer(index, size, typ, normal, stride, offset); };
+	Context.ptr.prototype.Viewport = function(x, y, width, height) {
+		var $ptr, c, height, width, x, y;
+		c = this;
+		c.Object.viewport(x, y, width, height);
+	};
+	Context.prototype.Viewport = function(x, y, width, height) { return this.$val.Viewport(x, y, width, height); };
+	ptrType.methods = [{prop: "GetContextAttributes", name: "GetContextAttributes", pkg: "", typ: $funcType([], [ContextAttributes], false)}, {prop: "BlendColor", name: "BlendColor", pkg: "", typ: $funcType([$Float64, $Float64, $Float64, $Float64], [], false)}, {prop: "BlendEquation", name: "BlendEquation", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "BlendEquationSeparate", name: "BlendEquationSeparate", pkg: "", typ: $funcType([$Int, $Int], [], false)}, {prop: "BlendFunc", name: "BlendFunc", pkg: "", typ: $funcType([$Int, $Int], [], false)}, {prop: "BlendFuncSeparate", name: "BlendFuncSeparate", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "DepthFunc", name: "DepthFunc", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "SampleCoverage", name: "SampleCoverage", pkg: "", typ: $funcType([$Float64, $Bool], [], false)}, {prop: "StencilFunc", name: "StencilFunc", pkg: "", typ: $funcType([$Int, $Int, $Int], [], false)}, {prop: "StencilFuncSeparate", name: "StencilFuncSeparate", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "ActiveTexture", name: "ActiveTexture", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "AttachShader", name: "AttachShader", pkg: "", typ: $funcType([ptrType$8, ptrType$6], [], false)}, {prop: "BindAttribLocation", name: "BindAttribLocation", pkg: "", typ: $funcType([ptrType$8, $Int, $String], [], false)}, {prop: "BindBuffer", name: "BindBuffer", pkg: "", typ: $funcType([$Int, ptrType$3], [], false)}, {prop: "BindFramebuffer", name: "BindFramebuffer", pkg: "", typ: $funcType([$Int, ptrType$4], [], false)}, {prop: "BindRenderbuffer", name: "BindRenderbuffer", pkg: "", typ: $funcType([$Int, ptrType$2], [], false)}, {prop: "BindTexture", name: "BindTexture", pkg: "", typ: $funcType([$Int, ptrType$5], [], false)}, {prop: "BufferData", name: "BufferData", pkg: "", typ: $funcType([$Int, $emptyInterface, $Int], [], false)}, {prop: "BufferSubData", name: "BufferSubData", pkg: "", typ: $funcType([$Int, $Int, $emptyInterface], [], false)}, {prop: "CheckFramebufferStatus", name: "CheckFramebufferStatus", pkg: "", typ: $funcType([$Int], [$Int], false)}, {prop: "Clear", name: "Clear", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "ClearColor", name: "ClearColor", pkg: "", typ: $funcType([$Float32, $Float32, $Float32, $Float32], [], false)}, {prop: "ClearDepth", name: "ClearDepth", pkg: "", typ: $funcType([$Float64], [], false)}, {prop: "ClearStencil", name: "ClearStencil", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "ColorMask", name: "ColorMask", pkg: "", typ: $funcType([$Bool, $Bool, $Bool, $Bool], [], false)}, {prop: "CompileShader", name: "CompileShader", pkg: "", typ: $funcType([ptrType$6], [], false)}, {prop: "CopyTexImage2D", name: "CopyTexImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, $Int, $Int], [], false)}, {prop: "CopyTexSubImage2D", name: "CopyTexSubImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, $Int, $Int], [], false)}, {prop: "CreateBuffer", name: "CreateBuffer", pkg: "", typ: $funcType([], [ptrType$3], false)}, {prop: "CreateFramebuffer", name: "CreateFramebuffer", pkg: "", typ: $funcType([], [ptrType$4], false)}, {prop: "CreateProgram", name: "CreateProgram", pkg: "", typ: $funcType([], [ptrType$8], false)}, {prop: "CreateRenderbuffer", name: "CreateRenderbuffer", pkg: "", typ: $funcType([], [ptrType$2], false)}, {prop: "CreateShader", name: "CreateShader", pkg: "", typ: $funcType([$Int], [ptrType$6], false)}, {prop: "CreateTexture", name: "CreateTexture", pkg: "", typ: $funcType([], [ptrType$5], false)}, {prop: "CullFace", name: "CullFace", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "DeleteBuffer", name: "DeleteBuffer", pkg: "", typ: $funcType([ptrType$3], [], false)}, {prop: "DeleteFramebuffer", name: "DeleteFramebuffer", pkg: "", typ: $funcType([ptrType$4], [], false)}, {prop: "DeleteProgram", name: "DeleteProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "DeleteRenderbuffer", name: "DeleteRenderbuffer", pkg: "", typ: $funcType([ptrType$2], [], false)}, {prop: "DeleteShader", name: "DeleteShader", pkg: "", typ: $funcType([ptrType$6], [], false)}, {prop: "DeleteTexture", name: "DeleteTexture", pkg: "", typ: $funcType([ptrType$5], [], false)}, {prop: "DepthMask", name: "DepthMask", pkg: "", typ: $funcType([$Bool], [], false)}, {prop: "DepthRange", name: "DepthRange", pkg: "", typ: $funcType([$Float64, $Float64], [], false)}, {prop: "DetachShader", name: "DetachShader", pkg: "", typ: $funcType([ptrType$8, ptrType$6], [], false)}, {prop: "Disable", name: "Disable", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "DisableVertexAttribArray", name: "DisableVertexAttribArray", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "DrawArrays", name: "DrawArrays", pkg: "", typ: $funcType([$Int, $Int, $Int], [], false)}, {prop: "DrawElements", name: "DrawElements", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "Enable", name: "Enable", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "EnableVertexAttribArray", name: "EnableVertexAttribArray", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "Finish", name: "Finish", pkg: "", typ: $funcType([], [], false)}, {prop: "Flush", name: "Flush", pkg: "", typ: $funcType([], [], false)}, {prop: "FrameBufferRenderBuffer", name: "FrameBufferRenderBuffer", pkg: "", typ: $funcType([$Int, $Int, $Int, ptrType$2], [], false)}, {prop: "FramebufferTexture2D", name: "FramebufferTexture2D", pkg: "", typ: $funcType([$Int, $Int, $Int, ptrType$5, $Int], [], false)}, {prop: "FrontFace", name: "FrontFace", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "GenerateMipmap", name: "GenerateMipmap", pkg: "", typ: $funcType([$Int], [], false)}, {prop: "GetActiveAttrib", name: "GetActiveAttrib", pkg: "", typ: $funcType([ptrType$8, $Int], [$String], false)}, {prop: "GetActiveUniform", name: "GetActiveUniform", pkg: "", typ: $funcType([ptrType$8, $Int], [$String], false)}, {prop: "GetAttachedShaders", name: "GetAttachedShaders", pkg: "", typ: $funcType([ptrType$8], [sliceType], false)}, {prop: "GetAttribLocation", name: "GetAttribLocation", pkg: "", typ: $funcType([ptrType$8, $String], [$Int], false)}, {prop: "GetBufferParameter", name: "GetBufferParameter", pkg: "", typ: $funcType([$Int, $Int], [$Int], false)}, {prop: "GetParameter", name: "GetParameter", pkg: "", typ: $funcType([$Int], [ptrType$7], false)}, {prop: "GetError", name: "GetError", pkg: "", typ: $funcType([], [$Int], false)}, {prop: "GetExtension", name: "GetExtension", pkg: "", typ: $funcType([$String], [ptrType$7], false)}, {prop: "GetFramebufferAttachmentParameter", name: "GetFramebufferAttachmentParameter", pkg: "", typ: $funcType([$Int, $Int, $Int], [ptrType$7], false)}, {prop: "GetProgramParameteri", name: "GetProgramParameteri", pkg: "", typ: $funcType([ptrType$8, $Int], [$Int], false)}, {prop: "GetProgramParameterb", name: "GetProgramParameterb", pkg: "", typ: $funcType([ptrType$8, $Int], [$Bool], false)}, {prop: "GetProgramInfoLog", name: "GetProgramInfoLog", pkg: "", typ: $funcType([ptrType$8], [$String], false)}, {prop: "GetRenderbufferParameter", name: "GetRenderbufferParameter", pkg: "", typ: $funcType([$Int, $Int], [$Int], false)}, {prop: "GetShaderParameter", name: "GetShaderParameter", pkg: "", typ: $funcType([ptrType$6, $Int], [ptrType$7], false)}, {prop: "GetShaderParameterb", name: "GetShaderParameterb", pkg: "", typ: $funcType([ptrType$6, $Int], [$Bool], false)}, {prop: "GetShaderInfoLog", name: "GetShaderInfoLog", pkg: "", typ: $funcType([ptrType$6], [$String], false)}, {prop: "GetShaderSource", name: "GetShaderSource", pkg: "", typ: $funcType([ptrType$6], [$String], false)}, {prop: "GetSupportedExtensions", name: "GetSupportedExtensions", pkg: "", typ: $funcType([], [sliceType$1], false)}, {prop: "GetTexParameter", name: "GetTexParameter", pkg: "", typ: $funcType([$Int, $Int], [ptrType$7], false)}, {prop: "GetUniform", name: "GetUniform", pkg: "", typ: $funcType([ptrType$8, ptrType$9], [ptrType$7], false)}, {prop: "GetUniformLocation", name: "GetUniformLocation", pkg: "", typ: $funcType([ptrType$8, $String], [ptrType$9], false)}, {prop: "GetVertexAttrib", name: "GetVertexAttrib", pkg: "", typ: $funcType([$Int, $Int], [ptrType$7], false)}, {prop: "GetVertexAttribOffset", name: "GetVertexAttribOffset", pkg: "", typ: $funcType([$Int, $Int], [$Int], false)}, {prop: "IsBuffer", name: "IsBuffer", pkg: "", typ: $funcType([ptrType$7], [$Bool], false)}, {prop: "IsContextLost", name: "IsContextLost", pkg: "", typ: $funcType([], [$Bool], false)}, {prop: "IsFramebuffer", name: "IsFramebuffer", pkg: "", typ: $funcType([ptrType$4], [$Bool], false)}, {prop: "IsProgram", name: "IsProgram", pkg: "", typ: $funcType([ptrType$8], [$Bool], false)}, {prop: "IsRenderbuffer", name: "IsRenderbuffer", pkg: "", typ: $funcType([ptrType$2], [$Bool], false)}, {prop: "IsShader", name: "IsShader", pkg: "", typ: $funcType([ptrType$6], [$Bool], false)}, {prop: "IsTexture", name: "IsTexture", pkg: "", typ: $funcType([ptrType$5], [$Bool], false)}, {prop: "IsEnabled", name: "IsEnabled", pkg: "", typ: $funcType([$Int], [$Bool], false)}, {prop: "LineWidth", name: "LineWidth", pkg: "", typ: $funcType([$Float64], [], false)}, {prop: "LinkProgram", name: "LinkProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "PixelStorei", name: "PixelStorei", pkg: "", typ: $funcType([$Int, $Int], [], false)}, {prop: "PolygonOffset", name: "PolygonOffset", pkg: "", typ: $funcType([$Float64, $Float64], [], false)}, {prop: "ReadPixels", name: "ReadPixels", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, ptrType$7], [], false)}, {prop: "RenderbufferStorage", name: "RenderbufferStorage", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "Scissor", name: "Scissor", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}, {prop: "ShaderSource", name: "ShaderSource", pkg: "", typ: $funcType([ptrType$6, $String], [], false)}, {prop: "TexImage2D", name: "TexImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $emptyInterface], [], false)}, {prop: "TexParameteri", name: "TexParameteri", pkg: "", typ: $funcType([$Int, $Int, $Int], [], false)}, {prop: "TexSubImage2D", name: "TexSubImage2D", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int, $Int, $Int, ptrType$7], [], false)}, {prop: "Uniform1f", name: "Uniform1f", pkg: "", typ: $funcType([ptrType$9, $Float32], [], false)}, {prop: "Uniform1i", name: "Uniform1i", pkg: "", typ: $funcType([ptrType$9, $Int], [], false)}, {prop: "Uniform2f", name: "Uniform2f", pkg: "", typ: $funcType([ptrType$9, $Float32, $Float32], [], false)}, {prop: "Uniform2i", name: "Uniform2i", pkg: "", typ: $funcType([ptrType$9, $Int, $Int], [], false)}, {prop: "Uniform3f", name: "Uniform3f", pkg: "", typ: $funcType([ptrType$9, $Float32, $Float32, $Float32], [], false)}, {prop: "Uniform3i", name: "Uniform3i", pkg: "", typ: $funcType([ptrType$9, $Int, $Int, $Int], [], false)}, {prop: "Uniform4f", name: "Uniform4f", pkg: "", typ: $funcType([ptrType$9, $Float32, $Float32, $Float32, $Float32], [], false)}, {prop: "Uniform4i", name: "Uniform4i", pkg: "", typ: $funcType([ptrType$9, $Int, $Int, $Int, $Int], [], false)}, {prop: "UniformMatrix2fv", name: "UniformMatrix2fv", pkg: "", typ: $funcType([ptrType$9, $Bool, sliceType$2], [], false)}, {prop: "UniformMatrix3fv", name: "UniformMatrix3fv", pkg: "", typ: $funcType([ptrType$9, $Bool, sliceType$2], [], false)}, {prop: "UniformMatrix4fv", name: "UniformMatrix4fv", pkg: "", typ: $funcType([ptrType$9, $Bool, sliceType$2], [], false)}, {prop: "UseProgram", name: "UseProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "ValidateProgram", name: "ValidateProgram", pkg: "", typ: $funcType([ptrType$8], [], false)}, {prop: "VertexAttribPointer", name: "VertexAttribPointer", pkg: "", typ: $funcType([$Int, $Int, $Int, $Bool, $Int, $Int], [], false)}, {prop: "Viewport", name: "Viewport", pkg: "", typ: $funcType([$Int, $Int, $Int, $Int], [], false)}];
+	Texture.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
+	Buffer.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
+	FrameBuffer.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
+	RenderBuffer.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
+	Program.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
+	UniformLocation.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
+	Shader.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}]);
+	ContextAttributes.init([{prop: "Alpha", name: "Alpha", pkg: "", typ: $Bool, tag: ""}, {prop: "Depth", name: "Depth", pkg: "", typ: $Bool, tag: ""}, {prop: "Stencil", name: "Stencil", pkg: "", typ: $Bool, tag: ""}, {prop: "Antialias", name: "Antialias", pkg: "", typ: $Bool, tag: ""}, {prop: "PremultipliedAlpha", name: "PremultipliedAlpha", pkg: "", typ: $Bool, tag: ""}, {prop: "PreserveDrawingBuffer", name: "PreserveDrawingBuffer", pkg: "", typ: $Bool, tag: ""}]);
+	Context.init([{prop: "Object", name: "", pkg: "", typ: ptrType$7, tag: ""}, {prop: "ARRAY_BUFFER", name: "ARRAY_BUFFER", pkg: "", typ: $Int, tag: "js:\"ARRAY_BUFFER\""}, {prop: "ARRAY_BUFFER_BINDING", name: "ARRAY_BUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"ARRAY_BUFFER_BINDING\""}, {prop: "ATTACHED_SHADERS", name: "ATTACHED_SHADERS", pkg: "", typ: $Int, tag: "js:\"ATTACHED_SHADERS\""}, {prop: "BACK", name: "BACK", pkg: "", typ: $Int, tag: "js:\"BACK\""}, {prop: "BLEND", name: "BLEND", pkg: "", typ: $Int, tag: "js:\"BLEND\""}, {prop: "BLEND_COLOR", name: "BLEND_COLOR", pkg: "", typ: $Int, tag: "js:\"BLEND_COLOR\""}, {prop: "BLEND_DST_ALPHA", name: "BLEND_DST_ALPHA", pkg: "", typ: $Int, tag: "js:\"BLEND_DST_ALPHA\""}, {prop: "BLEND_DST_RGB", name: "BLEND_DST_RGB", pkg: "", typ: $Int, tag: "js:\"BLEND_DST_RGB\""}, {prop: "BLEND_EQUATION", name: "BLEND_EQUATION", pkg: "", typ: $Int, tag: "js:\"BLEND_EQUATION\""}, {prop: "BLEND_EQUATION_ALPHA", name: "BLEND_EQUATION_ALPHA", pkg: "", typ: $Int, tag: "js:\"BLEND_EQUATION_ALPHA\""}, {prop: "BLEND_EQUATION_RGB", name: "BLEND_EQUATION_RGB", pkg: "", typ: $Int, tag: "js:\"BLEND_EQUATION_RGB\""}, {prop: "BLEND_SRC_ALPHA", name: "BLEND_SRC_ALPHA", pkg: "", typ: $Int, tag: "js:\"BLEND_SRC_ALPHA\""}, {prop: "BLEND_SRC_RGB", name: "BLEND_SRC_RGB", pkg: "", typ: $Int, tag: "js:\"BLEND_SRC_RGB\""}, {prop: "BLUE_BITS", name: "BLUE_BITS", pkg: "", typ: $Int, tag: "js:\"BLUE_BITS\""}, {prop: "BOOL", name: "BOOL", pkg: "", typ: $Int, tag: "js:\"BOOL\""}, {prop: "BOOL_VEC2", name: "BOOL_VEC2", pkg: "", typ: $Int, tag: "js:\"BOOL_VEC2\""}, {prop: "BOOL_VEC3", name: "BOOL_VEC3", pkg: "", typ: $Int, tag: "js:\"BOOL_VEC3\""}, {prop: "BOOL_VEC4", name: "BOOL_VEC4", pkg: "", typ: $Int, tag: "js:\"BOOL_VEC4\""}, {prop: "BROWSER_DEFAULT_WEBGL", name: "BROWSER_DEFAULT_WEBGL", pkg: "", typ: $Int, tag: "js:\"BROWSER_DEFAULT_WEBGL\""}, {prop: "BUFFER_SIZE", name: "BUFFER_SIZE", pkg: "", typ: $Int, tag: "js:\"BUFFER_SIZE\""}, {prop: "BUFFER_USAGE", name: "BUFFER_USAGE", pkg: "", typ: $Int, tag: "js:\"BUFFER_USAGE\""}, {prop: "BYTE", name: "BYTE", pkg: "", typ: $Int, tag: "js:\"BYTE\""}, {prop: "CCW", name: "CCW", pkg: "", typ: $Int, tag: "js:\"CCW\""}, {prop: "CLAMP_TO_EDGE", name: "CLAMP_TO_EDGE", pkg: "", typ: $Int, tag: "js:\"CLAMP_TO_EDGE\""}, {prop: "COLOR_ATTACHMENT0", name: "COLOR_ATTACHMENT0", pkg: "", typ: $Int, tag: "js:\"COLOR_ATTACHMENT0\""}, {prop: "COLOR_BUFFER_BIT", name: "COLOR_BUFFER_BIT", pkg: "", typ: $Int, tag: "js:\"COLOR_BUFFER_BIT\""}, {prop: "COLOR_CLEAR_VALUE", name: "COLOR_CLEAR_VALUE", pkg: "", typ: $Int, tag: "js:\"COLOR_CLEAR_VALUE\""}, {prop: "COLOR_WRITEMASK", name: "COLOR_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"COLOR_WRITEMASK\""}, {prop: "COMPILE_STATUS", name: "COMPILE_STATUS", pkg: "", typ: $Int, tag: "js:\"COMPILE_STATUS\""}, {prop: "COMPRESSED_TEXTURE_FORMATS", name: "COMPRESSED_TEXTURE_FORMATS", pkg: "", typ: $Int, tag: "js:\"COMPRESSED_TEXTURE_FORMATS\""}, {prop: "CONSTANT_ALPHA", name: "CONSTANT_ALPHA", pkg: "", typ: $Int, tag: "js:\"CONSTANT_ALPHA\""}, {prop: "CONSTANT_COLOR", name: "CONSTANT_COLOR", pkg: "", typ: $Int, tag: "js:\"CONSTANT_COLOR\""}, {prop: "CONTEXT_LOST_WEBGL", name: "CONTEXT_LOST_WEBGL", pkg: "", typ: $Int, tag: "js:\"CONTEXT_LOST_WEBGL\""}, {prop: "CULL_FACE", name: "CULL_FACE", pkg: "", typ: $Int, tag: "js:\"CULL_FACE\""}, {prop: "CULL_FACE_MODE", name: "CULL_FACE_MODE", pkg: "", typ: $Int, tag: "js:\"CULL_FACE_MODE\""}, {prop: "CURRENT_PROGRAM", name: "CURRENT_PROGRAM", pkg: "", typ: $Int, tag: "js:\"CURRENT_PROGRAM\""}, {prop: "CURRENT_VERTEX_ATTRIB", name: "CURRENT_VERTEX_ATTRIB", pkg: "", typ: $Int, tag: "js:\"CURRENT_VERTEX_ATTRIB\""}, {prop: "CW", name: "CW", pkg: "", typ: $Int, tag: "js:\"CW\""}, {prop: "DECR", name: "DECR", pkg: "", typ: $Int, tag: "js:\"DECR\""}, {prop: "DECR_WRAP", name: "DECR_WRAP", pkg: "", typ: $Int, tag: "js:\"DECR_WRAP\""}, {prop: "DELETE_STATUS", name: "DELETE_STATUS", pkg: "", typ: $Int, tag: "js:\"DELETE_STATUS\""}, {prop: "DEPTH_ATTACHMENT", name: "DEPTH_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"DEPTH_ATTACHMENT\""}, {prop: "DEPTH_BITS", name: "DEPTH_BITS", pkg: "", typ: $Int, tag: "js:\"DEPTH_BITS\""}, {prop: "DEPTH_BUFFER_BIT", name: "DEPTH_BUFFER_BIT", pkg: "", typ: $Int, tag: "js:\"DEPTH_BUFFER_BIT\""}, {prop: "DEPTH_CLEAR_VALUE", name: "DEPTH_CLEAR_VALUE", pkg: "", typ: $Int, tag: "js:\"DEPTH_CLEAR_VALUE\""}, {prop: "DEPTH_COMPONENT", name: "DEPTH_COMPONENT", pkg: "", typ: $Int, tag: "js:\"DEPTH_COMPONENT\""}, {prop: "DEPTH_COMPONENT16", name: "DEPTH_COMPONENT16", pkg: "", typ: $Int, tag: "js:\"DEPTH_COMPONENT16\""}, {prop: "DEPTH_FUNC", name: "DEPTH_FUNC", pkg: "", typ: $Int, tag: "js:\"DEPTH_FUNC\""}, {prop: "DEPTH_RANGE", name: "DEPTH_RANGE", pkg: "", typ: $Int, tag: "js:\"DEPTH_RANGE\""}, {prop: "DEPTH_STENCIL", name: "DEPTH_STENCIL", pkg: "", typ: $Int, tag: "js:\"DEPTH_STENCIL\""}, {prop: "DEPTH_STENCIL_ATTACHMENT", name: "DEPTH_STENCIL_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"DEPTH_STENCIL_ATTACHMENT\""}, {prop: "DEPTH_TEST", name: "DEPTH_TEST", pkg: "", typ: $Int, tag: "js:\"DEPTH_TEST\""}, {prop: "DEPTH_WRITEMASK", name: "DEPTH_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"DEPTH_WRITEMASK\""}, {prop: "DITHER", name: "DITHER", pkg: "", typ: $Int, tag: "js:\"DITHER\""}, {prop: "DONT_CARE", name: "DONT_CARE", pkg: "", typ: $Int, tag: "js:\"DONT_CARE\""}, {prop: "DST_ALPHA", name: "DST_ALPHA", pkg: "", typ: $Int, tag: "js:\"DST_ALPHA\""}, {prop: "DST_COLOR", name: "DST_COLOR", pkg: "", typ: $Int, tag: "js:\"DST_COLOR\""}, {prop: "DYNAMIC_DRAW", name: "DYNAMIC_DRAW", pkg: "", typ: $Int, tag: "js:\"DYNAMIC_DRAW\""}, {prop: "ELEMENT_ARRAY_BUFFER", name: "ELEMENT_ARRAY_BUFFER", pkg: "", typ: $Int, tag: "js:\"ELEMENT_ARRAY_BUFFER\""}, {prop: "ELEMENT_ARRAY_BUFFER_BINDING", name: "ELEMENT_ARRAY_BUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"ELEMENT_ARRAY_BUFFER_BINDING\""}, {prop: "EQUAL", name: "EQUAL", pkg: "", typ: $Int, tag: "js:\"EQUAL\""}, {prop: "FASTEST", name: "FASTEST", pkg: "", typ: $Int, tag: "js:\"FASTEST\""}, {prop: "FLOAT", name: "FLOAT", pkg: "", typ: $Int, tag: "js:\"FLOAT\""}, {prop: "FLOAT_MAT2", name: "FLOAT_MAT2", pkg: "", typ: $Int, tag: "js:\"FLOAT_MAT2\""}, {prop: "FLOAT_MAT3", name: "FLOAT_MAT3", pkg: "", typ: $Int, tag: "js:\"FLOAT_MAT3\""}, {prop: "FLOAT_MAT4", name: "FLOAT_MAT4", pkg: "", typ: $Int, tag: "js:\"FLOAT_MAT4\""}, {prop: "FLOAT_VEC2", name: "FLOAT_VEC2", pkg: "", typ: $Int, tag: "js:\"FLOAT_VEC2\""}, {prop: "FLOAT_VEC3", name: "FLOAT_VEC3", pkg: "", typ: $Int, tag: "js:\"FLOAT_VEC3\""}, {prop: "FLOAT_VEC4", name: "FLOAT_VEC4", pkg: "", typ: $Int, tag: "js:\"FLOAT_VEC4\""}, {prop: "FRAGMENT_SHADER", name: "FRAGMENT_SHADER", pkg: "", typ: $Int, tag: "js:\"FRAGMENT_SHADER\""}, {prop: "FRAMEBUFFER", name: "FRAMEBUFFER", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER\""}, {prop: "FRAMEBUFFER_ATTACHMENT_OBJECT_NAME", name: "FRAMEBUFFER_ATTACHMENT_OBJECT_NAME", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_OBJECT_NAME\""}, {prop: "FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE", name: "FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE\""}, {prop: "FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE", name: "FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE\""}, {prop: "FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL", name: "FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL\""}, {prop: "FRAMEBUFFER_BINDING", name: "FRAMEBUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_BINDING\""}, {prop: "FRAMEBUFFER_COMPLETE", name: "FRAMEBUFFER_COMPLETE", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_COMPLETE\""}, {prop: "FRAMEBUFFER_INCOMPLETE_ATTACHMENT", name: "FRAMEBUFFER_INCOMPLETE_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_INCOMPLETE_ATTACHMENT\""}, {prop: "FRAMEBUFFER_INCOMPLETE_DIMENSIONS", name: "FRAMEBUFFER_INCOMPLETE_DIMENSIONS", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_INCOMPLETE_DIMENSIONS\""}, {prop: "FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT", name: "FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT\""}, {prop: "FRAMEBUFFER_UNSUPPORTED", name: "FRAMEBUFFER_UNSUPPORTED", pkg: "", typ: $Int, tag: "js:\"FRAMEBUFFER_UNSUPPORTED\""}, {prop: "FRONT", name: "FRONT", pkg: "", typ: $Int, tag: "js:\"FRONT\""}, {prop: "FRONT_AND_BACK", name: "FRONT_AND_BACK", pkg: "", typ: $Int, tag: "js:\"FRONT_AND_BACK\""}, {prop: "FRONT_FACE", name: "FRONT_FACE", pkg: "", typ: $Int, tag: "js:\"FRONT_FACE\""}, {prop: "FUNC_ADD", name: "FUNC_ADD", pkg: "", typ: $Int, tag: "js:\"FUNC_ADD\""}, {prop: "FUNC_REVERSE_SUBTRACT", name: "FUNC_REVERSE_SUBTRACT", pkg: "", typ: $Int, tag: "js:\"FUNC_REVERSE_SUBTRACT\""}, {prop: "FUNC_SUBTRACT", name: "FUNC_SUBTRACT", pkg: "", typ: $Int, tag: "js:\"FUNC_SUBTRACT\""}, {prop: "GENERATE_MIPMAP_HINT", name: "GENERATE_MIPMAP_HINT", pkg: "", typ: $Int, tag: "js:\"GENERATE_MIPMAP_HINT\""}, {prop: "GEQUAL", name: "GEQUAL", pkg: "", typ: $Int, tag: "js:\"GEQUAL\""}, {prop: "GREATER", name: "GREATER", pkg: "", typ: $Int, tag: "js:\"GREATER\""}, {prop: "GREEN_BITS", name: "GREEN_BITS", pkg: "", typ: $Int, tag: "js:\"GREEN_BITS\""}, {prop: "HIGH_FLOAT", name: "HIGH_FLOAT", pkg: "", typ: $Int, tag: "js:\"HIGH_FLOAT\""}, {prop: "HIGH_INT", name: "HIGH_INT", pkg: "", typ: $Int, tag: "js:\"HIGH_INT\""}, {prop: "INCR", name: "INCR", pkg: "", typ: $Int, tag: "js:\"INCR\""}, {prop: "INCR_WRAP", name: "INCR_WRAP", pkg: "", typ: $Int, tag: "js:\"INCR_WRAP\""}, {prop: "INFO_LOG_LENGTH", name: "INFO_LOG_LENGTH", pkg: "", typ: $Int, tag: "js:\"INFO_LOG_LENGTH\""}, {prop: "INT", name: "INT", pkg: "", typ: $Int, tag: "js:\"INT\""}, {prop: "INT_VEC2", name: "INT_VEC2", pkg: "", typ: $Int, tag: "js:\"INT_VEC2\""}, {prop: "INT_VEC3", name: "INT_VEC3", pkg: "", typ: $Int, tag: "js:\"INT_VEC3\""}, {prop: "INT_VEC4", name: "INT_VEC4", pkg: "", typ: $Int, tag: "js:\"INT_VEC4\""}, {prop: "INVALID_ENUM", name: "INVALID_ENUM", pkg: "", typ: $Int, tag: "js:\"INVALID_ENUM\""}, {prop: "INVALID_FRAMEBUFFER_OPERATION", name: "INVALID_FRAMEBUFFER_OPERATION", pkg: "", typ: $Int, tag: "js:\"INVALID_FRAMEBUFFER_OPERATION\""}, {prop: "INVALID_OPERATION", name: "INVALID_OPERATION", pkg: "", typ: $Int, tag: "js:\"INVALID_OPERATION\""}, {prop: "INVALID_VALUE", name: "INVALID_VALUE", pkg: "", typ: $Int, tag: "js:\"INVALID_VALUE\""}, {prop: "INVERT", name: "INVERT", pkg: "", typ: $Int, tag: "js:\"INVERT\""}, {prop: "KEEP", name: "KEEP", pkg: "", typ: $Int, tag: "js:\"KEEP\""}, {prop: "LEQUAL", name: "LEQUAL", pkg: "", typ: $Int, tag: "js:\"LEQUAL\""}, {prop: "LESS", name: "LESS", pkg: "", typ: $Int, tag: "js:\"LESS\""}, {prop: "LINEAR", name: "LINEAR", pkg: "", typ: $Int, tag: "js:\"LINEAR\""}, {prop: "LINEAR_MIPMAP_LINEAR", name: "LINEAR_MIPMAP_LINEAR", pkg: "", typ: $Int, tag: "js:\"LINEAR_MIPMAP_LINEAR\""}, {prop: "LINEAR_MIPMAP_NEAREST", name: "LINEAR_MIPMAP_NEAREST", pkg: "", typ: $Int, tag: "js:\"LINEAR_MIPMAP_NEAREST\""}, {prop: "LINES", name: "LINES", pkg: "", typ: $Int, tag: "js:\"LINES\""}, {prop: "LINE_LOOP", name: "LINE_LOOP", pkg: "", typ: $Int, tag: "js:\"LINE_LOOP\""}, {prop: "LINE_STRIP", name: "LINE_STRIP", pkg: "", typ: $Int, tag: "js:\"LINE_STRIP\""}, {prop: "LINE_WIDTH", name: "LINE_WIDTH", pkg: "", typ: $Int, tag: "js:\"LINE_WIDTH\""}, {prop: "LINK_STATUS", name: "LINK_STATUS", pkg: "", typ: $Int, tag: "js:\"LINK_STATUS\""}, {prop: "LOW_FLOAT", name: "LOW_FLOAT", pkg: "", typ: $Int, tag: "js:\"LOW_FLOAT\""}, {prop: "LOW_INT", name: "LOW_INT", pkg: "", typ: $Int, tag: "js:\"LOW_INT\""}, {prop: "LUMINANCE", name: "LUMINANCE", pkg: "", typ: $Int, tag: "js:\"LUMINANCE\""}, {prop: "LUMINANCE_ALPHA", name: "LUMINANCE_ALPHA", pkg: "", typ: $Int, tag: "js:\"LUMINANCE_ALPHA\""}, {prop: "MAX_COMBINED_TEXTURE_IMAGE_UNITS", name: "MAX_COMBINED_TEXTURE_IMAGE_UNITS", pkg: "", typ: $Int, tag: "js:\"MAX_COMBINED_TEXTURE_IMAGE_UNITS\""}, {prop: "MAX_CUBE_MAP_TEXTURE_SIZE", name: "MAX_CUBE_MAP_TEXTURE_SIZE", pkg: "", typ: $Int, tag: "js:\"MAX_CUBE_MAP_TEXTURE_SIZE\""}, {prop: "MAX_FRAGMENT_UNIFORM_VECTORS", name: "MAX_FRAGMENT_UNIFORM_VECTORS", pkg: "", typ: $Int, tag: "js:\"MAX_FRAGMENT_UNIFORM_VECTORS\""}, {prop: "MAX_RENDERBUFFER_SIZE", name: "MAX_RENDERBUFFER_SIZE", pkg: "", typ: $Int, tag: "js:\"MAX_RENDERBUFFER_SIZE\""}, {prop: "MAX_TEXTURE_IMAGE_UNITS", name: "MAX_TEXTURE_IMAGE_UNITS", pkg: "", typ: $Int, tag: "js:\"MAX_TEXTURE_IMAGE_UNITS\""}, {prop: "MAX_TEXTURE_SIZE", name: "MAX_TEXTURE_SIZE", pkg: "", typ: $Int, tag: "js:\"MAX_TEXTURE_SIZE\""}, {prop: "MAX_VARYING_VECTORS", name: "MAX_VARYING_VECTORS", pkg: "", typ: $Int, tag: "js:\"MAX_VARYING_VECTORS\""}, {prop: "MAX_VERTEX_ATTRIBS", name: "MAX_VERTEX_ATTRIBS", pkg: "", typ: $Int, tag: "js:\"MAX_VERTEX_ATTRIBS\""}, {prop: "MAX_VERTEX_TEXTURE_IMAGE_UNITS", name: "MAX_VERTEX_TEXTURE_IMAGE_UNITS", pkg: "", typ: $Int, tag: "js:\"MAX_VERTEX_TEXTURE_IMAGE_UNITS\""}, {prop: "MAX_VERTEX_UNIFORM_VECTORS", name: "MAX_VERTEX_UNIFORM_VECTORS", pkg: "", typ: $Int, tag: "js:\"MAX_VERTEX_UNIFORM_VECTORS\""}, {prop: "MAX_VIEWPORT_DIMS", name: "MAX_VIEWPORT_DIMS", pkg: "", typ: $Int, tag: "js:\"MAX_VIEWPORT_DIMS\""}, {prop: "MEDIUM_FLOAT", name: "MEDIUM_FLOAT", pkg: "", typ: $Int, tag: "js:\"MEDIUM_FLOAT\""}, {prop: "MEDIUM_INT", name: "MEDIUM_INT", pkg: "", typ: $Int, tag: "js:\"MEDIUM_INT\""}, {prop: "MIRRORED_REPEAT", name: "MIRRORED_REPEAT", pkg: "", typ: $Int, tag: "js:\"MIRRORED_REPEAT\""}, {prop: "NEAREST", name: "NEAREST", pkg: "", typ: $Int, tag: "js:\"NEAREST\""}, {prop: "NEAREST_MIPMAP_LINEAR", name: "NEAREST_MIPMAP_LINEAR", pkg: "", typ: $Int, tag: "js:\"NEAREST_MIPMAP_LINEAR\""}, {prop: "NEAREST_MIPMAP_NEAREST", name: "NEAREST_MIPMAP_NEAREST", pkg: "", typ: $Int, tag: "js:\"NEAREST_MIPMAP_NEAREST\""}, {prop: "NEVER", name: "NEVER", pkg: "", typ: $Int, tag: "js:\"NEVER\""}, {prop: "NICEST", name: "NICEST", pkg: "", typ: $Int, tag: "js:\"NICEST\""}, {prop: "NONE", name: "NONE", pkg: "", typ: $Int, tag: "js:\"NONE\""}, {prop: "NOTEQUAL", name: "NOTEQUAL", pkg: "", typ: $Int, tag: "js:\"NOTEQUAL\""}, {prop: "NO_ERROR", name: "NO_ERROR", pkg: "", typ: $Int, tag: "js:\"NO_ERROR\""}, {prop: "NUM_COMPRESSED_TEXTURE_FORMATS", name: "NUM_COMPRESSED_TEXTURE_FORMATS", pkg: "", typ: $Int, tag: "js:\"NUM_COMPRESSED_TEXTURE_FORMATS\""}, {prop: "ONE", name: "ONE", pkg: "", typ: $Int, tag: "js:\"ONE\""}, {prop: "ONE_MINUS_CONSTANT_ALPHA", name: "ONE_MINUS_CONSTANT_ALPHA", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_CONSTANT_ALPHA\""}, {prop: "ONE_MINUS_CONSTANT_COLOR", name: "ONE_MINUS_CONSTANT_COLOR", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_CONSTANT_COLOR\""}, {prop: "ONE_MINUS_DST_ALPHA", name: "ONE_MINUS_DST_ALPHA", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_DST_ALPHA\""}, {prop: "ONE_MINUS_DST_COLOR", name: "ONE_MINUS_DST_COLOR", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_DST_COLOR\""}, {prop: "ONE_MINUS_SRC_ALPHA", name: "ONE_MINUS_SRC_ALPHA", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_SRC_ALPHA\""}, {prop: "ONE_MINUS_SRC_COLOR", name: "ONE_MINUS_SRC_COLOR", pkg: "", typ: $Int, tag: "js:\"ONE_MINUS_SRC_COLOR\""}, {prop: "OUT_OF_MEMORY", name: "OUT_OF_MEMORY", pkg: "", typ: $Int, tag: "js:\"OUT_OF_MEMORY\""}, {prop: "PACK_ALIGNMENT", name: "PACK_ALIGNMENT", pkg: "", typ: $Int, tag: "js:\"PACK_ALIGNMENT\""}, {prop: "POINTS", name: "POINTS", pkg: "", typ: $Int, tag: "js:\"POINTS\""}, {prop: "POLYGON_OFFSET_FACTOR", name: "POLYGON_OFFSET_FACTOR", pkg: "", typ: $Int, tag: "js:\"POLYGON_OFFSET_FACTOR\""}, {prop: "POLYGON_OFFSET_FILL", name: "POLYGON_OFFSET_FILL", pkg: "", typ: $Int, tag: "js:\"POLYGON_OFFSET_FILL\""}, {prop: "POLYGON_OFFSET_UNITS", name: "POLYGON_OFFSET_UNITS", pkg: "", typ: $Int, tag: "js:\"POLYGON_OFFSET_UNITS\""}, {prop: "RED_BITS", name: "RED_BITS", pkg: "", typ: $Int, tag: "js:\"RED_BITS\""}, {prop: "RENDERBUFFER", name: "RENDERBUFFER", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER\""}, {prop: "RENDERBUFFER_ALPHA_SIZE", name: "RENDERBUFFER_ALPHA_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_ALPHA_SIZE\""}, {prop: "RENDERBUFFER_BINDING", name: "RENDERBUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_BINDING\""}, {prop: "RENDERBUFFER_BLUE_SIZE", name: "RENDERBUFFER_BLUE_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_BLUE_SIZE\""}, {prop: "RENDERBUFFER_DEPTH_SIZE", name: "RENDERBUFFER_DEPTH_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_DEPTH_SIZE\""}, {prop: "RENDERBUFFER_GREEN_SIZE", name: "RENDERBUFFER_GREEN_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_GREEN_SIZE\""}, {prop: "RENDERBUFFER_HEIGHT", name: "RENDERBUFFER_HEIGHT", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_HEIGHT\""}, {prop: "RENDERBUFFER_INTERNAL_FORMAT", name: "RENDERBUFFER_INTERNAL_FORMAT", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_INTERNAL_FORMAT\""}, {prop: "RENDERBUFFER_RED_SIZE", name: "RENDERBUFFER_RED_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_RED_SIZE\""}, {prop: "RENDERBUFFER_STENCIL_SIZE", name: "RENDERBUFFER_STENCIL_SIZE", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_STENCIL_SIZE\""}, {prop: "RENDERBUFFER_WIDTH", name: "RENDERBUFFER_WIDTH", pkg: "", typ: $Int, tag: "js:\"RENDERBUFFER_WIDTH\""}, {prop: "RENDERER", name: "RENDERER", pkg: "", typ: $Int, tag: "js:\"RENDERER\""}, {prop: "REPEAT", name: "REPEAT", pkg: "", typ: $Int, tag: "js:\"REPEAT\""}, {prop: "REPLACE", name: "REPLACE", pkg: "", typ: $Int, tag: "js:\"REPLACE\""}, {prop: "RGB", name: "RGB", pkg: "", typ: $Int, tag: "js:\"RGB\""}, {prop: "RGB5_A1", name: "RGB5_A1", pkg: "", typ: $Int, tag: "js:\"RGB5_A1\""}, {prop: "RGB565", name: "RGB565", pkg: "", typ: $Int, tag: "js:\"RGB565\""}, {prop: "RGBA", name: "RGBA", pkg: "", typ: $Int, tag: "js:\"RGBA\""}, {prop: "RGBA4", name: "RGBA4", pkg: "", typ: $Int, tag: "js:\"RGBA4\""}, {prop: "SAMPLER_2D", name: "SAMPLER_2D", pkg: "", typ: $Int, tag: "js:\"SAMPLER_2D\""}, {prop: "SAMPLER_CUBE", name: "SAMPLER_CUBE", pkg: "", typ: $Int, tag: "js:\"SAMPLER_CUBE\""}, {prop: "SAMPLES", name: "SAMPLES", pkg: "", typ: $Int, tag: "js:\"SAMPLES\""}, {prop: "SAMPLE_ALPHA_TO_COVERAGE", name: "SAMPLE_ALPHA_TO_COVERAGE", pkg: "", typ: $Int, tag: "js:\"SAMPLE_ALPHA_TO_COVERAGE\""}, {prop: "SAMPLE_BUFFERS", name: "SAMPLE_BUFFERS", pkg: "", typ: $Int, tag: "js:\"SAMPLE_BUFFERS\""}, {prop: "SAMPLE_COVERAGE", name: "SAMPLE_COVERAGE", pkg: "", typ: $Int, tag: "js:\"SAMPLE_COVERAGE\""}, {prop: "SAMPLE_COVERAGE_INVERT", name: "SAMPLE_COVERAGE_INVERT", pkg: "", typ: $Int, tag: "js:\"SAMPLE_COVERAGE_INVERT\""}, {prop: "SAMPLE_COVERAGE_VALUE", name: "SAMPLE_COVERAGE_VALUE", pkg: "", typ: $Int, tag: "js:\"SAMPLE_COVERAGE_VALUE\""}, {prop: "SCISSOR_BOX", name: "SCISSOR_BOX", pkg: "", typ: $Int, tag: "js:\"SCISSOR_BOX\""}, {prop: "SCISSOR_TEST", name: "SCISSOR_TEST", pkg: "", typ: $Int, tag: "js:\"SCISSOR_TEST\""}, {prop: "SHADER_COMPILER", name: "SHADER_COMPILER", pkg: "", typ: $Int, tag: "js:\"SHADER_COMPILER\""}, {prop: "SHADER_SOURCE_LENGTH", name: "SHADER_SOURCE_LENGTH", pkg: "", typ: $Int, tag: "js:\"SHADER_SOURCE_LENGTH\""}, {prop: "SHADER_TYPE", name: "SHADER_TYPE", pkg: "", typ: $Int, tag: "js:\"SHADER_TYPE\""}, {prop: "SHADING_LANGUAGE_VERSION", name: "SHADING_LANGUAGE_VERSION", pkg: "", typ: $Int, tag: "js:\"SHADING_LANGUAGE_VERSION\""}, {prop: "SHORT", name: "SHORT", pkg: "", typ: $Int, tag: "js:\"SHORT\""}, {prop: "SRC_ALPHA", name: "SRC_ALPHA", pkg: "", typ: $Int, tag: "js:\"SRC_ALPHA\""}, {prop: "SRC_ALPHA_SATURATE", name: "SRC_ALPHA_SATURATE", pkg: "", typ: $Int, tag: "js:\"SRC_ALPHA_SATURATE\""}, {prop: "SRC_COLOR", name: "SRC_COLOR", pkg: "", typ: $Int, tag: "js:\"SRC_COLOR\""}, {prop: "STATIC_DRAW", name: "STATIC_DRAW", pkg: "", typ: $Int, tag: "js:\"STATIC_DRAW\""}, {prop: "STENCIL_ATTACHMENT", name: "STENCIL_ATTACHMENT", pkg: "", typ: $Int, tag: "js:\"STENCIL_ATTACHMENT\""}, {prop: "STENCIL_BACK_FAIL", name: "STENCIL_BACK_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_FAIL\""}, {prop: "STENCIL_BACK_FUNC", name: "STENCIL_BACK_FUNC", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_FUNC\""}, {prop: "STENCIL_BACK_PASS_DEPTH_FAIL", name: "STENCIL_BACK_PASS_DEPTH_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_PASS_DEPTH_FAIL\""}, {prop: "STENCIL_BACK_PASS_DEPTH_PASS", name: "STENCIL_BACK_PASS_DEPTH_PASS", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_PASS_DEPTH_PASS\""}, {prop: "STENCIL_BACK_REF", name: "STENCIL_BACK_REF", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_REF\""}, {prop: "STENCIL_BACK_VALUE_MASK", name: "STENCIL_BACK_VALUE_MASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_VALUE_MASK\""}, {prop: "STENCIL_BACK_WRITEMASK", name: "STENCIL_BACK_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_BACK_WRITEMASK\""}, {prop: "STENCIL_BITS", name: "STENCIL_BITS", pkg: "", typ: $Int, tag: "js:\"STENCIL_BITS\""}, {prop: "STENCIL_BUFFER_BIT", name: "STENCIL_BUFFER_BIT", pkg: "", typ: $Int, tag: "js:\"STENCIL_BUFFER_BIT\""}, {prop: "STENCIL_CLEAR_VALUE", name: "STENCIL_CLEAR_VALUE", pkg: "", typ: $Int, tag: "js:\"STENCIL_CLEAR_VALUE\""}, {prop: "STENCIL_FAIL", name: "STENCIL_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_FAIL\""}, {prop: "STENCIL_FUNC", name: "STENCIL_FUNC", pkg: "", typ: $Int, tag: "js:\"STENCIL_FUNC\""}, {prop: "STENCIL_INDEX", name: "STENCIL_INDEX", pkg: "", typ: $Int, tag: "js:\"STENCIL_INDEX\""}, {prop: "STENCIL_INDEX8", name: "STENCIL_INDEX8", pkg: "", typ: $Int, tag: "js:\"STENCIL_INDEX8\""}, {prop: "STENCIL_PASS_DEPTH_FAIL", name: "STENCIL_PASS_DEPTH_FAIL", pkg: "", typ: $Int, tag: "js:\"STENCIL_PASS_DEPTH_FAIL\""}, {prop: "STENCIL_PASS_DEPTH_PASS", name: "STENCIL_PASS_DEPTH_PASS", pkg: "", typ: $Int, tag: "js:\"STENCIL_PASS_DEPTH_PASS\""}, {prop: "STENCIL_REF", name: "STENCIL_REF", pkg: "", typ: $Int, tag: "js:\"STENCIL_REF\""}, {prop: "STENCIL_TEST", name: "STENCIL_TEST", pkg: "", typ: $Int, tag: "js:\"STENCIL_TEST\""}, {prop: "STENCIL_VALUE_MASK", name: "STENCIL_VALUE_MASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_VALUE_MASK\""}, {prop: "STENCIL_WRITEMASK", name: "STENCIL_WRITEMASK", pkg: "", typ: $Int, tag: "js:\"STENCIL_WRITEMASK\""}, {prop: "STREAM_DRAW", name: "STREAM_DRAW", pkg: "", typ: $Int, tag: "js:\"STREAM_DRAW\""}, {prop: "SUBPIXEL_BITS", name: "SUBPIXEL_BITS", pkg: "", typ: $Int, tag: "js:\"SUBPIXEL_BITS\""}, {prop: "TEXTURE", name: "TEXTURE", pkg: "", typ: $Int, tag: "js:\"TEXTURE\""}, {prop: "TEXTURE0", name: "TEXTURE0", pkg: "", typ: $Int, tag: "js:\"TEXTURE0\""}, {prop: "TEXTURE1", name: "TEXTURE1", pkg: "", typ: $Int, tag: "js:\"TEXTURE1\""}, {prop: "TEXTURE2", name: "TEXTURE2", pkg: "", typ: $Int, tag: "js:\"TEXTURE2\""}, {prop: "TEXTURE3", name: "TEXTURE3", pkg: "", typ: $Int, tag: "js:\"TEXTURE3\""}, {prop: "TEXTURE4", name: "TEXTURE4", pkg: "", typ: $Int, tag: "js:\"TEXTURE4\""}, {prop: "TEXTURE5", name: "TEXTURE5", pkg: "", typ: $Int, tag: "js:\"TEXTURE5\""}, {prop: "TEXTURE6", name: "TEXTURE6", pkg: "", typ: $Int, tag: "js:\"TEXTURE6\""}, {prop: "TEXTURE7", name: "TEXTURE7", pkg: "", typ: $Int, tag: "js:\"TEXTURE7\""}, {prop: "TEXTURE8", name: "TEXTURE8", pkg: "", typ: $Int, tag: "js:\"TEXTURE8\""}, {prop: "TEXTURE9", name: "TEXTURE9", pkg: "", typ: $Int, tag: "js:\"TEXTURE9\""}, {prop: "TEXTURE10", name: "TEXTURE10", pkg: "", typ: $Int, tag: "js:\"TEXTURE10\""}, {prop: "TEXTURE11", name: "TEXTURE11", pkg: "", typ: $Int, tag: "js:\"TEXTURE11\""}, {prop: "TEXTURE12", name: "TEXTURE12", pkg: "", typ: $Int, tag: "js:\"TEXTURE12\""}, {prop: "TEXTURE13", name: "TEXTURE13", pkg: "", typ: $Int, tag: "js:\"TEXTURE13\""}, {prop: "TEXTURE14", name: "TEXTURE14", pkg: "", typ: $Int, tag: "js:\"TEXTURE14\""}, {prop: "TEXTURE15", name: "TEXTURE15", pkg: "", typ: $Int, tag: "js:\"TEXTURE15\""}, {prop: "TEXTURE16", name: "TEXTURE16", pkg: "", typ: $Int, tag: "js:\"TEXTURE16\""}, {prop: "TEXTURE17", name: "TEXTURE17", pkg: "", typ: $Int, tag: "js:\"TEXTURE17\""}, {prop: "TEXTURE18", name: "TEXTURE18", pkg: "", typ: $Int, tag: "js:\"TEXTURE18\""}, {prop: "TEXTURE19", name: "TEXTURE19", pkg: "", typ: $Int, tag: "js:\"TEXTURE19\""}, {prop: "TEXTURE20", name: "TEXTURE20", pkg: "", typ: $Int, tag: "js:\"TEXTURE20\""}, {prop: "TEXTURE21", name: "TEXTURE21", pkg: "", typ: $Int, tag: "js:\"TEXTURE21\""}, {prop: "TEXTURE22", name: "TEXTURE22", pkg: "", typ: $Int, tag: "js:\"TEXTURE22\""}, {prop: "TEXTURE23", name: "TEXTURE23", pkg: "", typ: $Int, tag: "js:\"TEXTURE23\""}, {prop: "TEXTURE24", name: "TEXTURE24", pkg: "", typ: $Int, tag: "js:\"TEXTURE24\""}, {prop: "TEXTURE25", name: "TEXTURE25", pkg: "", typ: $Int, tag: "js:\"TEXTURE25\""}, {prop: "TEXTURE26", name: "TEXTURE26", pkg: "", typ: $Int, tag: "js:\"TEXTURE26\""}, {prop: "TEXTURE27", name: "TEXTURE27", pkg: "", typ: $Int, tag: "js:\"TEXTURE27\""}, {prop: "TEXTURE28", name: "TEXTURE28", pkg: "", typ: $Int, tag: "js:\"TEXTURE28\""}, {prop: "TEXTURE29", name: "TEXTURE29", pkg: "", typ: $Int, tag: "js:\"TEXTURE29\""}, {prop: "TEXTURE30", name: "TEXTURE30", pkg: "", typ: $Int, tag: "js:\"TEXTURE30\""}, {prop: "TEXTURE31", name: "TEXTURE31", pkg: "", typ: $Int, tag: "js:\"TEXTURE31\""}, {prop: "TEXTURE_2D", name: "TEXTURE_2D", pkg: "", typ: $Int, tag: "js:\"TEXTURE_2D\""}, {prop: "TEXTURE_BINDING_2D", name: "TEXTURE_BINDING_2D", pkg: "", typ: $Int, tag: "js:\"TEXTURE_BINDING_2D\""}, {prop: "TEXTURE_BINDING_CUBE_MAP", name: "TEXTURE_BINDING_CUBE_MAP", pkg: "", typ: $Int, tag: "js:\"TEXTURE_BINDING_CUBE_MAP\""}, {prop: "TEXTURE_CUBE_MAP", name: "TEXTURE_CUBE_MAP", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP\""}, {prop: "TEXTURE_CUBE_MAP_NEGATIVE_X", name: "TEXTURE_CUBE_MAP_NEGATIVE_X", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_NEGATIVE_X\""}, {prop: "TEXTURE_CUBE_MAP_NEGATIVE_Y", name: "TEXTURE_CUBE_MAP_NEGATIVE_Y", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_NEGATIVE_Y\""}, {prop: "TEXTURE_CUBE_MAP_NEGATIVE_Z", name: "TEXTURE_CUBE_MAP_NEGATIVE_Z", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_NEGATIVE_Z\""}, {prop: "TEXTURE_CUBE_MAP_POSITIVE_X", name: "TEXTURE_CUBE_MAP_POSITIVE_X", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_POSITIVE_X\""}, {prop: "TEXTURE_CUBE_MAP_POSITIVE_Y", name: "TEXTURE_CUBE_MAP_POSITIVE_Y", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_POSITIVE_Y\""}, {prop: "TEXTURE_CUBE_MAP_POSITIVE_Z", name: "TEXTURE_CUBE_MAP_POSITIVE_Z", pkg: "", typ: $Int, tag: "js:\"TEXTURE_CUBE_MAP_POSITIVE_Z\""}, {prop: "TEXTURE_MAG_FILTER", name: "TEXTURE_MAG_FILTER", pkg: "", typ: $Int, tag: "js:\"TEXTURE_MAG_FILTER\""}, {prop: "TEXTURE_MIN_FILTER", name: "TEXTURE_MIN_FILTER", pkg: "", typ: $Int, tag: "js:\"TEXTURE_MIN_FILTER\""}, {prop: "TEXTURE_WRAP_S", name: "TEXTURE_WRAP_S", pkg: "", typ: $Int, tag: "js:\"TEXTURE_WRAP_S\""}, {prop: "TEXTURE_WRAP_T", name: "TEXTURE_WRAP_T", pkg: "", typ: $Int, tag: "js:\"TEXTURE_WRAP_T\""}, {prop: "TRIANGLES", name: "TRIANGLES", pkg: "", typ: $Int, tag: "js:\"TRIANGLES\""}, {prop: "TRIANGLE_FAN", name: "TRIANGLE_FAN", pkg: "", typ: $Int, tag: "js:\"TRIANGLE_FAN\""}, {prop: "TRIANGLE_STRIP", name: "TRIANGLE_STRIP", pkg: "", typ: $Int, tag: "js:\"TRIANGLE_STRIP\""}, {prop: "UNPACK_ALIGNMENT", name: "UNPACK_ALIGNMENT", pkg: "", typ: $Int, tag: "js:\"UNPACK_ALIGNMENT\""}, {prop: "UNPACK_COLORSPACE_CONVERSION_WEBGL", name: "UNPACK_COLORSPACE_CONVERSION_WEBGL", pkg: "", typ: $Int, tag: "js:\"UNPACK_COLORSPACE_CONVERSION_WEBGL\""}, {prop: "UNPACK_FLIP_Y_WEBGL", name: "UNPACK_FLIP_Y_WEBGL", pkg: "", typ: $Int, tag: "js:\"UNPACK_FLIP_Y_WEBGL\""}, {prop: "UNPACK_PREMULTIPLY_ALPHA_WEBGL", name: "UNPACK_PREMULTIPLY_ALPHA_WEBGL", pkg: "", typ: $Int, tag: "js:\"UNPACK_PREMULTIPLY_ALPHA_WEBGL\""}, {prop: "UNSIGNED_BYTE", name: "UNSIGNED_BYTE", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_BYTE\""}, {prop: "UNSIGNED_INT", name: "UNSIGNED_INT", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_INT\""}, {prop: "UNSIGNED_SHORT", name: "UNSIGNED_SHORT", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT\""}, {prop: "UNSIGNED_SHORT_4_4_4_4", name: "UNSIGNED_SHORT_4_4_4_4", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT_4_4_4_4\""}, {prop: "UNSIGNED_SHORT_5_5_5_1", name: "UNSIGNED_SHORT_5_5_5_1", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT_5_5_5_1\""}, {prop: "UNSIGNED_SHORT_5_6_5", name: "UNSIGNED_SHORT_5_6_5", pkg: "", typ: $Int, tag: "js:\"UNSIGNED_SHORT_5_6_5\""}, {prop: "VALIDATE_STATUS", name: "VALIDATE_STATUS", pkg: "", typ: $Int, tag: "js:\"VALIDATE_STATUS\""}, {prop: "VENDOR", name: "VENDOR", pkg: "", typ: $Int, tag: "js:\"VENDOR\""}, {prop: "VERSION", name: "VERSION", pkg: "", typ: $Int, tag: "js:\"VERSION\""}, {prop: "VERTEX_ATTRIB_ARRAY_BUFFER_BINDING", name: "VERTEX_ATTRIB_ARRAY_BUFFER_BINDING", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_BUFFER_BINDING\""}, {prop: "VERTEX_ATTRIB_ARRAY_ENABLED", name: "VERTEX_ATTRIB_ARRAY_ENABLED", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_ENABLED\""}, {prop: "VERTEX_ATTRIB_ARRAY_NORMALIZED", name: "VERTEX_ATTRIB_ARRAY_NORMALIZED", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_NORMALIZED\""}, {prop: "VERTEX_ATTRIB_ARRAY_POINTER", name: "VERTEX_ATTRIB_ARRAY_POINTER", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_POINTER\""}, {prop: "VERTEX_ATTRIB_ARRAY_SIZE", name: "VERTEX_ATTRIB_ARRAY_SIZE", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_SIZE\""}, {prop: "VERTEX_ATTRIB_ARRAY_STRIDE", name: "VERTEX_ATTRIB_ARRAY_STRIDE", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_STRIDE\""}, {prop: "VERTEX_ATTRIB_ARRAY_TYPE", name: "VERTEX_ATTRIB_ARRAY_TYPE", pkg: "", typ: $Int, tag: "js:\"VERTEX_ATTRIB_ARRAY_TYPE\""}, {prop: "VERTEX_SHADER", name: "VERTEX_SHADER", pkg: "", typ: $Int, tag: "js:\"VERTEX_SHADER\""}, {prop: "VIEWPORT", name: "VIEWPORT", pkg: "", typ: $Int, tag: "js:\"VIEWPORT\""}, {prop: "ZERO", name: "ZERO", pkg: "", typ: $Int, tag: "js:\"ZERO\""}]);
+	$init = function() {
+		$pkg.$init = function() {};
+		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		$r = errors.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = js.$init(); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
+	};
+	$pkg.$init = $init;
+	return $pkg;
+})();
 $packages["log"] = (function() {
 	var $pkg = {}, $init, fmt, nosync, io, os, runtime, time, Logger, sliceType, arrayType, ptrType, sliceType$1, ptrType$1, std, New, itoa, Fatal;
 	fmt = $packages["fmt"];
@@ -18851,7 +18851,7 @@ $packages["path"] = (function() {
 	return $pkg;
 })();
 $packages["github.com/ajhager/engi"] = (function() {
-	var $pkg = {}, $init, webgl, js, log, math, rand, path, strconv, time, Resource, Loader, Region, Texture, Drawable, Batch, Clock, ImageObject, glyph, Font, Action, Key, Modifier, Game, ptrType, ptrType$1, ptrType$2, sliceType, ptrType$3, ptrType$4, ptrType$6, ptrType$7, sliceType$1, ptrType$8, sliceType$2, ptrType$9, sliceType$3, ptrType$10, funcType, ptrType$11, funcType$1, sliceType$4, funcType$2, funcType$3, funcType$4, ptrType$12, mapType, mapType$1, ptrType$13, ptrType$15, ptrType$16, mapType$2, ptrType$17, batchVert, batchFrag, responder, gl, canvas, keysDown, NewLoader, LoadShader, NewRegion, NewTexture, NewBatch, NewClock, Open, SetBg, Width, Height, Exit, init, run, width, height, animate, exit, toPx, rafPolyfill, RequestAnimationFrame, loadImage, loadJson, NewGridFont;
+	var $pkg = {}, $init, webgl, js, log, math, rand, path, strconv, time, Resource, Loader, Region, Texture, Point, Sprite, Drawable, Batch, Clock, ImageObject, glyph, Font, Action, Key, Modifier, Game, ptrType, ptrType$1, ptrType$2, sliceType, ptrType$3, ptrType$4, ptrType$5, ptrType$6, ptrType$7, sliceType$1, ptrType$8, sliceType$2, ptrType$9, sliceType$3, ptrType$10, funcType, ptrType$11, funcType$1, sliceType$4, funcType$2, funcType$3, funcType$4, ptrType$12, mapType, mapType$1, ptrType$13, ptrType$14, ptrType$15, ptrType$16, mapType$2, ptrType$17, batchVert, batchFrag, responder, gl, canvas, keysDown, NewLoader, LoadShader, NewRegion, NewTexture, NewSprite, NewBatch, NewClock, Open, SetBg, Width, Height, Exit, init, run, width, height, animate, exit, toPx, rafPolyfill, RequestAnimationFrame, loadImage, loadJson, NewGridFont;
 	webgl = $packages["github.com/ajhager/webgl"];
 	js = $packages["github.com/gopherjs/gopherjs/js"];
 	log = $packages["log"];
@@ -18915,6 +18915,36 @@ $packages["github.com/ajhager/engi"] = (function() {
 		this.id = id_;
 		this.width = width_;
 		this.height = height_;
+	});
+	Point = $pkg.Point = $newType(0, $kindStruct, "engi.Point", "Point", "github.com/ajhager/engi", function(X_, Y_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.X = 0;
+			this.Y = 0;
+			return;
+		}
+		this.X = X_;
+		this.Y = Y_;
+	});
+	Sprite = $pkg.Sprite = $newType(0, $kindStruct, "engi.Sprite", "Sprite", "github.com/ajhager/engi", function(Position_, Scale_, Anchor_, Rotation_, Color_, Alpha_, Region_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Position = ptrType$5.nil;
+			this.Scale = ptrType$5.nil;
+			this.Anchor = ptrType$5.nil;
+			this.Rotation = 0;
+			this.Color = 0;
+			this.Alpha = 0;
+			this.Region = ptrType$6.nil;
+			return;
+		}
+		this.Position = Position_;
+		this.Scale = Scale_;
+		this.Anchor = Anchor_;
+		this.Rotation = Rotation_;
+		this.Color = Color_;
+		this.Alpha = Alpha_;
+		this.Region = Region_;
 	});
 	Drawable = $pkg.Drawable = $newType(8, $kindInterface, "engi.Drawable", "Drawable", "github.com/ajhager/engi", null);
 	Batch = $pkg.Batch = $newType(0, $kindStruct, "engi.Batch", "Batch", "github.com/ajhager/engi", function(drawing_, lastTexture_, vertices_, vertexVBO_, indices_, indexVBO_, index_, shader_, inPosition_, inColor_, inTexCoords_, ufProjection_, projX_, projY_) {
@@ -19014,6 +19044,7 @@ $packages["github.com/ajhager/engi"] = (function() {
 	sliceType = $sliceType(Resource);
 	ptrType$3 = $ptrType(Texture);
 	ptrType$4 = $ptrType(webgl.Program);
+	ptrType$5 = $ptrType(Point);
 	ptrType$6 = $ptrType(Region);
 	ptrType$7 = $ptrType(webgl.Texture);
 	sliceType$1 = $sliceType($Float32);
@@ -19033,6 +19064,7 @@ $packages["github.com/ajhager/engi"] = (function() {
 	mapType = $mapType($String, ptrType$3);
 	mapType$1 = $mapType($String, $String);
 	ptrType$13 = $ptrType(Batch);
+	ptrType$14 = $ptrType(Sprite);
 	ptrType$15 = $ptrType(ImageObject);
 	ptrType$16 = $ptrType(Font);
 	mapType$2 = $mapType($Int32, ptrType$12);
@@ -19211,6 +19243,31 @@ $packages["github.com/ajhager/engi"] = (function() {
 		return [0, 0, 1, 1];
 	};
 	Texture.prototype.View = function() { return this.$val.View(); };
+	NewSprite = function(region, x, y) {
+		var $ptr, region, x, y;
+		return new Sprite.ptr(new Point.ptr(x, y), new Point.ptr(1, 1), new Point.ptr(0, 0), 0, 16777215, 1, region);
+	};
+	$pkg.NewSprite = NewSprite;
+	Sprite.ptr.prototype.Render = function(batch) {
+		var $ptr, batch, s, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; batch = $f.batch; s = $f.s; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		s = this;
+		$r = batch.Draw(s.Region, s.Position.X, s.Position.Y, s.Anchor.X, s.Anchor.Y, s.Scale.X, s.Scale.Y, s.Rotation, s.Color, s.Alpha); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Sprite.ptr.prototype.Render }; } $f.$ptr = $ptr; $f.batch = batch; $f.s = s; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	Sprite.prototype.Render = function(batch) { return this.$val.Render(batch); };
+	Sprite.ptr.prototype.Width = function() {
+		var $ptr, s;
+		s = this;
+		return $fround(s.Region.width * s.Scale.X);
+	};
+	Sprite.prototype.Width = function() { return this.$val.Width(); };
+	Sprite.ptr.prototype.Height = function() {
+		var $ptr, s;
+		s = this;
+		return $fround(s.Region.height * s.Scale.Y);
+	};
+	Sprite.prototype.Height = function() { return this.$val.Height(); };
 	NewBatch = function(width$1, height$1) {
 		var $ptr, _tmp, _tmp$1, _tmp$2, _tmp$3, batch, height$1, i, j, width$1, x, x$1, x$10, x$11, x$2, x$3, x$4, x$5, x$6, x$7, x$8, x$9;
 		batch = new Batch.ptr(false, ptrType$7.nil, sliceType$1.nil, ptrType$8.nil, sliceType$2.nil, ptrType$8.nil, 0, ptrType$4.nil, 0, 0, 0, ptrType$9.nil, 0, 0);
@@ -19991,6 +20048,7 @@ $packages["github.com/ajhager/engi"] = (function() {
 	ptrType$1.methods = [{prop: "Add", name: "Add", pkg: "", typ: $funcType([$String, $String], [], false)}, {prop: "Image", name: "Image", pkg: "", typ: $funcType([$String], [ptrType$3], false)}, {prop: "Json", name: "Json", pkg: "", typ: $funcType([$String], [$String], false)}, {prop: "Load", name: "Load", pkg: "", typ: $funcType([funcType], [], false)}];
 	ptrType$6.methods = [{prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Texture", name: "Texture", pkg: "", typ: $funcType([], [ptrType$7], false)}, {prop: "View", name: "View", pkg: "", typ: $funcType([], [$Float32, $Float32, $Float32, $Float32], false)}];
 	ptrType$3.methods = [{prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Texture", name: "Texture", pkg: "", typ: $funcType([], [ptrType$7], false)}, {prop: "View", name: "View", pkg: "", typ: $funcType([], [$Float32, $Float32, $Float32, $Float32], false)}];
+	ptrType$14.methods = [{prop: "Render", name: "Render", pkg: "", typ: $funcType([ptrType$13], [], false)}, {prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Float32], false)}];
 	ptrType$13.methods = [{prop: "Begin", name: "Begin", pkg: "", typ: $funcType([], [], false)}, {prop: "End", name: "End", pkg: "", typ: $funcType([], [], false)}, {prop: "flush", name: "flush", pkg: "github.com/ajhager/engi", typ: $funcType([], [], false)}, {prop: "SetProjection", name: "SetProjection", pkg: "", typ: $funcType([$Float32, $Float32], [], false)}, {prop: "Draw", name: "Draw", pkg: "", typ: $funcType([Drawable, $Float32, $Float32, $Float32, $Float32, $Float32, $Float32, $Float32, $Uint32, $Float32], [], false)}];
 	ptrType.methods = [{prop: "Tick", name: "Tick", pkg: "", typ: $funcType([], [], false)}, {prop: "Delta", name: "Delta", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Fps", name: "Fps", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Time", name: "Time", pkg: "", typ: $funcType([], [$Float32], false)}];
 	ptrType$15.methods = [{prop: "Data", name: "Data", pkg: "", typ: $funcType([], [$emptyInterface], false)}, {prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Int], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Int], false)}];
@@ -20000,6 +20058,8 @@ $packages["github.com/ajhager/engi"] = (function() {
 	Loader.init([{prop: "resources", name: "resources", pkg: "github.com/ajhager/engi", typ: sliceType, tag: ""}, {prop: "images", name: "images", pkg: "github.com/ajhager/engi", typ: mapType, tag: ""}, {prop: "jsons", name: "jsons", pkg: "github.com/ajhager/engi", typ: mapType$1, tag: ""}]);
 	Region.init([{prop: "texture", name: "texture", pkg: "github.com/ajhager/engi", typ: ptrType$3, tag: ""}, {prop: "u", name: "u", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "v", name: "v", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "u2", name: "u2", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "v2", name: "v2", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "width", name: "width", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "height", name: "height", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}]);
 	Texture.init([{prop: "id", name: "id", pkg: "github.com/ajhager/engi", typ: ptrType$7, tag: ""}, {prop: "width", name: "width", pkg: "github.com/ajhager/engi", typ: $Int, tag: ""}, {prop: "height", name: "height", pkg: "github.com/ajhager/engi", typ: $Int, tag: ""}]);
+	Point.init([{prop: "X", name: "X", pkg: "", typ: $Float32, tag: ""}, {prop: "Y", name: "Y", pkg: "", typ: $Float32, tag: ""}]);
+	Sprite.init([{prop: "Position", name: "Position", pkg: "", typ: ptrType$5, tag: ""}, {prop: "Scale", name: "Scale", pkg: "", typ: ptrType$5, tag: ""}, {prop: "Anchor", name: "Anchor", pkg: "", typ: ptrType$5, tag: ""}, {prop: "Rotation", name: "Rotation", pkg: "", typ: $Float32, tag: ""}, {prop: "Color", name: "Color", pkg: "", typ: $Uint32, tag: ""}, {prop: "Alpha", name: "Alpha", pkg: "", typ: $Float32, tag: ""}, {prop: "Region", name: "Region", pkg: "", typ: ptrType$6, tag: ""}]);
 	Drawable.init([{prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Texture", name: "Texture", pkg: "", typ: $funcType([], [ptrType$7], false)}, {prop: "View", name: "View", pkg: "", typ: $funcType([], [$Float32, $Float32, $Float32, $Float32], false)}, {prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Float32], false)}]);
 	Batch.init([{prop: "drawing", name: "drawing", pkg: "github.com/ajhager/engi", typ: $Bool, tag: ""}, {prop: "lastTexture", name: "lastTexture", pkg: "github.com/ajhager/engi", typ: ptrType$7, tag: ""}, {prop: "vertices", name: "vertices", pkg: "github.com/ajhager/engi", typ: sliceType$1, tag: ""}, {prop: "vertexVBO", name: "vertexVBO", pkg: "github.com/ajhager/engi", typ: ptrType$8, tag: ""}, {prop: "indices", name: "indices", pkg: "github.com/ajhager/engi", typ: sliceType$2, tag: ""}, {prop: "indexVBO", name: "indexVBO", pkg: "github.com/ajhager/engi", typ: ptrType$8, tag: ""}, {prop: "index", name: "index", pkg: "github.com/ajhager/engi", typ: $Int, tag: ""}, {prop: "shader", name: "shader", pkg: "github.com/ajhager/engi", typ: ptrType$4, tag: ""}, {prop: "inPosition", name: "inPosition", pkg: "github.com/ajhager/engi", typ: $Int, tag: ""}, {prop: "inColor", name: "inColor", pkg: "github.com/ajhager/engi", typ: $Int, tag: ""}, {prop: "inTexCoords", name: "inTexCoords", pkg: "github.com/ajhager/engi", typ: $Int, tag: ""}, {prop: "ufProjection", name: "ufProjection", pkg: "github.com/ajhager/engi", typ: ptrType$9, tag: ""}, {prop: "projX", name: "projX", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}, {prop: "projY", name: "projY", pkg: "github.com/ajhager/engi", typ: $Float32, tag: ""}]);
 	Clock.init([{prop: "elapsed", name: "elapsed", pkg: "github.com/ajhager/engi", typ: $Float64, tag: ""}, {prop: "delta", name: "delta", pkg: "github.com/ajhager/engi", typ: $Float64, tag: ""}, {prop: "fps", name: "fps", pkg: "github.com/ajhager/engi", typ: $Float64, tag: ""}, {prop: "frames", name: "frames", pkg: "github.com/ajhager/engi", typ: $Uint64, tag: ""}, {prop: "start", name: "start", pkg: "github.com/ajhager/engi", typ: time.Time, tag: ""}, {prop: "frame", name: "frame", pkg: "github.com/ajhager/engi", typ: time.Time, tag: ""}]);
@@ -20030,7 +20090,10 @@ $packages["github.com/ajhager/engi"] = (function() {
 		$pkg.PRESS = 1;
 		$pkg.RELEASE = 2;
 		$pkg.REPEAT = 3;
+		$pkg.Space = 32;
 		$pkg.Escape = 27;
+		$pkg.ArrowLeft = 37;
+		$pkg.ArrowRight = 39;
 		$r = init(); /* */ $s = 9; case 9: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
 	};
@@ -20038,79 +20101,358 @@ $packages["github.com/ajhager/engi"] = (function() {
 	return $pkg;
 })();
 $packages["main"] = (function() {
-	var $pkg = {}, $init, engi, Game, ptrType, ptrType$1, ptrType$2, ptrType$3, main;
+	var $pkg = {}, $init, fmt, engi, math, Entity, Game, ptrType, sliceType, ptrType$1, ptrType$2, sliceType$1, ptrType$3, sliceType$2, ptrType$4, ptrType$5, ptrType$6, ptrType$7, ball, paddle, bricks, font, lives, livesText, score, scoreText, speed, launching, batch, NewEntity, main;
+	fmt = $packages["fmt"];
 	engi = $packages["github.com/ajhager/engi"];
-	Game = $pkg.Game = $newType(0, $kindStruct, "main.Game", "Game", "main", function(Game_, bot_, batch_, font_) {
+	math = $packages["math"];
+	Entity = $pkg.Entity = $newType(0, $kindStruct, "main.Entity", "Entity", "main", function(Sprite_, Velocity_, LastPos_) {
 		this.$val = this;
 		if (arguments.length === 0) {
-			this.Game = ptrType.nil;
-			this.bot = $ifaceNil;
-			this.batch = ptrType$1.nil;
-			this.font = ptrType$2.nil;
+			this.Sprite = ptrType$5.nil;
+			this.Velocity = ptrType$6.nil;
+			this.LastPos = ptrType$6.nil;
+			return;
+		}
+		this.Sprite = Sprite_;
+		this.Velocity = Velocity_;
+		this.LastPos = LastPos_;
+	});
+	Game = $pkg.Game = $newType(0, $kindStruct, "main.Game", "Game", "main", function(Game_) {
+		this.$val = this;
+		if (arguments.length === 0) {
+			this.Game = ptrType$4.nil;
 			return;
 		}
 		this.Game = Game_;
-		this.bot = bot_;
-		this.batch = batch_;
-		this.font = font_;
 	});
-	ptrType = $ptrType(engi.Game);
-	ptrType$1 = $ptrType(engi.Batch);
-	ptrType$2 = $ptrType(engi.Font);
-	ptrType$3 = $ptrType(Game);
+	ptrType = $ptrType(Entity);
+	sliceType = $sliceType(ptrType);
+	ptrType$1 = $ptrType(engi.Font);
+	ptrType$2 = $ptrType(engi.Batch);
+	sliceType$1 = $sliceType($emptyInterface);
+	ptrType$3 = $ptrType(engi.Region);
+	sliceType$2 = $sliceType(ptrType$3);
+	ptrType$4 = $ptrType(engi.Game);
+	ptrType$5 = $ptrType(engi.Sprite);
+	ptrType$6 = $ptrType(engi.Point);
+	ptrType$7 = $ptrType(Game);
+	NewEntity = function(region) {
+		var $ptr, entity, region;
+		entity = new Entity.ptr(engi.NewSprite(region, 0, 0), new engi.Point.ptr(0, 0), new engi.Point.ptr(0, 0));
+		entity.Sprite.Anchor.X = 0.5;
+		entity.Sprite.Anchor.Y = 0.5;
+		return entity;
+	};
+	$pkg.NewEntity = NewEntity;
+	Entity.ptr.prototype.Bounds = function() {
+		var $ptr, bottom, e, hHeight, hWidth, left, right, top;
+		e = this;
+		hWidth = $fround(e.Sprite.Width() / 2);
+		hHeight = $fround(e.Sprite.Height() / 2);
+		right = $fround(e.Sprite.Position.X + hWidth);
+		left = $fround(e.Sprite.Position.X - hWidth);
+		top = $fround(e.Sprite.Position.Y - hHeight);
+		bottom = $fround(e.Sprite.Position.Y + hHeight);
+		return [right, left, top, bottom];
+	};
+	Entity.prototype.Bounds = function() { return this.$val.Bounds(); };
+	Entity.ptr.prototype.Intersects = function(b) {
+		var $ptr, _tuple, _tuple$1, a, aBottom, aLeft, aRight, aTop, b, bBottom, bLeft, bRight, bTop;
+		a = this;
+		_tuple = a.Bounds();
+		aRight = _tuple[0];
+		aLeft = _tuple[1];
+		aTop = _tuple[2];
+		aBottom = _tuple[3];
+		_tuple$1 = b.Bounds();
+		bRight = _tuple$1[0];
+		bLeft = _tuple$1[1];
+		bTop = _tuple$1[2];
+		bBottom = _tuple$1[3];
+		return !(bLeft > aRight || aLeft > bRight || bBottom < aTop || bTop > aBottom);
+	};
+	Entity.prototype.Intersects = function(b) { return this.$val.Intersects(b); };
 	Game.ptr.prototype.Preload = function() {
-		var $ptr, game;
-		game = this;
-		engi.Files.Add("bot", "data/icon.png");
+		var $ptr, g;
+		g = this;
+		engi.Files.Add("ball", "data/ball.png");
+		engi.Files.Add("bricks", "data/bricks.png");
+		engi.Files.Add("paddle", "data/paddle.png");
 		engi.Files.Add("font", "data/font.png");
 	};
 	Game.prototype.Preload = function() { return this.$val.Preload(); };
 	Game.ptr.prototype.Setup = function() {
-		var $ptr, game;
-		game = this;
+		var $ptr, g, region, texture, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; g = $f.g; region = $f.region; texture = $f.texture; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		g = this;
+		batch = engi.NewBatch(engi.Width(), engi.Height());
 		engi.SetBg(3550520);
-		game.bot = engi.Files.Image("bot");
-		game.font = engi.NewGridFont(engi.Files.Image("font"), 20, 20);
-		game.batch = engi.NewBatch(engi.Width(), engi.Height());
+		texture = engi.Files.Image("paddle");
+		region = engi.NewRegion(texture, 0, 0, (texture.Width() >> 0), (texture.Height() >> 0));
+		paddle = NewEntity(region);
+		paddle.Sprite.Position.X = $fround(engi.Width() / 2);
+		paddle.Sprite.Position.Y = $fround(engi.Height() - 50);
+		texture = engi.Files.Image("ball");
+		region = engi.NewRegion(texture, 0, 0, (texture.Width() >> 0), (texture.Height() >> 0));
+		ball = NewEntity(region);
+		ball.Sprite.Position.X = paddle.Sprite.Position.X;
+		ball.Sprite.Position.Y = $fround($fround(paddle.Sprite.Position.Y - ball.Sprite.Height()) - 1);
+		font = engi.NewGridFont(engi.Files.Image("font"), 20, 20);
+		$r = g.Reset(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.Setup }; } $f.$ptr = $ptr; $f.g = g; $f.region = region; $f.texture = texture; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	Game.prototype.Setup = function() { return this.$val.Setup(); };
-	Game.ptr.prototype.Render = function() {
-		var $ptr, game, midx, midy, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; game = $f.game; midx = $f.midx; midy = $f.midy; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		game = this;
-		$r = game.batch.Begin(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		midx = $fround(engi.Width() / 2);
-		midy = $fround(engi.Height() / 2);
-		$r = game.font.Print(game.batch, "ENGI", $fround(midx - 37), $fround(midy - 120), 16777215); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		$r = game.batch.Draw(game.bot, midx, midy, 0.5, 0.5, 10, 10, 0, 16777215, 1); /* */ $s = 3; case 3: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		$r = game.batch.End(); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.Render }; } $f.$ptr = $ptr; $f.game = game; $f.midx = midx; $f.midy = midy; $f.$s = $s; $f.$r = $r; return $f;
-	};
-	Game.prototype.Render = function() { return this.$val.Render(); };
 	Game.ptr.prototype.Resize = function(w, h) {
-		var $ptr, game, h, w;
-		game = this;
-		game.batch.SetProjection(w, h);
+		var $ptr, g, h, w;
+		g = this;
+		batch.SetProjection(w, h);
 	};
 	Game.prototype.Resize = function(w, h) { return this.$val.Resize(w, h); };
+	Game.ptr.prototype.Key = function(key, modifier, action) {
+		var $ptr, _1, _2, action, g, key, modifier;
+		g = this;
+		if (action === engi.PRESS) {
+			_1 = key;
+			if (_1 === (engi.ArrowLeft)) {
+				paddle.Velocity.X = $fround(paddle.Velocity.X - (speed));
+			} else if (_1 === (engi.ArrowRight)) {
+				paddle.Velocity.X = $fround(paddle.Velocity.X + (speed));
+			} else if (_1 === (engi.Space)) {
+				if (launching) {
+					launching = false;
+					ball.Velocity.Y = -speed;
+				}
+			}
+		} else if (action === engi.RELEASE) {
+			_2 = key;
+			if (_2 === (engi.ArrowLeft)) {
+				paddle.Velocity.X = $fround(paddle.Velocity.X + (speed));
+			} else if (_2 === (engi.ArrowRight)) {
+				paddle.Velocity.X = $fround(paddle.Velocity.X - (speed));
+			}
+		}
+	};
+	Game.prototype.Key = function(key, modifier, action) { return this.$val.Key(key, modifier, action); };
+	Game.ptr.prototype.Update = function(dt) {
+		var $ptr, _i, _ref, ballXMax, ballXMin, ballYMax, bounceAngle, brick, dt, g, hBallHeight, hBallWidth, hPaddleWidth, intersect, newBricks, paddleXMax, paddleXMin, paddleYMin, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _i = $f._i; _ref = $f._ref; ballXMax = $f.ballXMax; ballXMin = $f.ballXMin; ballYMax = $f.ballYMax; bounceAngle = $f.bounceAngle; brick = $f.brick; dt = $f.dt; g = $f.g; hBallHeight = $f.hBallHeight; hBallWidth = $f.hBallWidth; hPaddleWidth = $f.hPaddleWidth; intersect = $f.intersect; newBricks = $f.newBricks; paddleXMax = $f.paddleXMax; paddleXMin = $f.paddleXMin; paddleYMin = $f.paddleYMin; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		g = this;
+		paddle.Sprite.Position.X = $fround(paddle.Sprite.Position.X + ($fround(paddle.Velocity.X * dt)));
+		hPaddleWidth = $fround(paddle.Sprite.Width() / 2);
+		if (paddle.Sprite.Position.X > $fround(engi.Width() - hPaddleWidth)) {
+			paddle.Sprite.Position.X = $fround(engi.Width() - hPaddleWidth);
+		}
+		if (paddle.Sprite.Position.X < hPaddleWidth) {
+			paddle.Sprite.Position.X = hPaddleWidth;
+		}
+		if (launching) {
+			ball.Sprite.Position.X = paddle.Sprite.Position.X;
+			return;
+		}
+		ball.LastPos.X = ball.Sprite.Position.X;
+		ball.LastPos.Y = ball.Sprite.Position.Y;
+		ball.Sprite.Position.X = $fround(ball.Sprite.Position.X + ($fround(ball.Velocity.X * dt)));
+		ball.Sprite.Position.Y = $fround(ball.Sprite.Position.Y + ($fround(ball.Velocity.Y * dt)));
+		hBallWidth = $fround(ball.Sprite.Width() / 2);
+		if (ball.Sprite.Position.X > $fround(engi.Width() - hBallWidth)) {
+			ball.Sprite.Position.X = $fround(engi.Width() - hBallWidth);
+			ball.Velocity.X = $fround(ball.Velocity.X * (-1));
+		}
+		if (ball.Sprite.Position.X < hBallWidth) {
+			ball.Sprite.Position.X = hBallWidth;
+			ball.Velocity.X = $fround(ball.Velocity.X * (-1));
+		}
+		hBallHeight = $fround(ball.Sprite.Height() / 2);
+		/* */ if (ball.Sprite.Position.Y > $fround(engi.Height() - hBallHeight)) { $s = 1; continue; }
+		/* */ $s = 2; continue;
+		/* if (ball.Sprite.Position.Y > $fround(engi.Height() - hBallHeight)) { */ case 1:
+			$r = g.BallLost(); /* */ $s = 3; case 3: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* } */ case 2:
+		if (ball.Sprite.Position.Y < hBallHeight) {
+			ball.Sprite.Position.Y = hBallHeight;
+			ball.Velocity.Y = $fround(ball.Velocity.Y * (-1));
+		}
+		ballXMin = $fround(ball.Sprite.Position.X - hBallWidth);
+		ballXMax = $fround(ball.Sprite.Position.X + hBallWidth);
+		ballYMax = $fround(ball.Sprite.Position.Y + hBallHeight);
+		paddleXMin = $fround(paddle.Sprite.Position.X - hPaddleWidth);
+		paddleXMax = $fround(paddle.Sprite.Position.X + hPaddleWidth);
+		paddleYMin = $fround(paddle.Sprite.Position.Y - $fround(paddle.Sprite.Height() / 2));
+		if (ballYMax > paddleYMin) {
+			if ((ballXMax > paddleXMin) && (ballXMin < paddleXMax)) {
+				ball.Sprite.Position.Y = $fround($fround(paddleYMin - hBallHeight) - 1);
+				intersect = $fround(($fround(ball.Sprite.Position.X - paddle.Sprite.Position.X)) / hPaddleWidth);
+				bounceAngle = $fround($fround(intersect * 1.0470000505447388) - 1.5709999799728394);
+				ball.Velocity.X = $fround(speed * math.Cos(bounceAngle));
+				ball.Velocity.Y = $fround(speed * math.Sin(bounceAngle));
+			}
+		}
+		newBricks = $makeSlice(sliceType, 0);
+		_ref = bricks;
+		_i = 0;
+		/* while (true) { */ case 4:
+			/* if (!(_i < _ref.$length)) { break; } */ if(!(_i < _ref.$length)) { $s = 5; continue; }
+			brick = ((_i < 0 || _i >= _ref.$length) ? $throwRuntimeError("index out of range") : _ref.$array[_ref.$offset + _i]);
+			/* */ if (!ball.Intersects(brick)) { $s = 6; continue; }
+			/* */ $s = 7; continue;
+			/* if (!ball.Intersects(brick)) { */ case 6:
+				newBricks = $append(newBricks, brick);
+				$s = 8; continue;
+			/* } else { */ case 7:
+				$r = g.BallHitBrick(ball, brick); /* */ $s = 9; case 9: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+			/* } */ case 8:
+			_i++;
+		/* } */ $s = 4; continue; case 5:
+		bricks = newBricks;
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.Update }; } $f.$ptr = $ptr; $f._i = _i; $f._ref = _ref; $f.ballXMax = ballXMax; $f.ballXMin = ballXMin; $f.ballYMax = ballYMax; $f.bounceAngle = bounceAngle; $f.brick = brick; $f.dt = dt; $f.g = g; $f.hBallHeight = hBallHeight; $f.hBallWidth = hBallWidth; $f.hPaddleWidth = hPaddleWidth; $f.intersect = intersect; $f.newBricks = newBricks; $f.paddleXMax = paddleXMax; $f.paddleXMin = paddleXMin; $f.paddleYMin = paddleYMin; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	Game.prototype.Update = function(dt) { return this.$val.Update(dt); };
+	Game.ptr.prototype.Render = function() {
+		var $ptr, _i, _ref, brick, g, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _i = $f._i; _ref = $f._ref; brick = $f.brick; g = $f.g; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		g = this;
+		$r = batch.Begin(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = paddle.Sprite.Render(batch); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = ball.Sprite.Render(batch); /* */ $s = 3; case 3: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		_ref = bricks;
+		_i = 0;
+		/* while (true) { */ case 4:
+			/* if (!(_i < _ref.$length)) { break; } */ if(!(_i < _ref.$length)) { $s = 5; continue; }
+			brick = ((_i < 0 || _i >= _ref.$length) ? $throwRuntimeError("index out of range") : _ref.$array[_ref.$offset + _i]);
+			$r = brick.Sprite.Render(batch); /* */ $s = 6; case 6: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+			_i++;
+		/* } */ $s = 4; continue; case 5:
+		$r = font.Print(batch, scoreText, 20, 570, 16777215); /* */ $s = 7; case 7: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = font.Print(batch, livesText, 620, 570, 16777215); /* */ $s = 8; case 8: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = batch.End(); /* */ $s = 9; case 9: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.Render }; } $f.$ptr = $ptr; $f._i = _i; $f._ref = _ref; $f.brick = brick; $f.g = g; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	Game.prototype.Render = function() { return this.$val.Render(); };
+	Game.ptr.prototype.BallLost = function() {
+		var $ptr, _r, g, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _r = $f._r; g = $f.g; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		g = this;
+		launching = true;
+		ball.Velocity.X = 0;
+		ball.Velocity.Y = 0;
+		ball.Sprite.Position.X = paddle.Sprite.Position.X;
+		ball.Sprite.Position.Y = $fround($fround(paddle.Sprite.Position.Y - ball.Sprite.Height()) - 1);
+		lives = lives - (1) >> 0;
+		_r = fmt.Sprintf("lives: %d", new sliceType$1([new $Int(lives)])); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+		livesText = _r;
+		/* */ if (lives === 0) { $s = 2; continue; }
+		/* */ $s = 3; continue;
+		/* if (lives === 0) { */ case 2:
+			$r = g.Reset(); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* } */ case 3:
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.BallLost }; } $f.$ptr = $ptr; $f._r = _r; $f.g = g; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	Game.prototype.BallLost = function() { return this.$val.BallLost(); };
+	Game.ptr.prototype.Reset = function() {
+		var $ptr, _q, _r, _r$1, brick, brickRegions, g, height, i, j, texture, width, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _q = $f._q; _r = $f._r; _r$1 = $f._r$1; brick = $f.brick; brickRegions = $f.brickRegions; g = $f.g; height = $f.height; i = $f.i; j = $f.j; texture = $f.texture; width = $f.width; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		g = this;
+		launching = true;
+		speed = 350;
+		lives = 3;
+		_r = fmt.Sprintf("lives: %d", new sliceType$1([new $Int(lives)])); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+		livesText = _r;
+		score = 0;
+		_r$1 = fmt.Sprintf("score: %d", new sliceType$1([new $Int(score)])); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
+		scoreText = _r$1;
+		texture = engi.Files.Image("bricks");
+		width = (texture.Width() >> 0);
+		height = (_q = (texture.Height() >> 0) / 4, (_q === _q && _q !== 1/0 && _q !== -1/0) ? _q >> 0 : $throwRuntimeError("integer divide by zero"));
+		brickRegions = new sliceType$2([engi.NewRegion(texture, 0, 0, width, height), engi.NewRegion(texture, 0, height, width, height), engi.NewRegion(texture, 0, $imul(height, 2), width, height), engi.NewRegion(texture, 0, $imul(height, 3), width, height)]);
+		bricks = $makeSlice(sliceType, 0);
+		i = 0;
+		while (true) {
+			if (!(i < 7)) { break; }
+			j = 0;
+			while (true) {
+				if (!(j < 4)) { break; }
+				brick = NewEntity(((j < 0 || j >= brickRegions.$length) ? $throwRuntimeError("index out of range") : brickRegions.$array[brickRegions.$offset + j]));
+				brick.Sprite.Position.X = (100 + ($imul(i, 100)) >> 0);
+				brick.Sprite.Position.Y = (50 + ($imul(j, 75)) >> 0);
+				bricks = $append(bricks, brick);
+				j = j + (1) >> 0;
+			}
+			i = i + (1) >> 0;
+		}
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.Reset }; } $f.$ptr = $ptr; $f._q = _q; $f._r = _r; $f._r$1 = _r$1; $f.brick = brick; $f.brickRegions = brickRegions; $f.g = g; $f.height = height; $f.i = i; $f.j = j; $f.texture = texture; $f.width = width; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	Game.prototype.Reset = function() { return this.$val.Reset(); };
+	Game.ptr.prototype.BallHitBrick = function(ball$1, brick) {
+		var $ptr, _r, ball$1, ballBottom, ballLeft, ballRight, ballTop, brick, brickBottom, brickLeft, brickRight, brickTop, g, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _r = $f._r; ball$1 = $f.ball$1; ballBottom = $f.ballBottom; ballLeft = $f.ballLeft; ballRight = $f.ballRight; ballTop = $f.ballTop; brick = $f.brick; brickBottom = $f.brickBottom; brickLeft = $f.brickLeft; brickRight = $f.brickRight; brickTop = $f.brickTop; g = $f.g; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		g = this;
+		score = score + (10) >> 0;
+		_r = fmt.Sprintf("score: %d", new sliceType$1([new $Int(score)])); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+		scoreText = _r;
+		ballBottom = $fround(ball$1.LastPos.Y + $fround(ball$1.Sprite.Height() / 2));
+		brickTop = $fround(brick.Sprite.Position.Y - $fround(brick.Sprite.Height() / 2));
+		if (ballBottom <= brickTop) {
+			ball$1.Velocity.Y = -ball$1.Velocity.Y;
+			ball$1.Sprite.Position.Y = $fround(brickTop - $fround(ball$1.Sprite.Height() / 2));
+			return;
+		}
+		ballTop = $fround(ball$1.LastPos.Y - $fround(ball$1.Sprite.Height() / 2));
+		brickBottom = $fround(brick.Sprite.Position.Y + $fround(brick.Sprite.Height() / 2));
+		if (ballTop >= brickBottom) {
+			ball$1.Velocity.Y = -ball$1.Velocity.Y;
+			ball$1.Sprite.Position.Y = $fround(brickBottom + $fround(ball$1.Sprite.Height() / 2));
+			return;
+		}
+		ballRight = $fround(ball$1.LastPos.X + $fround(ball$1.Sprite.Width() / 2));
+		brickLeft = $fround(brick.Sprite.Position.X - $fround(brick.Sprite.Width() / 2));
+		if (ballRight <= brickLeft) {
+			ball$1.Velocity.X = -ball$1.Velocity.X;
+			ball$1.Sprite.Position.X = $fround(brickLeft - $fround(ball$1.Sprite.Width() / 2));
+			return;
+		}
+		ballLeft = $fround(ball$1.LastPos.X - $fround(ball$1.Sprite.Width() / 2));
+		brickRight = $fround(brick.Sprite.Position.X + $fround(brick.Sprite.Width() / 2));
+		if (ballLeft >= brickRight) {
+			ball$1.Velocity.X = -ball$1.Velocity.X;
+			ball$1.Sprite.Position.X = $fround(brickRight + $fround(ball$1.Sprite.Width() / 2));
+			return;
+		}
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Game.ptr.prototype.BallHitBrick }; } $f.$ptr = $ptr; $f._r = _r; $f.ball$1 = ball$1; $f.ballBottom = ballBottom; $f.ballLeft = ballLeft; $f.ballRight = ballRight; $f.ballTop = ballTop; $f.brick = brick; $f.brickBottom = brickBottom; $f.brickLeft = brickLeft; $f.brickRight = brickRight; $f.brickTop = brickTop; $f.g = g; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	Game.prototype.BallHitBrick = function(ball$1, brick) { return this.$val.BallHitBrick(ball$1, brick); };
 	main = function() {
 		var $ptr, $s, $r;
 		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		$r = engi.Open("Hello", 800, 600, false, new Game.ptr(ptrType.nil, $ifaceNil, ptrType$1.nil, ptrType$2.nil)); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = engi.Open("Breakout", 800, 600, false, new Game.ptr(ptrType$4.nil)); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: main }; } $f.$ptr = $ptr; $f.$s = $s; $f.$r = $r; return $f;
 	};
-	ptrType$3.methods = [{prop: "Preload", name: "Preload", pkg: "", typ: $funcType([], [], false)}, {prop: "Setup", name: "Setup", pkg: "", typ: $funcType([], [], false)}, {prop: "Render", name: "Render", pkg: "", typ: $funcType([], [], false)}, {prop: "Resize", name: "Resize", pkg: "", typ: $funcType([$Float32, $Float32], [], false)}];
-	Game.init([{prop: "Game", name: "", pkg: "", typ: ptrType, tag: ""}, {prop: "bot", name: "bot", pkg: "main", typ: engi.Drawable, tag: ""}, {prop: "batch", name: "batch", pkg: "main", typ: ptrType$1, tag: ""}, {prop: "font", name: "font", pkg: "main", typ: ptrType$2, tag: ""}]);
+	ptrType.methods = [{prop: "Bounds", name: "Bounds", pkg: "", typ: $funcType([], [$Float32, $Float32, $Float32, $Float32], false)}, {prop: "Intersects", name: "Intersects", pkg: "", typ: $funcType([ptrType], [$Bool], false)}];
+	ptrType$7.methods = [{prop: "Preload", name: "Preload", pkg: "", typ: $funcType([], [], false)}, {prop: "Setup", name: "Setup", pkg: "", typ: $funcType([], [], false)}, {prop: "Resize", name: "Resize", pkg: "", typ: $funcType([$Float32, $Float32], [], false)}, {prop: "Key", name: "Key", pkg: "", typ: $funcType([engi.Key, engi.Modifier, engi.Action], [], false)}, {prop: "Update", name: "Update", pkg: "", typ: $funcType([$Float32], [], false)}, {prop: "Render", name: "Render", pkg: "", typ: $funcType([], [], false)}, {prop: "BallLost", name: "BallLost", pkg: "", typ: $funcType([], [], false)}, {prop: "Reset", name: "Reset", pkg: "", typ: $funcType([], [], false)}, {prop: "BallHitBrick", name: "BallHitBrick", pkg: "", typ: $funcType([ptrType, ptrType], [], false)}];
+	Entity.init([{prop: "Sprite", name: "", pkg: "", typ: ptrType$5, tag: ""}, {prop: "Velocity", name: "Velocity", pkg: "", typ: ptrType$6, tag: ""}, {prop: "LastPos", name: "LastPos", pkg: "", typ: ptrType$6, tag: ""}]);
+	Game.init([{prop: "Game", name: "", pkg: "", typ: ptrType$4, tag: ""}]);
 	$init = function() {
 		$pkg.$init = function() {};
 		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		$r = engi.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		/* */ if ($pkg === $mainPkg) { $s = 2; continue; }
-		/* */ $s = 3; continue;
-		/* if ($pkg === $mainPkg) { */ case 2:
-			$r = main(); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = fmt.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = engi.$init(); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = math.$init(); /* */ $s = 3; case 3: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		ball = ptrType.nil;
+		paddle = ptrType.nil;
+		bricks = sliceType.nil;
+		font = ptrType$1.nil;
+		lives = 0;
+		livesText = "";
+		score = 0;
+		scoreText = "";
+		speed = 0;
+		launching = false;
+		batch = ptrType$2.nil;
+		/* */ if ($pkg === $mainPkg) { $s = 4; continue; }
+		/* */ $s = 5; continue;
+		/* if ($pkg === $mainPkg) { */ case 4:
+			$r = main(); /* */ $s = 6; case 6: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 			$mainFinished = true;
-		/* } */ case 3:
+		/* } */ case 5:
 		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
 	};
 	$pkg.$init = $init;
@@ -20123,4 +20465,4 @@ $go($mainPkg.$init, [], true);
 $flushConsole();
 
 }).call(this);
-//# sourceMappingURL=hello.js.map
+//# sourceMappingURL=breakout.js.map

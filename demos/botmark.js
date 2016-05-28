@@ -18371,7 +18371,7 @@ $packages["log"] = (function() {
 	return $pkg;
 })();
 $packages["math/rand"] = (function() {
-	var $pkg = {}, $init, nosync, math, Source, Rand, lockedSource, rngSource, arrayType, sliceType, ptrType, sliceType$1, ptrType$2, ptrType$3, ke, we, fe, kn, wn, fn, globalRand, rng_cooked, absInt32, NewSource, New, Int63, Float32, seedrand;
+	var $pkg = {}, $init, nosync, math, Source, Rand, lockedSource, rngSource, arrayType, sliceType, ptrType, sliceType$1, ptrType$2, ptrType$3, ke, we, fe, kn, wn, fn, globalRand, rng_cooked, absInt32, NewSource, New, Seed, Int63, Float32, seedrand;
 	nosync = $packages["github.com/gopherjs/gopherjs/nosync"];
 	math = $packages["math"];
 	Source = $pkg.Source = $newType(8, $kindInterface, "rand.Source", "Source", "math/rand", null);
@@ -18699,6 +18699,13 @@ $packages["math/rand"] = (function() {
 		/* */ } return; } if ($f === undefined) { $f = { $blk: Rand.ptr.prototype.Read }; } $f.$ptr = $ptr; $f._r = _r; $f._tmp = _tmp; $f._tmp$1 = _tmp$1; $f.err = err; $f.i = i; $f.j = j; $f.n = n; $f.p = p; $f.r = r; $f.val = val; $f.x = x; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	Rand.prototype.Read = function(p) { return this.$val.Read(p); };
+	Seed = function(seed) {
+		var $ptr, seed, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; seed = $f.seed; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		$r = globalRand.Seed(seed); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Seed }; } $f.$ptr = $ptr; $f.seed = seed; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	$pkg.Seed = Seed;
 	Int63 = function() {
 		var $ptr, _r, $s, $r;
 		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _r = $f._r; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
@@ -18853,7 +18860,7 @@ $packages["path"] = (function() {
 	return $pkg;
 })();
 $packages["github.com/ajhager/engi"] = (function() {
-	var $pkg = {}, $init, webgl, js, log, math, rand, path, strconv, time, Resource, Loader, Region, Texture, Point, Sprite, Drawable, Batch, Clock, ImageObject, glyph, Font, Action, Key, Modifier, Game, ptrType, ptrType$1, ptrType$2, sliceType, ptrType$3, ptrType$4, ptrType$5, ptrType$6, ptrType$7, sliceType$1, ptrType$8, sliceType$2, ptrType$9, sliceType$3, ptrType$10, funcType, ptrType$11, funcType$1, sliceType$4, funcType$2, funcType$3, funcType$4, ptrType$12, mapType, mapType$1, ptrType$13, ptrType$14, ptrType$15, ptrType$16, mapType$2, ptrType$17, batchVert, batchFrag, responder, gl, canvas, NewLoader, LoadShader, NewRegion, NewTexture, NewSprite, NewBatch, NewClock, Open, SetBg, Width, Height, Exit, init, run, width, height, animate, exit, toPx, rafPolyfill, RequestAnimationFrame, loadImage, loadJson, NewGridFont;
+	var $pkg = {}, $init, webgl, js, log, math, rand, path, strconv, time, Resource, Loader, Region, Texture, Point, Sprite, Drawable, Batch, Clock, ImageObject, glyph, Font, Action, Key, Modifier, Game, ptrType, ptrType$1, ptrType$2, sliceType, ptrType$3, ptrType$4, ptrType$5, ptrType$6, ptrType$7, sliceType$1, ptrType$8, sliceType$2, ptrType$9, sliceType$3, ptrType$10, funcType, ptrType$11, funcType$1, sliceType$4, funcType$2, funcType$3, funcType$4, ptrType$12, mapType, mapType$1, ptrType$13, ptrType$14, ptrType$15, ptrType$16, mapType$2, ptrType$17, batchVert, batchFrag, responder, gl, canvas, keysDown, NewLoader, LoadShader, NewRegion, NewTexture, NewSprite, NewBatch, NewClock, Open, SetBg, Width, Height, Exit, init, run, width, height, animate, exit, toPx, rafPolyfill, RequestAnimationFrame, loadImage, loadJson, NewGridFont;
 	webgl = $packages["github.com/ajhager/webgl"];
 	js = $packages["github.com/gopherjs/gopherjs/js"];
 	log = $packages["log"];
@@ -19245,20 +19252,6 @@ $packages["github.com/ajhager/engi"] = (function() {
 		return [0, 0, 1, 1];
 	};
 	Texture.prototype.View = function() { return this.$val.View(); };
-	Point.ptr.prototype.Set = function(x, y) {
-		var $ptr, p, x, y;
-		p = this;
-		p.X = x;
-		p.Y = y;
-	};
-	Point.prototype.Set = function(x, y) { return this.$val.Set(x, y); };
-	Point.ptr.prototype.SetTo = function(v) {
-		var $ptr, p, v;
-		p = this;
-		p.X = v;
-		p.Y = v;
-	};
-	Point.prototype.SetTo = function(v) { return this.$val.SetTo(v); };
 	NewSprite = function(region, x, y) {
 		var $ptr, region, x, y;
 		return new Sprite.ptr(new Point.ptr(x, y), new Point.ptr(1, 1), new Point.ptr(0, 0), 0, 16777215, 1, region);
@@ -19272,6 +19265,18 @@ $packages["github.com/ajhager/engi"] = (function() {
 		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: Sprite.ptr.prototype.Render }; } $f.$ptr = $ptr; $f.batch = batch; $f.s = s; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	Sprite.prototype.Render = function(batch) { return this.$val.Render(batch); };
+	Sprite.ptr.prototype.Width = function() {
+		var $ptr, s;
+		s = this;
+		return $fround(s.Region.width * s.Scale.X);
+	};
+	Sprite.prototype.Width = function() { return this.$val.Width(); };
+	Sprite.ptr.prototype.Height = function() {
+		var $ptr, s;
+		s = this;
+		return $fround(s.Region.height * s.Scale.Y);
+	};
+	Sprite.prototype.Height = function() { return this.$val.Height(); };
 	NewBatch = function(width$1, height$1) {
 		var $ptr, _tmp, _tmp$1, _tmp$2, _tmp$3, batch, height$1, i, j, width$1, x, x$1, x$10, x$11, x$2, x$3, x$4, x$5, x$6, x$7, x$8, x$9;
 		batch = new Batch.ptr(false, ptrType$7.nil, sliceType$1.nil, ptrType$8.nil, sliceType$2.nil, ptrType$8.nil, 0, ptrType$4.nil, 0, 0, 0, ptrType$9.nil, 0, 0);
@@ -19572,8 +19577,11 @@ $packages["github.com/ajhager/engi"] = (function() {
 	};
 	$pkg.Exit = Exit;
 	init = function() {
-		var $ptr;
+		var $ptr, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		rafPolyfill();
+		$r = rand.Seed(time.Now().UnixNano()); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: init }; } $f.$ptr = $ptr; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	run = function(title, width$1, height$1, fullscreen) {
 		var $ptr, _q, _q$1, _tuple, attrs, document, err, fullscreen, height$1, target, title, width$1, winHeight, winWidth, $s, $r;
@@ -19711,17 +19719,31 @@ $packages["github.com/ajhager/engi"] = (function() {
 			$r = responder.Type((($parseInt(ev.charCode) >> 0) >> 0)); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 			/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: $b }; } $f.$ptr = $ptr; $f.ev = ev; $f.$s = $s; $f.$r = $r; return $f;
 		}), funcType$1), $externalize(false, $Bool));
+		keysDown = {};
 		$global.addEventListener($externalize("keydown", $String), $externalize((function $b(ev) {
-			var $ptr, ev, $s, $r;
-			/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; ev = $f.ev; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-			$r = responder.Key((($parseInt(ev.keyCode) >> 0) >> 0), 0, $pkg.PRESS); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-			/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: $b }; } $f.$ptr = $ptr; $f.ev = ev; $f.$s = $s; $f.$r = $r; return $f;
+			var $ptr, _entry, _key, _tuple$1, ev, key, ok, $s, $r;
+			/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; _entry = $f._entry; _key = $f._key; _tuple$1 = $f._tuple$1; ev = $f.ev; key = $f.key; ok = $f.ok; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+			key = $parseInt(ev.keyCode) >> 0;
+			_tuple$1 = (_entry = keysDown[$Int.keyFor(key)], _entry !== undefined ? [_entry.v, true] : [false, false]);
+			ok = _tuple$1[1];
+			/* */ if (ok) { $s = 1; continue; }
+			/* */ $s = 2; continue;
+			/* if (ok) { */ case 1:
+				$r = responder.Key((key >> 0), 0, $pkg.REPEAT); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+				$s = 3; continue;
+			/* } else { */ case 2:
+				_key = key; (keysDown || $throwRuntimeError("assignment to entry in nil map"))[$Int.keyFor(_key)] = { k: _key, v: true };
+				$r = responder.Key((key >> 0), 0, $pkg.PRESS); /* */ $s = 5; case 5: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+			/* } */ case 3:
+			/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: $b }; } $f.$ptr = $ptr; $f._entry = _entry; $f._key = _key; $f._tuple$1 = _tuple$1; $f.ev = ev; $f.key = key; $f.ok = ok; $f.$s = $s; $f.$r = $r; return $f;
 		}), funcType$1), $externalize(false, $Bool));
 		$global.addEventListener($externalize("keyup", $String), $externalize((function $b(ev) {
-			var $ptr, ev, $s, $r;
-			/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; ev = $f.ev; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-			$r = responder.Key((($parseInt(ev.keyCode) >> 0) >> 0), 0, $pkg.RELEASE); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-			/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: $b }; } $f.$ptr = $ptr; $f.ev = ev; $f.$s = $s; $f.$r = $r; return $f;
+			var $ptr, ev, key, $s, $r;
+			/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $ptr = $f.$ptr; ev = $f.ev; key = $f.key; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+			key = $parseInt(ev.keyCode) >> 0;
+			delete keysDown[$Int.keyFor(key)];
+			$r = responder.Key((key >> 0), 0, $pkg.RELEASE); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+			/* */ $s = -1; case -1: } return; } if ($f === undefined) { $f = { $blk: $b }; } $f.$ptr = $ptr; $f.ev = ev; $f.key = key; $f.$s = $s; $f.$r = $r; return $f;
 		}), funcType$1), $externalize(false, $Bool));
 		gl.Viewport(0, 0, width$1, height$1);
 		$r = responder.Preload(); /* */ $s = 4; case 4: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
@@ -20035,8 +20057,7 @@ $packages["github.com/ajhager/engi"] = (function() {
 	ptrType$1.methods = [{prop: "Add", name: "Add", pkg: "", typ: $funcType([$String, $String], [], false)}, {prop: "Image", name: "Image", pkg: "", typ: $funcType([$String], [ptrType$3], false)}, {prop: "Json", name: "Json", pkg: "", typ: $funcType([$String], [$String], false)}, {prop: "Load", name: "Load", pkg: "", typ: $funcType([funcType], [], false)}];
 	ptrType$6.methods = [{prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Texture", name: "Texture", pkg: "", typ: $funcType([], [ptrType$7], false)}, {prop: "View", name: "View", pkg: "", typ: $funcType([], [$Float32, $Float32, $Float32, $Float32], false)}];
 	ptrType$3.methods = [{prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Texture", name: "Texture", pkg: "", typ: $funcType([], [ptrType$7], false)}, {prop: "View", name: "View", pkg: "", typ: $funcType([], [$Float32, $Float32, $Float32, $Float32], false)}];
-	ptrType$5.methods = [{prop: "Set", name: "Set", pkg: "", typ: $funcType([$Float32, $Float32], [], false)}, {prop: "SetTo", name: "SetTo", pkg: "", typ: $funcType([$Float32], [], false)}];
-	ptrType$14.methods = [{prop: "Render", name: "Render", pkg: "", typ: $funcType([ptrType$13], [], false)}];
+	ptrType$14.methods = [{prop: "Render", name: "Render", pkg: "", typ: $funcType([ptrType$13], [], false)}, {prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Float32], false)}];
 	ptrType$13.methods = [{prop: "Begin", name: "Begin", pkg: "", typ: $funcType([], [], false)}, {prop: "End", name: "End", pkg: "", typ: $funcType([], [], false)}, {prop: "flush", name: "flush", pkg: "github.com/ajhager/engi", typ: $funcType([], [], false)}, {prop: "SetProjection", name: "SetProjection", pkg: "", typ: $funcType([$Float32, $Float32], [], false)}, {prop: "Draw", name: "Draw", pkg: "", typ: $funcType([Drawable, $Float32, $Float32, $Float32, $Float32, $Float32, $Float32, $Float32, $Uint32, $Float32], [], false)}];
 	ptrType.methods = [{prop: "Tick", name: "Tick", pkg: "", typ: $funcType([], [], false)}, {prop: "Delta", name: "Delta", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Fps", name: "Fps", pkg: "", typ: $funcType([], [$Float32], false)}, {prop: "Time", name: "Time", pkg: "", typ: $funcType([], [$Float32], false)}];
 	ptrType$15.methods = [{prop: "Data", name: "Data", pkg: "", typ: $funcType([], [$emptyInterface], false)}, {prop: "Width", name: "Width", pkg: "", typ: $funcType([], [$Int], false)}, {prop: "Height", name: "Height", pkg: "", typ: $funcType([], [$Int], false)}];
@@ -20071,13 +20092,15 @@ $packages["github.com/ajhager/engi"] = (function() {
 		$pkg.Files = ptrType$1.nil;
 		gl = ptrType$2.nil;
 		canvas = null;
+		keysDown = false;
 		batchVert = " \nattribute vec2 in_Position;\nattribute vec4 in_Color;\nattribute vec2 in_TexCoords;\n\nuniform vec2 uf_Projection;\n\nvarying vec4 var_Color;\nvarying vec2 var_TexCoords;\n\nconst vec2 center = vec2(-1.0, 1.0);\n\nvoid main() {\n  var_Color = in_Color;\n  var_TexCoords = in_TexCoords;\n\tgl_Position = vec4(in_Position.x / uf_Projection.x + center.x,\n\t\t\t\t\t\t\t\t\t\t in_Position.y / -uf_Projection.y + center.y,\n\t\t\t\t\t\t\t\t\t\t 0.0, 1.0);\n}";
 		batchFrag = "\n#ifdef GL_ES\n#define LOWP lowp\nprecision mediump float;\n#else\n#define LOWP\n#endif\n\nvarying vec4 var_Color;\nvarying vec2 var_TexCoords;\n\nuniform sampler2D uf_Texture;\n\nvoid main (void) {\n  gl_FragColor = var_Color * texture2D(uf_Texture, var_TexCoords);\n}";
 		$pkg.MOVE = 0;
 		$pkg.PRESS = 1;
 		$pkg.RELEASE = 2;
+		$pkg.REPEAT = 3;
 		$pkg.Escape = 27;
-		init();
+		$r = init(); /* */ $s = 9; case 9: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
 	};
 	$pkg.$init = $init;
