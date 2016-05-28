@@ -19,7 +19,7 @@ import (
 
 func init() {
 	rafPolyfill()
-	rand.Seed(time.Now().Unix())
+	rand.Seed(time.Now().UnixNano())
 }
 
 var canvas *js.Object
