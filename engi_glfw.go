@@ -95,10 +95,13 @@ func run(title string, width, height int, fullscreen bool) {
 	})
 
 	window.SetKeyCallback(func(window *glfw.Window, k glfw.Key, s int, a glfw.Action, m glfw.ModifierKey) {
-		if a == glfw.Press {
+		switch a {
+		case glfw.Press:
 			responder.Key(Key(k), Modifier(m), PRESS)
-		} else if a == glfw.Release {
+		case glfw.Release:
 			responder.Key(Key(k), Modifier(m), RELEASE)
+		case glfw.Repeat:
+			responder.Key(Key(k), Modifier(m), REPEAT)
 		}
 	})
 

@@ -21,6 +21,7 @@ func init() {
 }
 
 var canvas *js.Object
+var keysDown map[int]bool
 
 func run(title string, width, height int, fullscreen bool) {
 	document := js.Global.Get("document")
@@ -127,12 +128,22 @@ func run(title string, width, height int, fullscreen bool) {
 		responder.Type(rune(ev.Get("charCode").Int()))
 	}, false)
 
+	keysDown = make(map[int]bool)
+
 	js.Global.Call("addEventListener", "keydown", func(ev *js.Object) {
-		responder.Key(Key(ev.Get("keyCode").Int()), 0, PRESS)
+		key := ev.Get("keyCode").Int()
+		if _, ok := keysDown[key]; ok {
+			responder.Key(Key(key), 0, REPEAT)
+		} else {
+			keysDown[key] = true
+			responder.Key(Key(key), 0, PRESS)
+		}
 	}, false)
 
 	js.Global.Call("addEventListener", "keyup", func(ev *js.Object) {
-		responder.Key(Key(ev.Get("keyCode").Int()), 0, RELEASE)
+		key := ev.Get("keyCode").Int()
+		delete(keysDown, key)
+		responder.Key(Key(key), 0, RELEASE)
 	}, false)
 
 	gl.Viewport(0, 0, width, height)
@@ -172,7 +183,7 @@ func rafPolyfill() {
 	window := js.Global
 	vendors := []string{"ms", "moz", "webkit", "o"}
 	if window.Get("requestAnimationFrame") == nil {
-		for i := 0; i < len(vendors) && window.Get("requestAnimationFrame") == nil ; i++ {
+		for i := 0; i < len(vendors) && window.Get("requestAnimationFrame") == nil; i++ {
 			vendor := vendors[i]
 			window.Set("requestAnimationFrame", window.Get(vendor+"RequestAnimationFrame"))
 			window.Set("cancelAnimationFrame", window.Get(vendor+"CancelAnimationFrame"))
