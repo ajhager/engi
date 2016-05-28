@@ -11,6 +11,7 @@ import (
 	"math"
 	"math/rand"
 	"strconv"
+	"time"
 
 	"github.com/ajhager/webgl"
 	"github.com/gopherjs/gopherjs/js"
@@ -18,6 +19,7 @@ import (
 
 func init() {
 	rafPolyfill()
+	rand.Seed(time.Now().Unix())
 }
 
 var canvas *js.Object
