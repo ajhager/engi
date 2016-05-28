@@ -171,16 +171,6 @@ type Point struct {
 	X, Y float32
 }
 
-func (p *Point) Set(x, y float32) {
-	p.X = x
-	p.Y = y
-}
-
-func (p *Point) SetTo(v float32) {
-	p.X = v
-	p.Y = v
-}
-
 type Sprite struct {
 	Position *Point
 	Scale    *Point
@@ -205,6 +195,14 @@ func NewSprite(region *Region, x, y float32) *Sprite {
 
 func (s *Sprite) Render(batch *Batch) {
 	batch.Draw(s.Region, s.Position.X, s.Position.Y, s.Anchor.X, s.Anchor.Y, s.Scale.X, s.Scale.Y, s.Rotation, s.Color, s.Alpha)
+}
+
+func (s *Sprite) Width() float32 {
+	return s.Region.width * s.Scale.X
+}
+
+func (s *Sprite) Height() float32 {
+	return s.Region.height * s.Scale.Y
 }
 
 var batchVert = ` 
