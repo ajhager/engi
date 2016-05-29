@@ -40,17 +40,21 @@ func (a *Entity) Intersects(b *Entity) bool {
 }
 
 var (
-	ball      *Entity
-	paddle    *Entity
-	bricks    []*Entity
-	font      *engi.Font
-	lives     int
-	livesText string
-	score     int
-	scoreText string
-	speed     float32
-	launching bool
-	batch     *engi.Batch
+	ball        *Entity
+	paddle      *Entity
+	bricks      []*Entity
+	font        *engi.Font
+	lives       int
+	livesText   string
+	score       int
+	scoreText   string
+	speed       float32
+	hitSound    *engi.Sound
+	bounceSound *engi.Sound
+	dieSound    *engi.Sound
+	breakSound  *engi.Sound
+	launching   bool
+	batch       *engi.Batch
 )
 
 type Game struct {
@@ -62,6 +66,10 @@ func (g *Game) Preload() {
 	engi.Files.Add("bricks", "data/bricks.png")
 	engi.Files.Add("paddle", "data/paddle.png")
 	engi.Files.Add("font", "data/font.png")
+	engi.Files.Add("hit", "data/hit.wav")
+	engi.Files.Add("bounce", "data/bounce.wav")
+	engi.Files.Add("die", "data/die.wav")
+	engi.Files.Add("break", "data/break.wav")
 }
 
 func (g *Game) Setup() {
@@ -82,6 +90,11 @@ func (g *Game) Setup() {
 	ball.Position.Y = paddle.Position.Y - ball.Height() - 1
 
 	font = engi.NewGridFont(engi.Files.Image("font"), 20, 20)
+
+	hitSound = engi.Files.Sound("hit")
+	bounceSound = engi.Files.Sound("bounce")
+	dieSound = engi.Files.Sound("die")
+	breakSound = engi.Files.Sound("break")
 
 	g.Reset()
 }
@@ -146,22 +159,25 @@ func (g *Game) Update(dt float32) {
 	if ball.Position.X > engi.Width()-hBallWidth {
 		ball.Position.X = engi.Width() - hBallWidth
 		ball.Velocity.X *= -1
+		hitSound.Play()
 	}
 
 	if ball.Position.X < hBallWidth {
 		ball.Position.X = hBallWidth
 		ball.Velocity.X *= -1
+		hitSound.Play()
 	}
 
 	hBallHeight := ball.Height() / 2
 
-	if ball.Position.Y > engi.Height()-hBallHeight {
+	if ball.Position.Y > engi.Height()+hBallHeight {
 		g.BallLost()
 	}
 
 	if ball.Position.Y < hBallHeight {
 		ball.Position.Y = hBallHeight
 		ball.Velocity.Y *= -1
+		hitSound.Play()
 	}
 
 	// Ball vs Paddle
@@ -174,6 +190,7 @@ func (g *Game) Update(dt float32) {
 
 	if ballYMax > paddleYMin {
 		if (ballXMax > paddleXMin) && (ballXMin < paddleXMax) {
+			bounceSound.Play()
 			ball.Position.Y = paddleYMin - hBallHeight - 1
 
 			intersect := (ball.Position.X - paddle.Position.X) / hPaddleWidth
@@ -212,6 +229,7 @@ func (g *Game) Render() {
 }
 
 func (g *Game) BallLost() {
+	dieSound.Play()
 	launching = true
 
 	ball.Velocity.X = 0
@@ -258,6 +276,8 @@ func (g *Game) Reset() {
 func (g *Game) BallHitBrick(ball, brick *Entity) {
 	score += 10
 	scoreText = fmt.Sprintf("score: %d", score)
+
+	breakSound.Play()
 
 	// Top
 	ballBottom := ball.LastPos.Y + ball.Height()/2

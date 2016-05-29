@@ -8,6 +8,7 @@ import (
 	"math"
 	"path"
 
+	"engo.io/audio"
 	"github.com/ajhager/webgl"
 )
 
@@ -21,6 +22,7 @@ type Loader struct {
 	resources []Resource
 	images    map[string]*Texture
 	jsons     map[string]string
+	sounds    map[string]*Sound
 }
 
 func NewLoader() *Loader {
@@ -28,6 +30,7 @@ func NewLoader() *Loader {
 		resources: make([]Resource, 1),
 		images:    make(map[string]*Texture),
 		jsons:     make(map[string]string),
+		sounds:    make(map[string]*Sound),
 	}
 }
 
@@ -44,6 +47,10 @@ func (l *Loader) Json(name string) string {
 	return l.jsons[name]
 }
 
+func (l *Loader) Sound(name string) *Sound {
+	return l.sounds[name]
+}
+
 func (l *Loader) Load(onFinish func()) {
 	for _, r := range l.resources {
 		switch r.kind {
@@ -56,6 +63,11 @@ func (l *Loader) Load(onFinish func()) {
 			data, err := loadJson(r)
 			if err == nil {
 				l.jsons[r.name] = data
+			}
+		case "wav":
+			data, err := audio.NewSimplePlayer(r.url)
+			if err == nil {
+				l.sounds[r.name] = &Sound{data}
 			}
 		}
 	}
@@ -165,6 +177,10 @@ func (t *Texture) Texture() *webgl.Texture {
 
 func (r *Texture) View() (float32, float32, float32, float32) {
 	return 0.0, 0.0, 1.0, 1.0
+}
+
+type Sound struct {
+	*audio.Player
 }
 
 type Point struct {
